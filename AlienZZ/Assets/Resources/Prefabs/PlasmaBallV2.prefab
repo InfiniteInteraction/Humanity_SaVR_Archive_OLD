@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 105427171668122705}
   - component: {fileID: 8735654358636478242}
   m_Layer: 0
-  m_Name: Green
+  m_Name: PS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4913,6 +4913,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2799409526253064223}
+  - component: {fileID: 963013397}
   m_Layer: 0
   m_Name: Green
   m_TagString: Untagged
@@ -4936,6 +4937,18 @@ Transform:
   m_Father: {fileID: 7294067631404557754}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963013397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119403076695696962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09c172121cafa24dbe7bdf0f0cdd5d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4230725683850370251
 GameObject:
   m_ObjectHideFlags: 0
@@ -5040,7 +5053,7 @@ GameObject:
   - component: {fileID: 6836445392309953281}
   - component: {fileID: 7377838751001667808}
   m_Layer: 0
-  m_Name: Red
+  m_Name: PS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9852,13 +9865,14 @@ GameObject:
   - component: {fileID: 3910124430490485210}
   - component: {fileID: 4808129208490373906}
   - component: {fileID: 5241488699301950063}
+  - component: {fileID: 771842098}
   m_Layer: 0
   m_Name: PlasmaBallV2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7294067631404557754
 Transform:
   m_ObjectHideFlags: 0
@@ -9936,6 +9950,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &771842098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7207272713003705170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed075de3446b24645a621740a5d62bb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8650831820512919917
 GameObject:
   m_ObjectHideFlags: 0
@@ -9945,13 +9971,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1300582009758570561}
+  - component: {fileID: 1020977190}
   m_Layer: 0
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1300582009758570561
 Transform:
   m_ObjectHideFlags: 0
@@ -9968,3 +9995,15 @@ Transform:
   m_Father: {fileID: 7294067631404557754}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1020977190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650831820512919917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4952e33489aee8c429d4ba24bbac034b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
