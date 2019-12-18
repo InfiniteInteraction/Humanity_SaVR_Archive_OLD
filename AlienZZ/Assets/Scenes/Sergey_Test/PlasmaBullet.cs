@@ -4,10 +4,33 @@ using UnityEngine;
 
 public class PlasmaBullet : MonoBehaviour
 {
+    GunTest gtScript;
+    Quaternion camRot;
+
+    private void Awake()
+    {
+        gtScript = FindObjectOfType<GunTest>();
+        camRot = FindObjectOfType<CameraMovement>().gameObject.transform.rotation;
+    }
+    private void Start()
+    {
+        transform.rotation = camRot * Quaternion.Euler(0, 90, 0);
+        //transform.rotation = transform.rotation * Quaternion.Euler(0, 90, 0);
+    }
     void Update()
     {
-        transform.position = transform.position + new Vector3(0, 0, 0.1f);
+
+        transform.position = transform.position + transform.TransformDirection(Vector3.left);
         StartCoroutine("Countdown");
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.gameObject.layer.Equals("Alien"))
+        {
+            collision.collider.GetComponent<Health>().TakeDamage(gtScript.damageValue);
+        }
+        Destroy(gameObject);
     }
 
     IEnumerator Countdown()
