@@ -14,75 +14,47 @@ public class GunTest : MonoBehaviour
     public bool fullAutoMode = false;
     public float currTime = 0;
     public float shootTime = 0;
-    public float fullAutoTime = 0;
+    public float fullAutoTime;
     public float semiAutoTime = 0;
 
     GameObject green;
     GameObject red;
     GameObject greenBullet;
     GameObject redBullet;
-    CameraMovement camScript;
     private void Awake()
     {
         green = GetComponentInChildren<ID_Green>().gameObject;
         red = GetComponentInChildren<ID_Red>().gameObject;
         greenBullet = Resources.Load(("Prefabs/PlasmaBulletGreen"), typeof(GameObject)) as GameObject;
         redBullet = Resources.Load(("Prefabs/PlasmaBulletRed"), typeof(GameObject)) as GameObject;
-        camScript = GetComponentInParent<CameraMovement>();
+        fullAutoTime = 0.1f;
     }
 
     void Start()
     {
-        currTime = shootTime;
-        SwitchFireMode();
+        //currTime = shootTime;
+        //SwitchFireMode();
         damageValue = 1;
         red.SetActive(false);
     }
 
     void Update()
     {
-        RaycastHit hit;
-        if (currTime >= shootTime)
+        if (fullAutoMode)
         {
-            canShoot = true;
+            if (Input.GetKey(KeyCode.Mouse0) && canShoot && currAmmo > 0)
+            {
+                Shoot();
+            }
         }
         else
         {
-            currTime += Time.deltaTime;
-            canShoot = false;
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot && currAmmo > 0)
-        {
-            if (Physics.Raycast(spawnPoint.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot && currAmmo > 0)
             {
-                if (green.activeSelf)
-                {
-                    Instantiate(greenBullet, spawnPoint.position, transform.rotation);
-                }
-                if (red.activeSelf)
-                {
-                    Instantiate(redBullet, spawnPoint.position, transform.rotation);
-                }
-                Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                RegainAmmo();
-                Debug.Log("Did Hit");
+                Shoot();
             }
-            else
-            {
-                if (green.activeSelf)
-                {
-                    Instantiate(greenBullet, spawnPoint.position, transform.rotation);
-                }
-                if (red.activeSelf)
-                {
-                    Instantiate(redBullet, spawnPoint.position, transform.rotation);
-                }
-                Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-                ReduceAmmo();
-                Debug.Log("Did not Hit");
-            }
-            currTime = 0;
         }
+
         if (Input.GetKey(KeyCode.Mouse0) && currAmmo <= 0)
         {
             Debug.Log("Out of Ammo");
@@ -100,6 +72,20 @@ public class GunTest : MonoBehaviour
         {
             green.SetActive(false);
             red.SetActive(true);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        currTime += Time.deltaTime;
+        if (currTime >= shootTime)
+        {
+            canShoot = true;
+        }
+        else
+        {
+            //currTime += Time.deltaTime;
+            canShoot = false;
         }
     }
 
@@ -126,5 +112,39 @@ public class GunTest : MonoBehaviour
         {
             shootTime = semiAutoTime;
         }
+    }
+
+    void Shoot()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(spawnPoint.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        {
+            if (green.activeSelf)
+            {
+                Instantiate(greenBullet, spawnPoint.position, transform.rotation);
+            }
+            if (red.activeSelf)
+            {
+                Instantiate(redBullet, spawnPoint.position, transform.rotation);
+            }
+            Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            RegainAmmo();
+            Debug.Log("Did Hit");
+        }
+        else
+        {
+            if (green.activeSelf)
+            {
+                Instantiate(greenBullet, spawnPoint.position, transform.rotation);
+            }
+            if (red.activeSelf)
+            {
+                Instantiate(redBullet, spawnPoint.position, transform.rotation);
+            }
+            Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+            ReduceAmmo();
+            Debug.Log("Did not Hit");
+        }
+        currTime = 0;
     }
 }
