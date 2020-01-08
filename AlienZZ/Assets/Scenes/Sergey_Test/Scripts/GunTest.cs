@@ -21,12 +21,14 @@ public class GunTest : MonoBehaviour
     GameObject red;
     GameObject greenBullet;
     GameObject redBullet;
+    GameObject waveBullet;
     private void Awake()
     {
         green = GetComponentInChildren<ID_Green>().gameObject;
         red = GetComponentInChildren<ID_Red>().gameObject;
         greenBullet = Resources.Load(("Prefabs/PlasmaBulletGreen"), typeof(GameObject)) as GameObject;
         redBullet = Resources.Load(("Prefabs/PlasmaBulletRed"), typeof(GameObject)) as GameObject;
+        waveBullet = Resources.Load(("Prefabs/WaveBullet"), typeof(GameObject)) as GameObject;
         fullAutoTime = 0.1f;
     }
 
@@ -121,7 +123,8 @@ public class GunTest : MonoBehaviour
         {
             if (green.activeSelf)
             {
-                Instantiate(greenBullet, spawnPoint.position, transform.rotation);
+                //Instantiate(greenBullet, spawnPoint.position, transform.rotation);
+                Instantiate(waveBullet, spawnPoint.position, transform.rotation);
             }
             if (red.activeSelf)
             {
@@ -135,7 +138,8 @@ public class GunTest : MonoBehaviour
         {
             if (green.activeSelf)
             {
-                Instantiate(greenBullet, spawnPoint.position, transform.rotation);
+                //Instantiate(greenBullet, spawnPoint.position, transform.rotation);
+                Instantiate(waveBullet, spawnPoint.position, transform.rotation);
             }
             if (red.activeSelf)
             {
