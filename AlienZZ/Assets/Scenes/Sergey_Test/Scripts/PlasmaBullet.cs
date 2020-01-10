@@ -19,8 +19,7 @@ public class PlasmaBullet : MonoBehaviour
     }
     void Update()
     {
-
-        transform.position = transform.position + transform.TransformDirection(Vector3.left);
+        transform.position = transform.position + transform.TransformDirection(Vector3.left) / 2;
         StartCoroutine("Countdown");
     }
 
@@ -31,7 +30,18 @@ public class PlasmaBullet : MonoBehaviour
             collision.collider.GetComponent<Health>().TakeDamage(gtScript.damageValue);
         }
         Destroy(gameObject);
+        Debug.Log("COLLISION");
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.layer.Equals("Alien"))
+    //    {
+    //        other.gameObject.GetComponent<Health>().TakeDamage(gtScript.damageValue);
+    //    }
+    //    Destroy(gameObject);
+    //    Debug.Log("TRIGGER");
+    //}
 
     IEnumerator Countdown()
     {

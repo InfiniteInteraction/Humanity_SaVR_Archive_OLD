@@ -27,4 +27,12 @@ public class EnemyHealth : Health
         if (collision.collider.CompareTag("RedBullet") || collision.collider.tag == "GreenBullet")
             currHealth -= gtScript.damageValue;
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.CompareTag("RedBullet") || other.gameObject.tag == "GreenBullet")
+    //    {
+    //        currHealth -= gtScript.damageValue;
+    //    }
+    //}
 }

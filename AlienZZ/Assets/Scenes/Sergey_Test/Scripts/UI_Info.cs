@@ -27,7 +27,7 @@ public class UI_Info : MonoBehaviour
             fireMode = "SINGLE";
         deltaTime = Time.frameCount / Time.time;
         ammo = gtScript.currAmmo;
-        text = ("Ammo: " + ammo + "\n" + "Firing mode: " + fireMode + "\n" + "Alien Count: " + alienCount + "\n" + "FPS: " + deltaTime);
+        text = ("Ammo: " + ammo + "\n" + "Firing mode: " + fireMode + "\n" + "Alien Count: " + alienCount /*+ "\n" + "FPS: " + deltaTime*/);
         myText.text = text;
     }
 
