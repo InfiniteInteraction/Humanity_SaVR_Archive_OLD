@@ -3,10 +3,11 @@
 public class ENemyHealth : Health
 {
     public GameObject floatingTextPrefab;
-
+    public ESpawner spawner;
     private void Awake()
     {
         currHealth = 3;
+        spawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<ESpawner>();
     }
 
     public override void TakeDamage(float damageAmount)
@@ -14,6 +15,7 @@ public class ENemyHealth : Health
         base.TakeDamage(damageAmount);
         if (currHealth <= 0)
         {
+            spawner.SpawnEnemy();
             Destroy(gameObject);
         }
         if (floatingTextPrefab)

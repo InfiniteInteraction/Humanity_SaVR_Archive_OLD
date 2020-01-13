@@ -8,6 +8,7 @@ TagManager:
   - GreenEnemy
   - RedBullet
   - GreenBullet
+  - Spawner
   layers:
   - Default
   - TransparentFX
