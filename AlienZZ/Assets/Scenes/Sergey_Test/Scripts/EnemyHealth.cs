@@ -5,15 +5,25 @@ using UnityEngine;
 public class EnemyHealth : Health
 {
     GunTest gtScript;
+    GunTestVR gtScriptVR;
     UI_Info uiScript;
     private void Awake()
     {
-        gtScript = FindObjectOfType<GunTest>();
+        if (FindObjectOfType<GunTest>())
+        {
+            gtScript = FindObjectOfType<GunTest>();
+            gtScriptVR = null;
+        }
+        if (FindObjectOfType<GunTestVR>())
+        {
+            gtScriptVR = FindObjectOfType<GunTestVR>();
+            gtScript = null;
+        }
         uiScript = FindObjectOfType<UI_Info>();
         currHealth = 1f;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (currHealth <= 0)
         {
@@ -25,14 +35,11 @@ public class EnemyHealth : Health
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("RedBullet") || collision.collider.tag == "GreenBullet")
-            currHealth -= gtScript.damageValue;
+        {
+            if (gtScript)
+                currHealth -= gtScript.damageValue;
+            if (gtScriptVR)
+                currHealth -= gtScriptVR.damageValue;
+        }
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject.CompareTag("RedBullet") || other.gameObject.tag == "GreenBullet")
-    //    {
-    //        currHealth -= gtScript.damageValue;
-    //    }
-    //}
 }

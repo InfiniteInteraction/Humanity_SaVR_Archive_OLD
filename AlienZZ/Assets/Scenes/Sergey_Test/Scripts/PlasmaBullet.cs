@@ -5,21 +5,31 @@ using UnityEngine;
 public class PlasmaBullet : MonoBehaviour
 {
     GunTest gtScript;
+    GunTestVR gtScriptVR;
     Quaternion camRot;
 
     private void Awake()
     {
-        gtScript = FindObjectOfType<GunTest>();
+        if (FindObjectOfType<GunTest>())
+        {
+            gtScript = FindObjectOfType<GunTest>();
+            gtScriptVR = null;
+        }
+        if (FindObjectOfType<GunTestVR>())
+        {
+            gtScriptVR = FindObjectOfType<GunTestVR>();
+            gtScript = null;
+        }
         camRot = FindObjectOfType<CameraMovement>().gameObject.transform.rotation;
     }
     private void Start()
     {
         transform.rotation = camRot * Quaternion.Euler(0, 90, 0);
-        //transform.rotation = transform.rotation * Quaternion.Euler(0, 90, 0);
     }
-    void Update()
+
+    private void FixedUpdate()
     {
-        transform.position = transform.position + transform.TransformDirection(Vector3.left) / 2;
+        transform.position = transform.position + transform.TransformDirection(Vector3.left);
         StartCoroutine("Countdown");
     }
 
@@ -27,21 +37,14 @@ public class PlasmaBullet : MonoBehaviour
     {
         if (collision.collider.gameObject.layer.Equals("Alien"))
         {
+            if(gtScript)
             collision.collider.GetComponent<Health>().TakeDamage(gtScript.damageValue);
+            if(gtScriptVR)
+            collision.collider.GetComponent<Health>().TakeDamage(gtScriptVR.damageValue);
         }
         Destroy(gameObject);
         Debug.Log("COLLISION");
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.layer.Equals("Alien"))
-    //    {
-    //        other.gameObject.GetComponent<Health>().TakeDamage(gtScript.damageValue);
-    //    }
-    //    Destroy(gameObject);
-    //    Debug.Log("TRIGGER");
-    //}
 
     IEnumerator Countdown()
     {

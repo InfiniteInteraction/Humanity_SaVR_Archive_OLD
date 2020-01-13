@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UI_Info : MonoBehaviour
 {
     GunTest gtScript;
+    GunTestVR gtScriptVR;
     string text, fireMode;
     Text myText;
     public int ammo, alienCount;
@@ -13,7 +14,16 @@ public class UI_Info : MonoBehaviour
 
     private void Awake()
     {
-        gtScript = FindObjectOfType<GunTest>();
+        if (FindObjectOfType<GunTest>())
+        {
+            gtScript = FindObjectOfType<GunTest>();
+            gtScriptVR = null;
+        }
+        if (FindObjectOfType<GunTestVR>())
+        {
+            gtScriptVR = FindObjectOfType<GunTestVR>();
+            gtScript = null;
+        }
         myText = GetComponent<Text>();
         fireMode = " ";
         alienCount = 0;
@@ -21,12 +31,24 @@ public class UI_Info : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (gtScript.fullAutoMode)
-            fireMode = "AUTO";
-        else
-            fireMode = "SINGLE";
+        if (gtScript)
+        {
+            ammo = gtScript.currAmmo;
+            if (gtScript.fullAutoMode)
+                fireMode = "AUTO";
+            else
+                fireMode = "SINGLE";
+        }
+        if (gtScriptVR)
+        {
+            ammo = gtScriptVR.currAmmo;
+            if (gtScriptVR.fullAutoMode)
+                fireMode = "AUTO";
+            else
+                fireMode = "SINGLE";
+        }
+
         deltaTime = Time.frameCount / Time.time;
-        ammo = gtScript.currAmmo;
         text = ("Ammo: " + ammo + "\n" + "Firing mode: " + fireMode + "\n" + "Alien Count: " + alienCount /*+ "\n" + "FPS: " + deltaTime*/);
         myText.text = text;
     }

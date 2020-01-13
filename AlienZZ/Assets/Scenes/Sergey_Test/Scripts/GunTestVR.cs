@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GunTest : MonoBehaviour
+public class GunTestVR : MonoBehaviour
 {
     public Transform spawnPoint; //Point the raycast will originate from
     public LayerMask layerMask; //The layer mask that detects enemy
@@ -42,40 +42,41 @@ public class GunTest : MonoBehaviour
 
     void Update()
     {
+        OVRInput.Update();
         if (fullAutoMode)
         {
-            if (Input.GetKey(KeyCode.Mouse0) && canShoot && currAmmo > 0)
+            if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) && canShoot && currAmmo > 0)
             {
                 Shoot();
             }
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot && currAmmo > 0)
+            if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) && canShoot && currAmmo > 0)
             {
                 Shoot();
             }
         }
 
-        if (Input.GetKey(KeyCode.Mouse0) && currAmmo <= 0)
+        if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) && currAmmo <= 0)
         {
             Debug.Log("Out of Ammo");
         }
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (OVRInput.Get(OVRInput.Button.Four))
         {
             SwitchFireMode();
         }
-        if (Input.GetKey(KeyCode.G) && !green.activeSelf)
+        if (OVRInput.Get(OVRInput.Button.One) && !green.activeSelf)
         {
             red.SetActive(false);
             green.SetActive(true);
         }
-        if (Input.GetKey(KeyCode.R) && !red.activeSelf)
+        if (OVRInput.Get(OVRInput.Button.Two) && !red.activeSelf)
         {
             green.SetActive(false);
             red.SetActive(true);
         }
-        if(Input.GetKey(KeyCode.W))
+        if(OVRInput.Get(OVRInput.Button.Three))
         {
             if (red.activeSelf)
             {
