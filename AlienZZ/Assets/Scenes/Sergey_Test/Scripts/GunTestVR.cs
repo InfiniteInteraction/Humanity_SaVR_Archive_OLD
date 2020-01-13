@@ -22,6 +22,8 @@ public class GunTestVR : MonoBehaviour
     GameObject greenBullet;
     GameObject redBullet;
     GameObject waveBullet;
+
+    bool shootOnce;
     private void Awake()
     {
         green = GetComponentInChildren<ID_Green>().gameObject;
@@ -30,6 +32,7 @@ public class GunTestVR : MonoBehaviour
         redBullet = Resources.Load(("Prefabs/PlasmaBulletRed"), typeof(GameObject)) as GameObject;
         waveBullet = Resources.Load(("Prefabs/WaveBullet"), typeof(GameObject)) as GameObject;
         fullAutoTime = 0.1f;
+        shootOnce = false;
     }
 
     void Start()
@@ -45,20 +48,20 @@ public class GunTestVR : MonoBehaviour
         OVRInput.Update();
         if (fullAutoMode)
         {
-            if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) && canShoot && currAmmo > 0)
+            if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && canShoot && currAmmo > 0)
             {
                 Shoot();
             }
         }
         else
         {
-            if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) && canShoot && currAmmo > 0)
+            if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && canShoot && currAmmo > 0)
             {
                 Shoot();
             }
         }
 
-        if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) && currAmmo <= 0)
+        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && currAmmo <= 0)
         {
             Debug.Log("Out of Ammo");
         }
@@ -87,6 +90,8 @@ public class GunTestVR : MonoBehaviour
                 green.SetActive(false);
             }
         }
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+            Debug.Log("IT'S DOWN!!!");
     }
 
     private void FixedUpdate()

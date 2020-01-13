@@ -20,7 +20,10 @@ public class PlasmaBullet : MonoBehaviour
             gtScriptVR = FindObjectOfType<GunTestVR>();
             gtScript = null;
         }
-        camRot = FindObjectOfType<CameraMovement>().gameObject.transform.rotation;
+        if(FindObjectOfType<CameraMovement>())
+            camRot = FindObjectOfType<CameraMovement>().gameObject.transform.rotation;
+        if(FindObjectOfType<OVRCameraRig>())
+            camRot = FindObjectOfType<OVRCameraRig>().gameObject.transform.rotation;
     }
     private void Start()
     {
