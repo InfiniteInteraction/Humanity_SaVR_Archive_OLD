@@ -4,10 +4,12 @@ public class ENemyHealth : Health
 {
     public GameObject floatingTextPrefab;
     public ESpawner spawner;
+    public ScoreScript scoreS;
     private void Awake()
     {
         currHealth = 3;
         spawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<ESpawner>();
+        scoreS = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>();
     }
 
     public override void TakeDamage(float damageAmount)
@@ -15,6 +17,7 @@ public class ENemyHealth : Health
         base.TakeDamage(damageAmount);
         if (currHealth <= 0)
         {
+            scoreS.scoreValue += 10;
             spawner.SpawnEnemy();
             Destroy(gameObject);
         }

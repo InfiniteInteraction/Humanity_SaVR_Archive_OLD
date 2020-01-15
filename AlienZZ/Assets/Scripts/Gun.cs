@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
     {
         currTime = shootTime;
         SwitchFireMode();
-        damageValue = 1;
+        damageValue = 3;
     }
 
     void Update()
@@ -36,7 +36,7 @@ public class Gun : MonoBehaviour
             currTime += Time.deltaTime;
             canShoot = false;
         }
-        if (Input.GetKey(KeyCode.Space) && canShoot && currAmmo > 0)
+        if (Input.GetMouseButton(0) && canShoot && currAmmo > 0)
         {
             if (Physics.Raycast(spawnPoint.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
             {
@@ -53,7 +53,7 @@ public class Gun : MonoBehaviour
             }
             currTime = 0;
         }
-        if (Input.GetKey(KeyCode.Space) && currAmmo <= 0)
+        if (Input.GetMouseButton(0) && currAmmo <= 0)
         {
             Debug.Log("Out of Ammo");
         }

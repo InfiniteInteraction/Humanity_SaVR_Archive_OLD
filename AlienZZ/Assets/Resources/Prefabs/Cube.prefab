@@ -113,6 +113,7 @@ MonoBehaviour:
   floatingTextPrefab: {fileID: 4090813092853975136, guid: 56eacd9c0a0f18d43b973795695a5d96,
     type: 3}
   spawner: {fileID: 0}
+  ScoreS: {fileID: 0}
 --- !u!54 &106476972890481332
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ TagManager:
   - RedBullet
   - GreenBullet
   - Spawner
+  - Score
   layers:
   - Default
   - TransparentFX
