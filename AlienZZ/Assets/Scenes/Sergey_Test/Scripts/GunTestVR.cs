@@ -55,9 +55,18 @@ public class GunTestVR : MonoBehaviour
         }
         else
         {
-            if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && canShoot && currAmmo > 0)
+            //if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && canShoot && currAmmo > 0)
+            //{
+            //    Shoot();
+            //}
+            if ((OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) >= 0.95f) && canShoot && currAmmo > 0)
             {
                 Shoot();
+                canShoot = false;
+            }
+            if ((OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) <= 0.05f) && !canShoot)
+            {
+                canShoot = true;
             }
         }
 
