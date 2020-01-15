@@ -50,7 +50,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 440e99598766dbd40a4d8bc01445b5ca, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,13 +86,13 @@ TextMesh:
   m_Anchor: 1
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 0
-  m_FontStyle: 0
+  m_FontSize: 10
+  m_FontStyle: 1
   m_RichText: 1
-  m_Font: {fileID: 0}
+  m_Font: {fileID: 12800000, guid: 440e99598766dbd40a4d8bc01445b5ca, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190335
 --- !u!114 &3060211482176861888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,6 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8bb3ebb4b080f46b66b7de23b685b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTime: 3
+  destroyTime: 0.5
   offset: {x: 0, y: 2, z: 0}
   RandomIntensity: {x: 0.5, y: 0, z: 0}

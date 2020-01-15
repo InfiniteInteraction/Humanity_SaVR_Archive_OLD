@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
     {
         currTime = shootTime;
         SwitchFireMode();
-        damageValue = 3;
+        damageValue = 1;
     }
 
     void Update()
@@ -49,7 +49,7 @@ public class Gun : MonoBehaviour
             {
                 Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
                 ReduceAmmo();
-                Debug.Log("Did not Hit");
+                Debug.Log("Miss");
             }
             currTime = 0;
         }

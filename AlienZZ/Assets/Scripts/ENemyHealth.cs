@@ -17,7 +17,7 @@ public class ENemyHealth : Health
         base.TakeDamage(damageAmount);
         if (currHealth <= 0)
         {
-            scoreS.scoreValue += 10;
+            scoreS.Multi();
             spawner.SpawnEnemy();
             Destroy(gameObject);
         }

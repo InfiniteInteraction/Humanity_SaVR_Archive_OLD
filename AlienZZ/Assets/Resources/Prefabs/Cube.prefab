@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8288587923413601843}
   - component: {fileID: 8288587923413601840}
   - component: {fileID: 106476972890481332}
+  - component: {fileID: 7804572288336832489}
+  - component: {fileID: 605138579182880253}
   m_Layer: 9
   m_Name: Cube
   m_TagString: RedEnemy
@@ -113,7 +115,7 @@ MonoBehaviour:
   floatingTextPrefab: {fileID: 4090813092853975136, guid: 56eacd9c0a0f18d43b973795695a5d96,
     type: 3}
   spawner: {fileID: 0}
-  ScoreS: {fileID: 0}
+  scoreS: {fileID: 0}
 --- !u!54 &106476972890481332
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -130,3 +132,44 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!195 &7804572288336832489
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8288587923413601841}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &605138579182880253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8288587923413601841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106a7afeb5e20014586a43438fb1165b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToPlayer: 5
+  waitTime: 0
+  facePlayerFact: 0
+  leftStrafe: {fileID: 0}
+  rightStrafe: {fileID: 0}
+  stage: 0
+  player: {fileID: 0}
