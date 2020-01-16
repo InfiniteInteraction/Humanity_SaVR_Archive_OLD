@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class GunTestVR : MonoBehaviour
 {
@@ -9,8 +11,9 @@ public class GunTestVR : MonoBehaviour
     public int currAmmo = 10;
     public int maxAmmo = 20;
     public int ammoReturn = 3;
+    int bulletCount;
     [Header("Weapon Firing")]
-    public bool canShoot = false;
+    public bool canShoot = true;
     public bool fullAutoMode = false;
     public float currTime = 0;
     public float shootTime = 0;
@@ -24,6 +27,7 @@ public class GunTestVR : MonoBehaviour
     GameObject waveBullet;
 
     bool shootOnce;
+
     private void Awake()
     {
         green = GetComponentInChildren<ID_Green>().gameObject;
@@ -37,15 +41,16 @@ public class GunTestVR : MonoBehaviour
 
     void Start()
     {
-        //currTime = shootTime;
-        //SwitchFireMode();
+        
         damageValue = 1;
         red.SetActive(false);
     }
 
+    
+
     void Update()
     {
-        OVRInput.Update();
+        
         if (fullAutoMode)
         {
             if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && canShoot && currAmmo > 0)
@@ -55,67 +60,34 @@ public class GunTestVR : MonoBehaviour
         }
         else
         {
-            //if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && canShoot && currAmmo > 0)
-            //{
-            //    Shoot();
-            //}
-            if ((OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) >= 0.95f) && canShoot && currAmmo > 0)
+
+            if ((OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger) )  && canShoot && currAmmo > 0)
             {
-                Shoot();
-                canShoot = false;
+                StartCoroutine("OneShot");
+                return;
             }
-            if ((OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) <= 0.05f) && !canShoot)
+            if ((OVRInput.GetUp(OVRInput.RawButton.LIndexTrigger) ) && !canShoot)
             {
                 canShoot = true;
+                return;
             }
+            
         }
-
         if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && currAmmo <= 0)
         {
             Debug.Log("Out of Ammo");
         }
-        if (OVRInput.Get(OVRInput.Button.Four))
+
+        if (OVRInput.GetDown(OVRInput.RawButton.Y))
+        {
+            SwitchBulltets();
+        }
+        if (OVRInput.GetDown(OVRInput.RawButton.X))
         {
             SwitchFireMode();
         }
-        if (OVRInput.Get(OVRInput.Button.One) && !green.activeSelf)
-        {
-            red.SetActive(false);
-            green.SetActive(true);
-        }
-        if (OVRInput.Get(OVRInput.Button.Two) && !red.activeSelf)
-        {
-            green.SetActive(false);
-            red.SetActive(true);
-        }
-        if(OVRInput.Get(OVRInput.Button.Three))
-        {
-            if (red.activeSelf)
-            {
-                red.SetActive(false);
-            }
-            if (green.activeSelf)
-            {
-                green.SetActive(false);
-            }
-        }
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
-            Debug.Log("IT'S DOWN!!!");
     }
 
-    private void FixedUpdate()
-    {
-        currTime += Time.deltaTime;
-        if (currTime >= shootTime)
-        {
-            canShoot = true;
-        }
-        else
-        {
-            //currTime += Time.deltaTime;
-            canShoot = false;
-        }
-    }
 
     void ReduceAmmo()
     {
@@ -142,45 +114,66 @@ public class GunTestVR : MonoBehaviour
         }
     }
 
-    void Shoot()
+    void SwitchBulltets()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(spawnPoint.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        if (!green.activeSelf)
         {
-            if (green.activeSelf)
-            {
-                Instantiate(greenBullet, spawnPoint.position, transform.rotation);
-            }
-            if (red.activeSelf)
-            {
-                Instantiate(redBullet, spawnPoint.position, transform.rotation);
-            }
-            if(!green.activeSelf && !red.activeSelf)
-            {
-                Instantiate(waveBullet, spawnPoint.position, transform.rotation);
-            }
-            Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            RegainAmmo();
-            Debug.Log("Did Hit");
+            red.SetActive(false);
+            green.SetActive(true);
         }
         else
         {
-            if (green.activeSelf)
-            {
-                Instantiate(greenBullet, spawnPoint.position, transform.rotation);
-            }
-            if (red.activeSelf)
-            {
-                Instantiate(redBullet, spawnPoint.position, transform.rotation);
-            }
-            if (!green.activeSelf && !red.activeSelf)
-            {
-                Instantiate(waveBullet, spawnPoint.position, transform.rotation);
-            }
-            Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-            ReduceAmmo();
-            Debug.Log("Did not Hit");
+            green.SetActive(false);
+            red.SetActive(true);
         }
-        currTime = 0;
+    }
+
+    void Shoot()
+    {
+            RaycastHit hit;
+            if (Physics.Raycast(spawnPoint.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+            {
+                if (green.activeSelf)
+                {
+                    Instantiate(greenBullet, spawnPoint.position, transform.rotation);
+                }
+                if (red.activeSelf)
+                {
+                    Instantiate(redBullet, spawnPoint.position, transform.rotation);
+                }
+                if (!green.activeSelf && !red.activeSelf)
+                {
+                    Instantiate(waveBullet, spawnPoint.position, transform.rotation);
+                }
+                Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                ReduceAmmo();
+                Debug.Log("Did Hit");
+            }
+            else
+            {
+                if (green.activeSelf)
+                {
+                    Instantiate(greenBullet, spawnPoint.position, transform.rotation);
+                }
+                if (red.activeSelf)
+                {
+                    Instantiate(redBullet, spawnPoint.position, transform.rotation);
+                }
+                if (!green.activeSelf && !red.activeSelf)
+                {
+                    Instantiate(waveBullet, spawnPoint.position, transform.rotation);
+                }
+                Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+                ReduceAmmo();
+                Debug.Log("Did not Hit");
+            }
+            currTime = 0;
+    }
+
+    IEnumerator OneShot()
+    {
+        Shoot();
+        canShoot = false;
+        yield return new WaitForSeconds(0.01f);
     }
 }
