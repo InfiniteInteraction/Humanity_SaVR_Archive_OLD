@@ -1,20 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class AmmoGunText : MonoBehaviour
 {
     GunTestVR gtScriptVR;
-    Text ammoGun;
+    Material numMat;
+
     private void Awake()
     {
         gtScriptVR = FindObjectOfType<GunTestVR>();
-        ammoGun = GetComponent<Text>();
+        numMat = GetComponent<Renderer>().material;
     }
     private void FixedUpdate()
     {
         int ag = gtScriptVR.currAmmo;
-        ammoGun.text = ag.ToString();
+        int ag1 = ag / 100;
+        int ag1to2 = ag - ag1 * 100;
+        int ag2 = ag1to2 / 10;
+        int ag3 = ag % 10;
+        
+        if(name.Equals("Digit1"))
+        {
+            numMat = Resources.Load(("Materials/Nums/" + ag1), typeof(Material)) as Material;
+        }
+        if (name.Equals("Digit2"))
+        {
+            numMat = Resources.Load(("Materials/Nums/" + ag2), typeof(Material)) as Material;
+        }
+        if (name.Equals("Digit3"))
+        {
+            numMat = Resources.Load(("Materials/Nums/" + ag3), typeof(Material)) as Material;
+        }
+        GetComponent<Renderer>().material = numMat;
     }
 }
