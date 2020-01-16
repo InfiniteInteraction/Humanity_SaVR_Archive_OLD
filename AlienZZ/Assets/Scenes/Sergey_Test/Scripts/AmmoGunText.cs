@@ -15,6 +15,6 @@ public class AmmoGunText : MonoBehaviour
     private void FixedUpdate()
     {
         int ag = gtScriptVR.currAmmo;
-        ammoGun = ag.
+        ammoGun.text = ag.ToString();
     }
 }
