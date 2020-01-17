@@ -135,15 +135,15 @@ public class GunTestVR : MonoBehaviour
             {
                 if (green.activeSelf)
                 {
-                    Instantiate(greenBullet, spawnPoint.position, transform.rotation);
+                    Instantiate(greenBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
                 }
                 if (red.activeSelf)
                 {
-                    Instantiate(redBullet, spawnPoint.position, transform.rotation);
+                    Instantiate(redBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
                 }
                 if (!green.activeSelf && !red.activeSelf)
                 {
-                    Instantiate(waveBullet, spawnPoint.position, transform.rotation);
+                    Instantiate(waveBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
                 }
                 Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 ReduceAmmo();
@@ -153,15 +153,15 @@ public class GunTestVR : MonoBehaviour
             {
                 if (green.activeSelf)
                 {
-                    Instantiate(greenBullet, spawnPoint.position, transform.rotation);
+                    Instantiate(greenBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
                 }
                 if (red.activeSelf)
                 {
-                    Instantiate(redBullet, spawnPoint.position, transform.rotation);
+                    Instantiate(redBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
                 }
                 if (!green.activeSelf && !red.activeSelf)
                 {
-                    Instantiate(waveBullet, spawnPoint.position, transform.rotation);
+                    Instantiate(waveBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
                 }
                 Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
                 ReduceAmmo();

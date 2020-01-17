@@ -29,7 +29,7 @@ public class PlasmaBullet : MonoBehaviour
     private void Start()
     {
         //transform.rotation = camRot * Quaternion.Euler(0, 90, 0);
-        transform.rotation = gunRot * Quaternion.Euler(0, 90, 0);
+        //transform.rotation = gunRot * Quaternion.Euler(0, 90, 0);
     }
 
     private void FixedUpdate()
