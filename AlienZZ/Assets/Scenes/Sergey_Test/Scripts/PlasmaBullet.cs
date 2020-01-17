@@ -7,6 +7,7 @@ public class PlasmaBullet : MonoBehaviour
     GunTest gtScript;
     GunTestVR gtScriptVR;
     Quaternion camRot;
+    Quaternion gunRot;
 
     private void Awake()
     {
@@ -22,12 +23,13 @@ public class PlasmaBullet : MonoBehaviour
         }
         if(FindObjectOfType<CameraMovement>())
             camRot = FindObjectOfType<CameraMovement>().gameObject.transform.rotation;
-        if(FindObjectOfType<OVRCameraRig>())
-            camRot = FindObjectOfType<OVRCameraRig>().gameObject.transform.rotation;
+        if(FindObjectOfType<ID_BulletSpawnVR>())
+            camRot = FindObjectOfType<ID_BulletSpawnVR>().gameObject.transform.rotation;
     }
     private void Start()
     {
-        transform.rotation = camRot * Quaternion.Euler(0, 90, 0);
+        //transform.rotation = camRot * Quaternion.Euler(0, 90, 0);
+        transform.rotation = gunRot * Quaternion.Euler(0, 90, 0);
     }
 
     private void FixedUpdate()
