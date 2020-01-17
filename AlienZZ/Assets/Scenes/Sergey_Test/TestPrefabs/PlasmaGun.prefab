@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4176397873593007556}
-  - component: {fileID: 1905101170746100866}
+  - component: {fileID: 8510730051228740044}
   m_Layer: 0
   m_Name: PlasmaGun
   m_TagString: Untagged
@@ -130,7 +130,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!114 &1905101170746100866
+--- !u!114 &8510730051228740044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,18 +139,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1130071892039028695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87ad24c5559fd2f4d995c2d1359ec705, type: 3}
+  m_Script: {fileID: 11500000, guid: f1702dfc805baf44eace2d59e32fe05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 6474206766544646294}
+  spawnPoint: {fileID: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
   damageValue: 0
   currAmmo: 10
   maxAmmo: 20
   ammoReturn: 3
-  canShoot: 0
+  canShoot: 1
   fullAutoMode: 0
   currTime: 0
   shootTime: 0
