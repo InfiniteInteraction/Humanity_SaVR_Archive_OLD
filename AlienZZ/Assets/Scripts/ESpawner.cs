@@ -6,8 +6,15 @@ public class ESpawner : MonoBehaviour
 {
     public GameObject Enemy;
     public Transform spawner;
-    
+    public GameObject[] spawnpoints;
 
+    //void Start()
+    //{
+    //    for (int i = 0; i > spawnpoints.Length; i++)
+    //    {
+
+    //    }
+    //}
     public void SpawnEnemy()
     {
 
@@ -17,9 +24,10 @@ public class ESpawner : MonoBehaviour
         }
         else
         {
-            Instantiate(Enemy, spawner.transform.position, Quaternion.identity);
+            Instantiate(Enemy, spawnpoints[Random.Range(0, spawnpoints.Length)].transform.position, Quaternion.identity);
         }
     }
 }
+
 
 
