@@ -1107,6 +1107,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlasmaGun
       objectReference: {fileID: 0}
+    - target: {fileID: 6474206766544646294, guid: 4cc4d10b3981f33439e25f057c75451a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.6048
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474206766544646294, guid: 4cc4d10b3981f33439e25f057c75451a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0961
+      objectReference: {fileID: 0}
     - target: {fileID: 4176397873593007556, guid: 4cc4d10b3981f33439e25f057c75451a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1176,16 +1186,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.20820001
-      objectReference: {fileID: 0}
-    - target: {fileID: 6474206766544646294, guid: 4cc4d10b3981f33439e25f057c75451a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.6048
-      objectReference: {fileID: 0}
-    - target: {fileID: 6474206766544646294, guid: 4cc4d10b3981f33439e25f057c75451a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0961
       objectReference: {fileID: 0}
     - target: {fileID: 6474206766129654217, guid: 4cc4d10b3981f33439e25f057c75451a,
         type: 3}
@@ -1307,7 +1307,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.0035548261
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1905101170746100866, guid: 4cc4d10b3981f33439e25f057c75451a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4cc4d10b3981f33439e25f057c75451a, type: 3}
 --- !u!1 &1130071892011623356 stripped
 GameObject:
