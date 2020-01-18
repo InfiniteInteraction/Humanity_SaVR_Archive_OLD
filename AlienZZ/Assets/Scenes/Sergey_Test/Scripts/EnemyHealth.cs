@@ -27,6 +27,10 @@ public class EnemyHealth : Health
     {
         if (currHealth <= 0)
         {
+            if (gtScript)
+                gtScript.RegainAmmo();
+            if (gtScriptVR)
+                gtScriptVR.RegainAmmo();
             uiScript.alienCount++;
             Destroy(gameObject);
         }
