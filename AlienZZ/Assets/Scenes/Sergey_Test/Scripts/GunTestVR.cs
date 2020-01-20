@@ -25,6 +25,7 @@ public class GunTestVR : MonoBehaviour
     GameObject greenBullet;
     GameObject redBullet;
     GameObject waveBullet;
+    public Renderer rifleEmission;
 
     private void Awake()
     {
@@ -34,6 +35,13 @@ public class GunTestVR : MonoBehaviour
         redBullet = Resources.Load(("Prefabs/PlasmaBulletRed"), typeof(GameObject)) as GameObject;
         waveBullet = Resources.Load(("Prefabs/WaveBullet"), typeof(GameObject)) as GameObject;
         fullAutoTime = 0.1f;
+        if (gameObject.name.Equals("PlasmaRifleVR"))
+        {
+            rifleEmission = FindObjectOfType<ID_ChangeMat>().gameObject.GetComponent<Renderer>();
+            rifleEmission.material = Resources.Load(("Materials/PlasmaRifleBarrelEmissionGreen"), typeof(Material)) as Material;
+            Debug.Log("It's plasma rifle VR");
+        }
+            
     }
 
     void Start()
@@ -72,7 +80,7 @@ public class GunTestVR : MonoBehaviour
 
         if (OVRInput.GetDown(OVRInput.RawButton.Y))
         {
-            SwitchBulltets();
+            SwitchBullets();
         }
         if (OVRInput.GetDown(OVRInput.RawButton.X))
         {
@@ -108,17 +116,21 @@ public class GunTestVR : MonoBehaviour
         }
     }
 
-    void SwitchBulltets()
+    void SwitchBullets()
     {
         if (!green.activeSelf)
         {
             red.SetActive(false);
             green.SetActive(true);
+            if(rifleEmission)
+                rifleEmission.material = Resources.Load(("Materials/PlasmaRifleBarrelEmissionGreen"), typeof(Material)) as Material;
         }
         else
         {
             green.SetActive(false);
             red.SetActive(true);
+            if (rifleEmission)
+                rifleEmission.material = Resources.Load(("Materials/PlasmaRifleBarrelEmissionRed"), typeof(Material)) as Material;
         }
     }
 

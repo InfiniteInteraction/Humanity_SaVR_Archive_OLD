@@ -15,13 +15,13 @@ public class AmmoGunText : MonoBehaviour
         if (gtScript = FindObjectOfType<GunTest>())
             gtScript = FindObjectOfType<GunTest>();
         numMat = GetComponent<Renderer>().material;
-        gtScript.ammoChanged = true;
+        gtScriptVR.ammoChanged = true;
     }
     private void FixedUpdate()
     {
-        if (gtScript.ammoChanged)
+        if (gtScriptVR.ammoChanged)
         {
-            int ag = gtScript.currAmmo;
+            int ag = gtScriptVR.currAmmo;
             int ag1 = ag / 100;
             int ag1to2 = ag - ag1 * 100;
             int ag2 = ag1to2 / 10;
@@ -47,6 +47,6 @@ public class AmmoGunText : MonoBehaviour
     IEnumerator Wait()
     {
         yield return new WaitForEndOfFrame();
-        gtScript.ammoChanged = false;
+        gtScriptVR.ammoChanged = false;
     }
 }
