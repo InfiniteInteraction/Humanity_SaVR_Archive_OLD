@@ -11,10 +11,10 @@ public class GunTestVR : MonoBehaviour
     public int currAmmo = 10;
     public int maxAmmo = 20;
     public int ammoReturn = 3;
-    int bulletCount;
     [Header("Weapon Firing")]
     public bool canShoot = true;
     public bool fullAutoMode = false;
+    public bool ammoChanged = false;
     public float currTime = 0;
     public float shootTime = 0;
     public float fullAutoTime;
@@ -26,8 +26,6 @@ public class GunTestVR : MonoBehaviour
     GameObject redBullet;
     GameObject waveBullet;
 
-    bool shootOnce;
-
     private void Awake()
     {
         green = GetComponentInChildren<ID_Green>().gameObject;
@@ -36,42 +34,36 @@ public class GunTestVR : MonoBehaviour
         redBullet = Resources.Load(("Prefabs/PlasmaBulletRed"), typeof(GameObject)) as GameObject;
         waveBullet = Resources.Load(("Prefabs/WaveBullet"), typeof(GameObject)) as GameObject;
         fullAutoTime = 0.1f;
-        shootOnce = false;
     }
 
     void Start()
     {
-        
         damageValue = 1;
         red.SetActive(false);
     }
 
-    
-
     void Update()
     {
-        
         if (fullAutoMode)
         {
             if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && canShoot && currAmmo > 0)
             {
-                Shoot();
+                StartCoroutine("AutoShot");
             }
         }
         else
         {
-
-            if ((OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger) )  && canShoot && currAmmo > 0)
+            if ((OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger)) && canShoot && currAmmo > 0)
             {
                 StartCoroutine("OneShot");
                 return;
             }
-            if ((OVRInput.GetUp(OVRInput.RawButton.LIndexTrigger) ) && !canShoot)
+            if ((OVRInput.GetUp(OVRInput.RawButton.LIndexTrigger)) && !canShoot)
             {
                 canShoot = true;
                 return;
             }
-            
+
         }
         if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && currAmmo <= 0)
         {
@@ -93,12 +85,14 @@ public class GunTestVR : MonoBehaviour
     {
         currAmmo--;
         currAmmo = Mathf.Clamp(currAmmo, 0, maxAmmo);
+        ammoChanged = true;
     }
 
-    void RegainAmmo()
+    public void RegainAmmo()
     {
         currAmmo += ammoReturn;
         currAmmo = Mathf.Clamp(currAmmo, 0, maxAmmo);
+        ammoChanged = true;
     }
 
     void SwitchFireMode()
@@ -130,44 +124,44 @@ public class GunTestVR : MonoBehaviour
 
     void Shoot()
     {
-            RaycastHit hit;
-            if (Physics.Raycast(spawnPoint.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        RaycastHit hit;
+        if (Physics.Raycast(spawnPoint.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        {
+            if (green.activeSelf)
             {
-                if (green.activeSelf)
-                {
-                    Instantiate(greenBullet, spawnPoint.position, transform.rotation);
-                }
-                if (red.activeSelf)
-                {
-                    Instantiate(redBullet, spawnPoint.position, transform.rotation);
-                }
-                if (!green.activeSelf && !red.activeSelf)
-                {
-                    Instantiate(waveBullet, spawnPoint.position, transform.rotation);
-                }
-                Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                ReduceAmmo();
-                Debug.Log("Did Hit");
+                Instantiate(greenBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
             }
-            else
+            if (red.activeSelf)
             {
-                if (green.activeSelf)
-                {
-                    Instantiate(greenBullet, spawnPoint.position, transform.rotation);
-                }
-                if (red.activeSelf)
-                {
-                    Instantiate(redBullet, spawnPoint.position, transform.rotation);
-                }
-                if (!green.activeSelf && !red.activeSelf)
-                {
-                    Instantiate(waveBullet, spawnPoint.position, transform.rotation);
-                }
-                Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-                ReduceAmmo();
-                Debug.Log("Did not Hit");
+                Instantiate(redBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
             }
-            currTime = 0;
+            if (!green.activeSelf && !red.activeSelf)
+            {
+                Instantiate(waveBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+            }
+            Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            ReduceAmmo();
+            Debug.Log("Did Hit");
+        }
+        else
+        {
+            if (green.activeSelf)
+            {
+                Instantiate(greenBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+            }
+            if (red.activeSelf)
+            {
+                Instantiate(redBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+            }
+            if (!green.activeSelf && !red.activeSelf)
+            {
+                Instantiate(waveBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+            }
+            Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+            ReduceAmmo();
+            Debug.Log("Did not Hit");
+        }
+        currTime = 0;
     }
 
     IEnumerator OneShot()
@@ -175,5 +169,13 @@ public class GunTestVR : MonoBehaviour
         Shoot();
         canShoot = false;
         yield return new WaitForSeconds(0.01f);
+    }
+
+    IEnumerator AutoShot()
+    {
+        Shoot();
+        canShoot = false;
+        yield return new WaitForSeconds(0.1f);
+        canShoot = true;
     }
 }

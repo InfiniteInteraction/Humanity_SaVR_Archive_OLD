@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class GunTest : MonoBehaviour
 {
@@ -6,12 +8,13 @@ public class GunTest : MonoBehaviour
     public LayerMask layerMask; //The layer mask that detects enemy
     public float damageValue = 0;
     [Header("Ammo")]
-    public int currAmmo = 10;
-    public int maxAmmo = 20;
-    public int ammoReturn = 3;
+    public int currAmmo = 500;
+    public int maxAmmo = 999;
+    public int ammoReturn = 2;
     [Header("Weapon Firing")]
-    public bool canShoot = false;
+    public bool canShoot = true;
     public bool fullAutoMode = false;
+    public bool ammoChanged = false;
     public float currTime = 0;
     public float shootTime = 0;
     public float fullAutoTime;
@@ -22,6 +25,7 @@ public class GunTest : MonoBehaviour
     GameObject greenBullet;
     GameObject redBullet;
     GameObject waveBullet;
+
     private void Awake()
     {
         green = GetComponentInChildren<ID_Green>().gameObject;
@@ -34,8 +38,6 @@ public class GunTest : MonoBehaviour
 
     void Start()
     {
-        //currTime = shootTime;
-        //SwitchFireMode();
         damageValue = 1;
         red.SetActive(false);
     }
@@ -46,7 +48,7 @@ public class GunTest : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Mouse0) && canShoot && currAmmo > 0)
             {
-                Shoot();
+                StartCoroutine("AutoShot");
             }
         }
         else
@@ -75,7 +77,7 @@ public class GunTest : MonoBehaviour
             green.SetActive(false);
             red.SetActive(true);
         }
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             if (red.activeSelf)
             {
@@ -106,12 +108,14 @@ public class GunTest : MonoBehaviour
     {
         currAmmo--;
         currAmmo = Mathf.Clamp(currAmmo, 0, maxAmmo);
+        ammoChanged = true;
     }
 
-    void RegainAmmo()
+    public void RegainAmmo()
     {
         currAmmo += ammoReturn;
         currAmmo = Mathf.Clamp(currAmmo, 0, maxAmmo);
+        ammoChanged = true;
     }
 
     void SwitchFireMode()
@@ -140,12 +144,12 @@ public class GunTest : MonoBehaviour
             {
                 Instantiate(redBullet, spawnPoint.position, transform.rotation);
             }
-            if(!green.activeSelf && !red.activeSelf)
+            if (!green.activeSelf && !red.activeSelf)
             {
                 Instantiate(waveBullet, spawnPoint.position, transform.rotation);
             }
             Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            RegainAmmo();
+            ReduceAmmo();
             Debug.Log("Did Hit");
         }
         else
@@ -167,5 +171,13 @@ public class GunTest : MonoBehaviour
             Debug.Log("Did not Hit");
         }
         currTime = 0;
+    }
+
+    IEnumerator AutoShot()
+    {
+        Shoot();
+        canShoot = false;
+        yield return new WaitForSeconds(0.1f);
+        canShoot = true;
     }
 }
