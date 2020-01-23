@@ -22,8 +22,10 @@ public class GunTestVR : MonoBehaviour
 
     GameObject green;
     GameObject red;
-    GameObject greenBullet;
-    GameObject redBullet;
+    GameObject greenPistolBullet;
+    GameObject redPistolBullet;
+    GameObject greenRifleBullet;
+    GameObject redRifleBullet;
     GameObject waveBullet;
     public List<GameObject> emissiveObjects = new List<GameObject>();
 
@@ -31,9 +33,10 @@ public class GunTestVR : MonoBehaviour
     {
         green = GetComponentInChildren<ID_Green>().gameObject;
         red = GetComponentInChildren<ID_Red>().gameObject;
-        greenBullet = Resources.Load(("Prefabs/PlasmaBulletGreen"), typeof(GameObject)) as GameObject;
-        redBullet = Resources.Load(("Prefabs/PlasmaBulletRed"), typeof(GameObject)) as GameObject;
-        waveBullet = Resources.Load(("Prefabs/WaveBullet"), typeof(GameObject)) as GameObject;
+        greenPistolBullet = Resources.Load(("Prefabs/PlasmaBulletGreen"), typeof(GameObject)) as GameObject;
+        redPistolBullet = Resources.Load(("Prefabs/PlasmaBulletRed"), typeof(GameObject)) as GameObject;
+        greenRifleBullet = Resources.Load(("Prefabs/GreenRifleBullet"), typeof(GameObject)) as GameObject;
+        redRifleBullet = Resources.Load(("Prefabs/RedRifleBullet"), typeof(GameObject)) as GameObject;
         fullAutoTime = 0.1f;
     }
 
@@ -41,6 +44,13 @@ public class GunTestVR : MonoBehaviour
     {
         damageValue = 1;
         red.SetActive(false);
+        if (gameObject.name.Equals("PlasmaRifleVR"))
+        {
+            foreach (GameObject detail in emissiveObjects)
+            {
+                detail.GetComponent<Renderer>().material = Resources.Load(("Materials/PlasmaRifleBarrelEmissionGreen"), typeof(Material)) as Material;
+            }
+        }
     }
 
     void Update()
@@ -117,7 +127,7 @@ public class GunTestVR : MonoBehaviour
             green.SetActive(true);
             if (gameObject.name.Equals("PlasmaRifleVR"))
             {
-                foreach(GameObject detail in emissiveObjects)
+                foreach (GameObject detail in emissiveObjects)
                 {
                     detail.GetComponent<Renderer>().material = Resources.Load(("Materials/PlasmaRifleBarrelEmissionGreen"), typeof(Material)) as Material;
                 }
@@ -144,15 +154,17 @@ public class GunTestVR : MonoBehaviour
         {
             if (green.activeSelf)
             {
-                Instantiate(greenBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                if (gameObject.name.Equals("PlasmaRifleVR"))
+                    Instantiate(greenRifleBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                else
+                    Instantiate(greenPistolBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
             }
             if (red.activeSelf)
             {
-                Instantiate(redBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
-            }
-            if (!green.activeSelf && !red.activeSelf)
-            {
-                Instantiate(waveBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                if (gameObject.name.Equals("PlasmaRifleVR"))
+                    Instantiate(redRifleBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                else
+                    Instantiate(redPistolBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
             }
             Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             ReduceAmmo();
@@ -162,15 +174,17 @@ public class GunTestVR : MonoBehaviour
         {
             if (green.activeSelf)
             {
-                Instantiate(greenBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                if (gameObject.name.Equals("PlasmaRifleVR"))
+                    Instantiate(greenRifleBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                else
+                    Instantiate(greenPistolBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
             }
             if (red.activeSelf)
             {
-                Instantiate(redBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
-            }
-            if (!green.activeSelf && !red.activeSelf)
-            {
-                Instantiate(waveBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                if (gameObject.name.Equals("PlasmaRifleVR"))
+                    Instantiate(redRifleBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                else
+                    Instantiate(redPistolBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
             }
             Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
             ReduceAmmo();
