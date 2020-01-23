@@ -28,6 +28,7 @@ public class GunTestVR : MonoBehaviour
     GameObject redRifleBullet;
     GameObject waveBullet;
     public List<GameObject> emissiveObjects = new List<GameObject>();
+    public Animator wheelSpin;
 
     private void Awake()
     {
@@ -38,6 +39,7 @@ public class GunTestVR : MonoBehaviour
         greenRifleBullet = Resources.Load(("Prefabs/GreenRifleBullet"), typeof(GameObject)) as GameObject;
         redRifleBullet = Resources.Load(("Prefabs/RedRifleBullet"), typeof(GameObject)) as GameObject;
         fullAutoTime = 0.1f;
+        wheelSpin = gameObject.GetComponent<Animator>();
     }
 
     void Start()
@@ -155,16 +157,31 @@ public class GunTestVR : MonoBehaviour
             if (green.activeSelf)
             {
                 if (gameObject.name.Equals("PlasmaRifleVR"))
+                {
                     Instantiate(greenRifleBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                    StartCoroutine("WheelSpin");
+                }
                 else
+                {
                     Instantiate(greenPistolBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                    StartCoroutine("WheelSpin");
+                }
+                    
             }
             if (red.activeSelf)
             {
                 if (gameObject.name.Equals("PlasmaRifleVR"))
+                {
                     Instantiate(redRifleBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                    StartCoroutine("WheelSpin");
+                }
+                    
                 else
+                {
                     Instantiate(redPistolBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                    StartCoroutine("WheelSpin");
+                }
+                    
             }
             Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             ReduceAmmo();
@@ -206,5 +223,12 @@ public class GunTestVR : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(0.1f);
         canShoot = true;
+    }
+
+    IEnumerator WheelSpeed()
+    {
+        wheelSpin.speed = 1.5f;
+        yield return new WaitForSeconds(0.25f);
+        wheelSpin.speed = 0.7f;
     }
 }
