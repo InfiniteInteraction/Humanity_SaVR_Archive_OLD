@@ -904,6 +904,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 6038154069205276452, guid: 65e7c5f37a8cd1143bdde29caf961aca,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 60b552a69e803c44e9256e2569489f51, type: 2}
+    - target: {fileID: 2163391977480735148, guid: 65e7c5f37a8cd1143bdde29caf961aca,
+        type: 3}
+      propertyPath: currAmmo
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2163391977480735148, guid: 65e7c5f37a8cd1143bdde29caf961aca,
+        type: 3}
+      propertyPath: maxAmmo
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118081720945284545, guid: 65e7c5f37a8cd1143bdde29caf961aca,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65e7c5f37a8cd1143bdde29caf961aca, type: 3}
 --- !u!4 &8020895047707586262 stripped
@@ -923,6 +943,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlasmaGunVR
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700595242543221690, guid: f83bdc636b54fa24db83b9afd674db15,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2432756904893938089, guid: f83bdc636b54fa24db83b9afd674db15,
         type: 3}
