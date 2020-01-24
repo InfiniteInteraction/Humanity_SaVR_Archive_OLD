@@ -256,6 +256,24 @@ public class GunTestVR : MonoBehaviour
 
     IEnumerator RifleWheelGo()
     {
+        if (green.activeSelf)
+        {
+            ParticleSystem psg = green.GetComponentInChildren<ParticleSystem>();
+            var main = psg.main;
+            main.startSpeed = 2f;
+            main.simulationSpeed = 2f;
+            var emit = psg.emission;
+            emit.rateOverTime = 200;
+        }
+        else
+        {
+            ParticleSystem psr = red.GetComponentInChildren<ParticleSystem>();
+            var main = psr.main;
+            main.startSpeed = 2f;
+            main.simulationSpeed = 2f;
+            var emit = psr.emission;
+            emit.rateOverTime = 200;
+        }
         wheelSpin.speed = 1f;
         yield return new WaitForSeconds(0.2f);
         wheelSpin.speed = 1.25f;
@@ -268,6 +286,24 @@ public class GunTestVR : MonoBehaviour
         if (rifleCharging >= 0.5f)
             Shoot();
         rifleCharging = 0;
+        if (green.activeSelf)
+        {
+            ParticleSystem psg = green.GetComponentInChildren<ParticleSystem>();
+            var main = psg.main;
+            main.startSpeed = 1f;
+            main.simulationSpeed = 1f;
+            var emit = psg.emission;
+            emit.rateOverTime = 100;
+        }
+        else
+        {
+            ParticleSystem psr = red.GetComponentInChildren<ParticleSystem>();
+            var main = psr.main;
+            main.startSpeed = 1f;
+            main.simulationSpeed = 1f;
+            var emit = psr.emission;
+            emit.rateOverTime = 100;
+        }
         wheelSpin.speed = 1.25f;
         yield return new WaitForSeconds(0.1f);
         wheelSpin.speed = 1f;
