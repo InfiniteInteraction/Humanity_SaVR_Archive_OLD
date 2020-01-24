@@ -8,7 +8,7 @@ public class ID_ChangeMat : MonoBehaviour
 
     private void Awake()
     {
-        gtScript = FindObjectOfType<GunTestVR>();
+        gtScript = GetComponentInParent<GunTestVR>();
     }
 
     private void Start()

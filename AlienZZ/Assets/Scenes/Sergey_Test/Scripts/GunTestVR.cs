@@ -15,10 +15,12 @@ public class GunTestVR : MonoBehaviour
     public bool canShoot = true;
     public bool fullAutoMode = false;
     public bool ammoChanged = false;
+    bool rifleTrigger = false;
     public float currTime = 0;
     public float shootTime = 0;
     public float fullAutoTime;
     public float semiAutoTime = 0;
+    public float rifleCharging;
 
     GameObject green;
     GameObject red;
@@ -57,27 +59,49 @@ public class GunTestVR : MonoBehaviour
 
     void Update()
     {
-        if (fullAutoMode)
+
+        if (gameObject.name.Equals("PlasmaRifleVR"))
         {
-            if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && canShoot && currAmmo > 0)
+            if (rifleTrigger)
+                Timer();
+            float triggerPress;
+            triggerPress = OVRInput.Get(OVRInput.RawAxis1D.LIndexTrigger);
+            if (triggerPress >= 0.95f && !rifleTrigger)
             {
-                StartCoroutine("AutoShot");
+                rifleTrigger = true;
+                StartCoroutine("RifleWheelGo");
+            }
+            if (triggerPress <= 0.05f && rifleTrigger)
+            {
+                rifleTrigger = false;
+                StartCoroutine("RifleWheelStop");
             }
         }
         else
         {
-            if ((OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger)) && canShoot && currAmmo > 0)
+            if (fullAutoMode)
             {
-                StartCoroutine("OneShot");
-                return;
+                if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && canShoot && currAmmo > 0)
+                {
+                    StartCoroutine("AutoShot");
+                }
             }
-            if ((OVRInput.GetUp(OVRInput.RawButton.LIndexTrigger)) && !canShoot)
+            else
             {
-                canShoot = true;
-                return;
-            }
+                if ((OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger)) && canShoot && currAmmo > 0)
+                {
+                    StartCoroutine("OneShot");
+                    return;
+                }
+                if ((OVRInput.GetUp(OVRInput.RawButton.LIndexTrigger)) && !canShoot)
+                {
+                    canShoot = true;
+                    return;
+                }
 
+            }
         }
+
         if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && currAmmo <= 0)
         {
             Debug.Log("Out of Ammo");
@@ -159,29 +183,22 @@ public class GunTestVR : MonoBehaviour
                 if (gameObject.name.Equals("PlasmaRifleVR"))
                 {
                     Instantiate(greenRifleBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
-                    StartCoroutine("WheelSpin");
                 }
                 else
                 {
                     Instantiate(greenPistolBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
-                    StartCoroutine("WheelSpin");
                 }
-                    
             }
             if (red.activeSelf)
             {
                 if (gameObject.name.Equals("PlasmaRifleVR"))
                 {
                     Instantiate(redRifleBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
-                    StartCoroutine("WheelSpin");
                 }
-                    
                 else
                 {
                     Instantiate(redPistolBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
-                    StartCoroutine("WheelSpin");
                 }
-                    
             }
             Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             ReduceAmmo();
@@ -192,22 +209,34 @@ public class GunTestVR : MonoBehaviour
             if (green.activeSelf)
             {
                 if (gameObject.name.Equals("PlasmaRifleVR"))
+                {
                     Instantiate(greenRifleBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                }
                 else
+                {
                     Instantiate(greenPistolBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                }
             }
             if (red.activeSelf)
             {
                 if (gameObject.name.Equals("PlasmaRifleVR"))
+                {
                     Instantiate(redRifleBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                }
                 else
+                {
                     Instantiate(redPistolBullet, spawnPoint.position, transform.rotation * Quaternion.Euler(0, 90, 0));
+                }
             }
             Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
             ReduceAmmo();
             Debug.Log("Did not Hit");
         }
         currTime = 0;
+    }
+    void Timer()
+    {
+        rifleCharging += Time.fixedDeltaTime;
     }
 
     IEnumerator OneShot()
@@ -225,10 +254,24 @@ public class GunTestVR : MonoBehaviour
         canShoot = true;
     }
 
-    IEnumerator WheelSpeed()
+    IEnumerator RifleWheelGo()
     {
+        wheelSpin.speed = 1f;
+        yield return new WaitForSeconds(0.2f);
+        wheelSpin.speed = 1.25f;
+        yield return new WaitForSeconds(0.2f);
         wheelSpin.speed = 1.5f;
-        yield return new WaitForSeconds(0.25f);
+    }
+
+    IEnumerator RifleWheelStop()
+    {
+        if (rifleCharging >= 0.5f)
+            Shoot();
+        rifleCharging = 0;
+        wheelSpin.speed = 1.25f;
+        yield return new WaitForSeconds(0.1f);
+        wheelSpin.speed = 1f;
+        yield return new WaitForSeconds(0.1f);
         wheelSpin.speed = 0.7f;
     }
 }
