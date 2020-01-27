@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
         timer = waitTime;
         agent = GetComponent<NavMeshAgent>();
 
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = FindObjectOfType<OVRPlayerController>().gameObject;
         here = false;
         agent.autoBraking = false;
         stage = 0;

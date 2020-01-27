@@ -4969,8 +4969,9 @@ GameObject:
   - component: {fileID: 6145710949770187567}
   - component: {fileID: 1577351332977991449}
   - component: {fileID: 5648813373137734172}
+  - component: {fileID: 4010892401192251151}
   m_Layer: 0
-  m_Name: WaveBulletRed
+  m_Name: RedRifleBullet
   m_TagString: GreenBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5034,3 +5035,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d7a78e350ea624387c605f975810ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &4010892401192251151
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5963258755421115426}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d8bc9b3ee63b2c498343501880dd028, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
