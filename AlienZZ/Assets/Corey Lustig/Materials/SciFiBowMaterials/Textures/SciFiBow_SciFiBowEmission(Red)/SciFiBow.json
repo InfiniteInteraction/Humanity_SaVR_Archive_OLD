@@ -1,0 +1,166 @@
+{
+    "format": {
+        "version": "1.0"
+    },
+    "shaders": {
+        "Main shader": {
+            "parameters": {
+                "Common Parameters": {
+                    "ao_intensity": 0.75,
+                    "emissive_intensity": 50,
+                    "horizonFade": 1.2999999523162842,
+                    "nbSamples": 16
+                },
+                "Parallax Occlusion Mapping": {
+                    "maxPOMSamples": 16,
+                    "minPOMSamples": 4,
+                    "pomStrength": 1,
+                    "usePOM": false
+                },
+                "Subsurface Scattering Parameters": {
+                    "sssColor": [
+                        0.7009999752044678,
+                        0.3009999990463257,
+                        0.3050000071525574
+                    ],
+                    "sssEnabled": true,
+                    "sssScale": 0.5,
+                    "sssType": 1
+                }
+            },
+            "shader": "pbr-metal-rough",
+            "shaderInstance": "Main shader"
+        }
+    },
+    "texturesets": {
+        "SciFiBowArrowRest": {
+            "shader": "Main shader"
+        },
+        "SciFiBowArrowRestBase_1": {
+            "shader": "Main shader"
+        },
+        "SciFiBowArrowRestBase_2": {
+            "shader": "Main shader"
+        },
+        "SciFiBowArrowRestBase_3": {
+            "shader": "Main shader"
+        },
+        "SciFiBowArrowRestBase_4": {
+            "shader": "Main shader"
+        },
+        "SciFiBowCableSlide_1": {
+            "shader": "Main shader"
+        },
+        "SciFiBowCableSlide_2": {
+            "shader": "Main shader"
+        },
+        "SciFiBowCableSlide_3": {
+            "shader": "Main shader"
+        },
+        "SciFiBowDigitalSight": {
+            "shader": "Main shader"
+        },
+        "SciFiBowDigitalSightLens": {
+            "shader": "Main shader"
+        },
+        "SciFiBowDigitalSightSupport": {
+            "shader": "Main shader"
+        },
+        "SciFiBowEmission": {
+            "shader": "Main shader"
+        },
+        "SciFiBowFace_1": {
+            "shader": "Main shader"
+        },
+        "SciFiBowFace_2": {
+            "shader": "Main shader"
+        },
+        "SciFiBowGrip": {
+            "shader": "Main shader"
+        },
+        "SciFiBowLowerDesignBase": {
+            "shader": "Main shader"
+        },
+        "SciFiBowLowerDesignBaseBolt": {
+            "shader": "Main shader"
+        },
+        "SciFiBowLowerDesign_1": {
+            "shader": "Main shader"
+        },
+        "SciFiBowLowerDesign_2": {
+            "shader": "Main shader"
+        },
+        "SciFiBowLowerDesign_3": {
+            "shader": "Main shader"
+        },
+        "SciFiBowLowerDesign_4": {
+            "shader": "Main shader"
+        },
+        "SciFiBowLowerDesign_5": {
+            "shader": "Main shader"
+        },
+        "SciFiBowLowerDesign_6": {
+            "shader": "Main shader"
+        },
+        "SciFiBowLowerDesign_7": {
+            "shader": "Main shader"
+        },
+        "SciFiBowLowerModule": {
+            "shader": "Main shader"
+        },
+        "SciFiBowLowerModuleAxis": {
+            "shader": "Main shader"
+        },
+        "SciFiBowLowerRiser": {
+            "shader": "Main shader"
+        },
+        "SciFiBowSight": {
+            "shader": "Main shader"
+        },
+        "SciFiBowSightBackLens": {
+            "shader": "Main shader"
+        },
+        "SciFiBowSightBox": {
+            "shader": "Main shader"
+        },
+        "SciFiBowSightFrontLens": {
+            "shader": "Main shader"
+        },
+        "SciFiBowSightRing": {
+            "shader": "Main shader"
+        },
+        "SciFiBowString_1": {
+            "shader": "Main shader"
+        },
+        "SciFiBowString_2": {
+            "shader": "Main shader"
+        },
+        "SciFiBowString_3": {
+            "shader": "Main shader"
+        },
+        "SciFiBowUpperDesign_1": {
+            "shader": "Main shader"
+        },
+        "SciFiBowUpperDesign_2": {
+            "shader": "Main shader"
+        },
+        "SciFiBowUpperDesign_3": {
+            "shader": "Main shader"
+        },
+        "SciFiBowUpperLimb": {
+            "shader": "Main shader"
+        },
+        "SciFiBowUpperLimb.001": {
+            "shader": "Main shader"
+        },
+        "SciFiBowUpperModule": {
+            "shader": "Main shader"
+        },
+        "SciFiBowUpperRiser": {
+            "shader": "Main shader"
+        },
+        "SciFiBowUpperrModuleAxis": {
+            "shader": "Main shader"
+        }
+    }
+}
