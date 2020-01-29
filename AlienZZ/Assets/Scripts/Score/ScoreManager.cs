@@ -34,7 +34,7 @@ public class ScoreManager : MonoBehaviour
         currLvl = SceneManager.GetActiveScene().buildIndex;
         InitializeHighScores();
         Load();
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public void ResetCurrentScore()//Resets Current Score
@@ -56,17 +56,17 @@ public class ScoreManager : MonoBehaviour
             _highScores[i] = 0;
         }
     }
-    public void ResetLvlHighScore(int level)
-    {
-        if (level < 0 || level > _highScores.Length)
-        {
-            return;
-        }
-        else
-        {
-            _highScores[level] = 0;
-        }
-    }
+    //public void ResetLvlHighScore(int level)
+    //{
+    //    if (level < 0 || level > _highScores.Length)
+    //    {
+    //        return;
+    //    }
+    //    else
+    //    {
+    //        _highScores[level] = 0;
+    //    }
+    //}
     public void IncreaseScore(int points)
     {
         currScore = currScore + points;
@@ -75,17 +75,17 @@ public class ScoreManager : MonoBehaviour
             currScore = 0; 
         }
     }
-    public int GetHighScore(int level)
-    {
-        if(level < 0 || level > _highScores.Length)
-        {
-            return 0;
-        }
-        else
-        {
-            return _highScores[level];
-        }
-    }
+    //public int GetHighScore(int level)
+    //{
+    //    if(level < 0 || level > _highScores.Length)
+    //    {
+    //        return 0;
+    //    }
+    //    else
+    //    {
+    //        return _highScores[level];
+    //    }
+    //}
     public void Save()
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -126,53 +126,53 @@ public class ScoreManager : MonoBehaviour
         }
         return false;
     }
-    public void LoadLevel(int sceneIndex)
-    {
-        currLvl = sceneIndex;
-        if(currLvl >= scoreManager.sceneCount)
-        {
-            Debug.Log("LoadLevel got index at" + sceneIndex + " but the number of scenes in build settings is" + sceneCount);
-            currLvl = 0;
-        }
-        SceneManager.LoadScene(currLvl);
-    }
-    public void LoadNextLevel()
-    {
-        int sceneIndex = ++currLvl;
-        if(currLvl > scoreManager.sceneCount)
-        {
-            Debug.Log("Next level is out of index, going to main menu");
-            LoadLevel(0);
-        }
-        else
-        {
-            LoadLevel(sceneIndex);
-        }
-    }
-    public void ReloadLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-    public void OnSceneLoaded(Scene _currLvl, LoadSceneMode _mode)
-    {
-        CheckHighScore(_currLvl.buildIndex);
-        Save();
-        currLvl = _currLvl.buildIndex;
-        ResetCurrentScore();
-    }
-    public void CheckHighScore(int nextLevel)
-    {
-        if (currLvl <= scoreManager.sceneCount)
-        {
-            if(currLvl != nextLevel)
-            {
-                if(_highScores[currLvl] < currScore)
-                {
-                    _highScores[currLvl] = currScore;
-                }
-            }
-        }
-    }
+    //public void LoadLevel(int sceneIndex)
+    //{
+    //    currLvl = sceneIndex;
+    //    if(currLvl >= scoreManager.sceneCount)
+    //    {
+    //        Debug.Log("LoadLevel got index at" + sceneIndex + " but the number of scenes in build settings is" + sceneCount);
+    //        currLvl = 0;
+    //    }
+    //    SceneManager.LoadScene(currLvl);
+    //}
+    //public void LoadNextLevel()
+    //{
+    //    int sceneIndex = ++currLvl;
+    //    if(currLvl > scoreManager.sceneCount)
+    //    {
+    //        Debug.Log("Next level is out of index, going to main menu");
+    //        LoadLevel(0);
+    //    }
+    //    else
+    //    {
+    //        LoadLevel(sceneIndex);
+    //    }
+    //}
+    //public void ReloadLevel()
+    //{
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    //}
+    //public void OnSceneLoaded(Scene _currLvl, LoadSceneMode _mode)
+    //{
+    //    CheckHighScore(_currLvl.buildIndex);
+    //    Save();
+    //    currLvl = _currLvl.buildIndex;
+    //    ResetCurrentScore();
+    //}
+    //public void CheckHighScore(int nextLevel)
+    //{
+    //    if (currLvl <= scoreManager.sceneCount)
+    //    {
+    //        if(currLvl != nextLevel)
+    //        {
+    //            if(_highScores[currLvl] < currScore)
+    //            {
+    //                _highScores[currLvl] = currScore;
+    //            }
+    //        }
+    //    }
+    //}
 }
 [Serializable]
 public class PlayerScore
