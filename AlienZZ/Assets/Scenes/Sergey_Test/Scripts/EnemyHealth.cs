@@ -5,32 +5,18 @@ using UnityEngine;
 public class EnemyHealth : Health
 {
     GunTest gtScript;
-    GunTestVR gtScriptVR;
     UI_Info uiScript;
     private void Awake()
     {
-        if (FindObjectOfType<GunTest>())
-        {
-            gtScript = FindObjectOfType<GunTest>();
-            gtScriptVR = null;
-        }
-        if (FindObjectOfType<GunTestVR>())
-        {
-            gtScriptVR = FindObjectOfType<GunTestVR>();
-            gtScript = null;
-        }
+        gtScript = FindObjectOfType<GunTest>();
         uiScript = FindObjectOfType<UI_Info>();
         currHealth = 1f;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (currHealth <= 0)
         {
-            if (gtScript)
-                gtScript.RegainAmmo();
-            if (gtScriptVR)
-                gtScriptVR.RegainAmmo();
             uiScript.alienCount++;
             Destroy(gameObject);
         }
@@ -39,11 +25,14 @@ public class EnemyHealth : Health
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("RedBullet") || collision.collider.tag == "GreenBullet")
-        {
-            if (gtScript)
-                currHealth -= gtScript.damageValue;
-            if (gtScriptVR)
-                currHealth -= gtScriptVR.damageValue;
-        }
+            currHealth -= gtScript.damageValue;
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.CompareTag("RedBullet") || other.gameObject.tag == "GreenBullet")
+    //    {
+    //        currHealth -= gtScript.damageValue;
+    //    }
+    //}
 }

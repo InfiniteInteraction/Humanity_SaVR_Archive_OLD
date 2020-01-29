@@ -15,11 +15,11 @@ public class EnemyMovement : MonoBehaviour
     int stage;
     bool here;
     public GameObject player;
-    public void Awake()
+    public virtual void Awake()
     {
         waitTime = 1f;
     }
-    void OnEnable()
+    public virtual void OnEnable()
     {
         timer = waitTime;
         agent = GetComponent<NavMeshAgent>();
@@ -30,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
         stage = 0;
     }
 
-    void Update()
+    public virtual void Update()
     {
         ChasePlayer();
         Hurt();
@@ -40,7 +40,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
 
-    protected virtual void ChasePlayer()
+    public virtual void ChasePlayer()
     {
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
@@ -58,7 +58,7 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    void Hurt()
+    public virtual void Hurt()
     {
         switch (stage)
         {

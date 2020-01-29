@@ -10,6 +10,7 @@ TagManager:
   - GreenBullet
   - Spawner
   - Score
+  - PPoint
   layers:
   - Default
   - TransparentFX
