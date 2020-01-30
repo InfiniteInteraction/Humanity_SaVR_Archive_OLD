@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
-    GunTest gtScript;
+    GunTestVR gtScript;
     UI_Info uiScript;
     private void Awake()
     {
-        gtScript = FindObjectOfType<GunTest>();
+        gtScript = FindObjectOfType<GunTestVR>();
         uiScript = FindObjectOfType<UI_Info>();
         currHealth = 1f;
     }

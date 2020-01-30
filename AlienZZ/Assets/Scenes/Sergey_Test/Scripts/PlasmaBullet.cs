@@ -7,6 +7,7 @@ public class PlasmaBullet : MonoBehaviour
     GunTest gtScript;
     GunTestVR gtScriptVR;
     Quaternion camRot;
+    bool collided = false;
 
     private void Awake()
     {
@@ -31,8 +32,14 @@ public class PlasmaBullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position += transform.TransformDirection(Vector3.left) * 0.1f;
-        StartCoroutine("Countdown");
+        if (!collided)
+        {
+            BulletGo();
+        }
+        else
+        {
+            StartCoroutine("AfterCollision");
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -43,9 +50,31 @@ public class PlasmaBullet : MonoBehaviour
                 collision.collider.GetComponent<Health>().TakeDamage(gtScript.damageValue);
             if (gtScriptVR)
                 collision.collider.GetComponent<Health>().TakeDamage(gtScriptVR.damageValue);
+            collided = true;
         }
-        Destroy(gameObject);
+    }
+
+    void BulletGo()
+    {
+        transform.position += transform.TransformDirection(Vector3.left) * 0.5f;
+        StartCoroutine("Countdown");
+    }
+
+    IEnumerator AfterCollision()
+    {
+        if (tag.Equals("GreenBullet"))
+        {
+            GameObject splash = Resources.Load(("Prefabs/GreenSplashEffect"), typeof(GameObject)) as GameObject;
+            Instantiate(splash, gameObject.transform);
+        }
+        else
+        {
+            GameObject splash = Resources.Load(("Prefabs/RedSplashEffect"), typeof(GameObject)) as GameObject;
+            Instantiate(splash, gameObject.transform);
+        }
+        yield return new WaitForSeconds(1f);
         Debug.Log("COLLISION");
+        Destroy(gameObject);
     }
 
     IEnumerator Countdown()
