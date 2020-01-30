@@ -31,7 +31,7 @@ public class PlasmaBullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = transform.position + transform.TransformDirection(Vector3.left);
+        transform.position += transform.TransformDirection(Vector3.left) * 0.1f;
         StartCoroutine("Countdown");
     }
 
