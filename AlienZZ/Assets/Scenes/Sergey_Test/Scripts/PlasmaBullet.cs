@@ -8,6 +8,8 @@ public class PlasmaBullet : MonoBehaviour
     GunTestVR gtScriptVR;
     Quaternion camRot;
     bool collided = false;
+    Transform collisionPos = null;
+    Vector3 posOffset = new Vector3(0, 0, -0.1f);
 
     private void Awake()
     {
@@ -44,35 +46,42 @@ public class PlasmaBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        collisionPos = transform;
         if (collision.collider.gameObject.layer.Equals("Alien"))
         {
             if (gtScript)
                 collision.collider.GetComponent<Health>().TakeDamage(gtScript.damageValue);
             if (gtScriptVR)
                 collision.collider.GetComponent<Health>().TakeDamage(gtScriptVR.damageValue);
-            collided = true;
         }
+        collided = true;
     }
 
     void BulletGo()
     {
-        transform.position += transform.TransformDirection(Vector3.left) * 0.5f;
+        transform.position += transform.TransformDirection(Vector3.left);
         StartCoroutine("Countdown");
     }
 
     IEnumerator AfterCollision()
     {
+        collided = false;
+        transform.position += transform.position * 0;
         if (tag.Equals("GreenBullet"))
         {
             GameObject splash = Resources.Load(("Prefabs/GreenSplashEffect"), typeof(GameObject)) as GameObject;
-            Instantiate(splash, gameObject.transform);
+            Instantiate(splash, collisionPos.position + posOffset, Quaternion.identity);
         }
         else
         {
             GameObject splash = Resources.Load(("Prefabs/RedSplashEffect"), typeof(GameObject)) as GameObject;
-            Instantiate(splash, gameObject.transform);
+            Instantiate(splash, collisionPos.position + posOffset, Quaternion.identity);
         }
-        yield return new WaitForSeconds(1f);
+        Destroy(gameObject.GetComponent<Rigidbody>());
+        Destroy(gameObject.GetComponent<BoxCollider>());
+        Destroy(gameObject.GetComponentInChildren<ParticleSystem>());
+        yield return new WaitForSeconds(0.15f);
+        collisionPos = null;
         Debug.Log("COLLISION");
         Destroy(gameObject);
     }
