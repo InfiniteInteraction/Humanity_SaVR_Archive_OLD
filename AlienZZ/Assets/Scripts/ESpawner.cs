@@ -6,7 +6,7 @@ public class ESpawner : MonoBehaviour
 {
     public GameObject EnemyG;
     public GameObject EnemyR;
-    public Transform spawner;
+    public Transform greenDes;
     public GameObject[] spawnpoints;
     public int killCount = 0;
     public int killCountMax = 20;
