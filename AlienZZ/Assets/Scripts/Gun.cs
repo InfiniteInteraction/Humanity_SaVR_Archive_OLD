@@ -19,8 +19,9 @@ public class Gun : MonoBehaviour
 
     void Start()
     {
+        currAmmo = maxAmmo;
         currTime = shootTime;
-        SwitchFireMode();
+        fullAutoMode = false;
         damageValue = 1;
     }
 
