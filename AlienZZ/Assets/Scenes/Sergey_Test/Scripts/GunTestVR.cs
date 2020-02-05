@@ -47,12 +47,13 @@ public class GunTestVR : MonoBehaviour
     void Start()
     {
         damageValue = 1;
-        red.SetActive(false);
+        green.SetActive(false);
         if (gameObject.name.Equals("PlasmaRifleVR"))
         {
+            damageValue = 5;
             foreach (GameObject detail in emissiveObjects)
             {
-                detail.GetComponent<Renderer>().material = Resources.Load(("Materials/PlasmaRifleBarrelEmissionGreen"), typeof(Material)) as Material;
+                detail.GetComponent<Renderer>().material = Resources.Load(("Materials/PlasmaRifleBarrelEmissionRed"), typeof(Material)) as Material;
             }
         }
     }
