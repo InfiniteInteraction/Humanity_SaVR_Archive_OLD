@@ -6,18 +6,23 @@ public class EnemyHealth : Health
 {
     GunTestVR gtScript;
     UI_Info uiScript;
+    public ScoreScript scoreS;
     private void Awake()
     {
         gtScript = FindObjectOfType<GunTestVR>();
         uiScript = FindObjectOfType<UI_Info>();
-        currHealth = 1f;
+        currHealth = 3;
+        scoreS = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>();
     }
 
-    private void Update()
+    public override void TakeDamage(float damageAmount)
     {
+        base.TakeDamage(damageAmount);
+
         if (currHealth <= 0)
         {
             uiScript.alienCount++;
+            scoreS.Multi();
             Destroy(gameObject);
         }
     }
@@ -35,4 +40,5 @@ public class EnemyHealth : Health
     //        currHealth -= gtScript.damageValue;
     //    }
     //}
+
 }

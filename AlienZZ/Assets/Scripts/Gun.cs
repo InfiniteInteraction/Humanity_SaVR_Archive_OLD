@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Gun : MonoBehaviour
 {
@@ -60,7 +61,7 @@ public class Gun : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            SwitchFireMode();
+            SceneManager.LoadScene(0);
         }
     }
 
