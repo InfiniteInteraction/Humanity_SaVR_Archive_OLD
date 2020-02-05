@@ -10,6 +10,7 @@ public class PlasmaBullet : MonoBehaviour
     bool collided = false;
     Transform collisionPos = null;
     Vector3 posOffset = new Vector3(0, 0, -0.1f);
+    GameObject splashObject = null;
 
     private void Awake()
     {
@@ -88,7 +89,20 @@ public class PlasmaBullet : MonoBehaviour
 
     IEnumerator Countdown()
     {
-        yield return new WaitForSeconds(5f);
+        collisionPos = transform;
+        yield return new WaitForSeconds(3f);
+        if (tag.Equals("GreenBullet"))
+        {
+            GameObject splash = Resources.Load(("Prefabs/GreenSplashEffect"), typeof(GameObject)) as GameObject;
+            Instantiate(splash, collisionPos.position + posOffset, Quaternion.identity);
+        }
+        else
+        {
+            GameObject splash = Resources.Load(("Prefabs/RedSplashEffect"), typeof(GameObject)) as GameObject;
+            Instantiate(splash, collisionPos.position + posOffset, Quaternion.identity);
+        }
+        collisionPos = null;
+        Debug.Log("TIMED OUT");
         Destroy(gameObject);
     }
 }

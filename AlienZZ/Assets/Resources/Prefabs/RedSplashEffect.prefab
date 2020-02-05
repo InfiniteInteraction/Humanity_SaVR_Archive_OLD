@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8967451533435616053}
   - component: {fileID: 8967451533435616058}
   - component: {fileID: 8967451533435616059}
+  - component: {fileID: 7223423234840052061}
   m_Layer: 0
   m_Name: RedSplashEffect
   m_TagString: Untagged
@@ -4811,3 +4812,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &7223423234840052061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8967451533435616056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 440d0c1b0ebf4ec4dba91e7ddb445175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
