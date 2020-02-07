@@ -17,7 +17,7 @@ public class StartMenuFunctionality : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
     public void OpenMenu(GameObject menu)
     {

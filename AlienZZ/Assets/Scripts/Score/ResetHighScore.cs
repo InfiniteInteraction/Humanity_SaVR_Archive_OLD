@@ -6,6 +6,7 @@ using UnityEditor;
 public class ResetHighScore
 {
   [MenuItem("HighScore/Reset Highscore")]
+
   public static void ResetHigh()
     {
         ScoreManager.ResetHighScore();

@@ -7,42 +7,37 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    public ScoreManager scoreManager;
     public int highscore;
     public ScoreScript sS;
     public Text hSText;
 
     private void Awake()
     {
-        if (scoreManager == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            scoreManager = this;
-        }
-        else if (scoreManager != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-       
-        
+
+        sS = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>();
+        hSText = GameObject.FindGameObjectWithTag("HS").GetComponent<Text>();
         highscore = PlayerPrefs.GetInt("highscore", highscore);
+       
     }
 
-    private void Update()
+    public void Update()
     {
-        hSText.text = "HighScore: " +  highscore;
+        hSText.text = "HighScore: " + highscore;
         if (sS.scoreValue > highscore)
         {
             highscore = sS.scoreValue;
             PlayerPrefs.SetInt("highscore", highscore);
-            
-        }
+
+        }      
+    }
+    public void SetHighScore()
+    {
     }
 
     public static void ResetHighScore()
     {
         PlayerPrefs.SetInt("highscore", 0);
+        
     }
     //    const float version = 1.1f;
     //    public static ScoreManager scoreManager;

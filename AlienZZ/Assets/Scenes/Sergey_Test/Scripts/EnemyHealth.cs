@@ -7,12 +7,14 @@ public class EnemyHealth : Health
     GunTestVR gtScript;
     UI_Info uiScript;
     public ScoreScript scoreS;
+    public ESpawner spawn;
     private void Awake()
     {
         gtScript = FindObjectOfType<GunTestVR>();
         uiScript = FindObjectOfType<UI_Info>();
         currHealth = 3;
         scoreS = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>();
+        spawn = GameObject.FindGameObjectWithTag("Spawner").GetComponent<ESpawner>();
     }
 
     public override void TakeDamage(float damageAmount)
@@ -23,6 +25,7 @@ public class EnemyHealth : Health
         {
             uiScript.alienCount++;
             scoreS.Multi();
+            spawn.SpawnEnemy();
             Destroy(gameObject);
         }
     }

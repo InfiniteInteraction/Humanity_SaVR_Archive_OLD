@@ -12,7 +12,7 @@ public class ScoreScript : MonoBehaviour
     public void Awake()
     {
         score = GetComponent<Text>();
-        
+        sM = GameObject.FindGameObjectWithTag("HS").GetComponent<ScoreManager>();
     }
     public void Update()
     {

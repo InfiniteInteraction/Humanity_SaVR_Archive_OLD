@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Damage : MonoBehaviour
 {
     public EnemyHealth[] gO;
-    
+    public ScoreScript points;
     private void Awake()
     {
         
@@ -16,8 +16,11 @@ public class Damage : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            gO = FindObjectsOfType<EnemyHealth>();
-            ScanForEnemy();
+            points.Multi();
+            Debug.Log("points");
+            
+            //gO = FindObjectsOfType<EnemyHealth>();
+            
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -26,14 +29,14 @@ public class Damage : MonoBehaviour
         
     }
 
-    public void ScanForEnemy()
-    {
-        foreach (EnemyHealth eH in gO)
-        {
-            eH.TakeDamage(5);
-            return;
-        }
-    }
+    //public void ScanForEnemy()
+    //{
+    //    foreach (EnemyHealth eH in gO)
+    //    {
+    //        eH.TakeDamage(5);
+    //        return;
+    //    }
+    //}
    
 
 }
