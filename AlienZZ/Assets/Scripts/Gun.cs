@@ -42,7 +42,7 @@ public class Gun : MonoBehaviour
         {
             if (Physics.Raycast(spawnPoint.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
             {
-                hit.collider.GetComponent<Health>().TakeDamage(damageValue);
+                hit.collider.GetComponent<Health>().TakeDamage(20);
                 Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 RegainAmmo();
                 Debug.Log("Did Hit");

@@ -5,44 +5,51 @@ using UnityEngine;
 public class ESpawner : MonoBehaviour
 {
     public GameObject EnemyG;
-    public GameObject EnemyR;
+    public GameObject enemyRed;
     public Transform greenDes;
     public GameObject[] spawnpoints;
-    public int killCount = 0;
+
+    public int killCount;
     public int killCountMax = 20;
+    public int eTimer = 5;
+    public float sTime;
 
     void Start()
     {
         killCount = 0;
 
-        //for (int i = 0; i > spawnpoints.Length; i++)
-        //{
+        Invoke("prefabEnemy", eTimer);
+    }
+    private void Update()
+    {
 
-        //}
     }
     public void SpawnEnemy()
     {
-
-        if (EnemyR == null)
+        Debug.LogError("Function Called");
+        if (enemyRed == null)
         {
             return;
         }
         else
         {
-            Instantiate(EnemyR, spawnpoints[Random.Range(0, spawnpoints.Length)].transform.position, Quaternion.identity);
+            Instantiate(enemyRed, spawnpoints[Random.Range(0, spawnpoints.Length)].transform.position, Quaternion.identity);
 
             killCount += 1;
-            //Debug.Log("Killcount: " + killCount);
         }
-        if(killCount == killCountMax)
+        if (killCount == killCountMax)
         {
             killCount = 0;
             Instantiate(EnemyG, spawnpoints[Random.Range(0, spawnpoints.Length)].transform.position, Quaternion.identity);
         }
     }
 
-    
+    public void prefabEnemy()
+    {
+        Instantiate(Resources.Load("Prefabs/Enemy_Red"), spawnpoints[Random.Range(0, spawnpoints.Length)].transform.position, Quaternion.identity);
+    }
 }
+
 
 
 
