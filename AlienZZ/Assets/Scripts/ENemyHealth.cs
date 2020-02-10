@@ -18,7 +18,7 @@ public class ENemyHealth : Health
         if (currHealth <= 0)
         {
             scoreS.Multi();
-            spawner.SpawnEnemy();
+            /*pawner.SpawnEnemy();*/
             Destroy(gameObject);
         }
         if (floatingTextPrefab)

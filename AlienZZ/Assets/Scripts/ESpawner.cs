@@ -4,49 +4,50 @@ using UnityEngine;
 
 public class ESpawner : MonoBehaviour
 {
-    public GameObject EnemyG;
-    public GameObject enemyRed;
-    public Transform greenDes;
-    public GameObject[] spawnpoints;
+    public int enemiesPerSpawner;
+    public int currentRound;
+    public List<Spawners> spawners = new List<Spawners>();
 
-    public int killCount;
-    public int killCountMax = 20;
-    public int eTimer = 5;
-    public float sTime;
 
-    void Start()
+    private int totalEnemiesPerRound;
+    private bool isRoundOver = true;
+
+    private void Start()
     {
-        killCount = 0;
-
-        Invoke("prefabEnemy", eTimer);
+       StartRound();
     }
-    private void Update()
-    {
 
-    }
-    public void SpawnEnemy()
+    private void StartRound()
     {
-        Debug.LogError("Function Called");
-        if (enemyRed == null)
+        if (isRoundOver)
         {
-            return;
-        }
-        else
-        {
-            Instantiate(enemyRed, spawnpoints[Random.Range(0, spawnpoints.Length)].transform.position, Quaternion.identity);
+                                         //* was  *currentround
+            enemiesPerSpawner = enemiesPerSpawner += 1;
+            totalEnemiesPerRound = enemiesPerSpawner * spawners.Count;
 
-            killCount += 1;
-        }
-        if (killCount == killCountMax)
-        {
-            killCount = 0;
-            Instantiate(EnemyG, spawnpoints[Random.Range(0, spawnpoints.Length)].transform.position, Quaternion.identity);
+            for (int i = 0; i < spawners.Count; i++)
+            {
+                spawners[i].Spawn(enemiesPerSpawner);
+            }
+
+            isRoundOver = false;
         }
     }
 
-    public void prefabEnemy()
+    public void RemoveEnemy()
     {
-        Instantiate(Resources.Load("Prefabs/Enemy_Red"), spawnpoints[Random.Range(0, spawnpoints.Length)].transform.position, Quaternion.identity);
+        totalEnemiesPerRound -= 1;
+        CheckCount();
+    }
+
+    private  void CheckCount()
+    {
+        if (totalEnemiesPerRound == 0)
+        {
+            isRoundOver = true;
+            currentRound += 1;
+            Invoke("StartRound", 5);
+        }
     }
 }
 

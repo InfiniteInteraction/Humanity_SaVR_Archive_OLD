@@ -25,7 +25,7 @@ public class EnemyHealth : Health
         {
             uiScript.alienCount++;
             scoreS.Multi();
-            spawn.SpawnEnemy();
+            //spawn.SpawnEnemy();
             Destroy(gameObject);
         }
     }
