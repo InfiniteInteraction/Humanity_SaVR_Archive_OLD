@@ -120,6 +120,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 023b2ec8289f55342a2dce32d405e15e, type: 2}
+--- !u!1 &42311771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42311773}
+  - component: {fileID: 42311772}
+  m_Layer: 0
+  m_Name: Score Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &42311772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42311771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7bc857ba6b5df64e82a223866855dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLvl: 0
+  currScore: 0
+  _highScores: 0000000001000000
+--- !u!4 &42311773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42311771}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.05, y: 4.06, z: -5.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &77854444
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +672,6 @@ GameObject:
   - component: {fileID: 266010199}
   - component: {fileID: 266010202}
   - component: {fileID: 266010201}
-  - component: {fileID: 266010200}
   m_Layer: 5
   m_Name: HsText
   m_TagString: HS
@@ -653,21 +698,6 @@ RectTransform:
   m_AnchoredPosition: {x: -80, y: -15}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &266010200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 266010198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7bc857ba6b5df64e82a223866855dee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highscore: 0
-  sS: {fileID: 0}
-  hSText: {fileID: 0}
 --- !u!114 &266010201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1044,8 +1074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c57c0b60e4de9842a0809d8920a476a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 0
-  sM: {fileID: 0}
+  scoreManager: {fileID: 42311772}
 --- !u!1 &575027564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,7 +2481,7 @@ GameObject:
   m_Layer: 0
   m_Name: BulletSpawn
   m_TagString: Untagged
-  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2464,7 +2493,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141502061}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5630002}
+  m_LocalPosition: {x: -0, y: 0, z: 0.764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 628063491}

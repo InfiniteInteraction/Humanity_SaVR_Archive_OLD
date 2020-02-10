@@ -14,12 +14,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_1_Test.unity
     guid: 4ef3f7d091548a24291e3b9c98be6815
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: ebcd6da585745c14b89e925ddeda8f52
   - enabled: 1
     path: Assets/Scenes/Programmer Test.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/OnslaughtScreen.unity
+    guid: 484c776d6c42ddc41988447af1849c2f
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: d2de0bbad21c1314c92458f9cdacb60f

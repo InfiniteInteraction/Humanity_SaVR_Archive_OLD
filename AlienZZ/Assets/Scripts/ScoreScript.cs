@@ -5,35 +5,35 @@ using UnityEngine.UI;
 
 public class ScoreScript : MonoBehaviour
 {
-    public int scoreValue = 0;
-    public ScoreManager sM;
+    public ScoreManager scoreManager;
+    
     Text score;
 
     public void Awake()
     {
         score = GetComponent<Text>();
-        sM = GameObject.FindGameObjectWithTag("HS").GetComponent<ScoreManager>();
+        
     }
     public void Update()
     {
-        score.text = "Score: " + scoreValue ;
+        score.text = "Score: " + scoreManager.currScore ;
        
     }
     public void Multi()
     {
-        if (scoreValue >= 600 && scoreValue <= 8000)
+        if ( scoreManager.currScore >= 600 && scoreManager.currScore <= 8000)
         {
-            scoreValue += 20;
+            scoreManager.currScore += 20;
             
         }
-        else if(scoreValue <= 599)
+        else if(scoreManager.currScore <= 599)
         {
-            scoreValue += 10;
+            scoreManager.currScore += 10;
             
         }
-        else if(scoreValue>= 8000)
+        else if(scoreManager.currScore >= 8000)
         {
-            scoreValue += 500;
+            scoreManager.currScore += 500;
            
         }
        
