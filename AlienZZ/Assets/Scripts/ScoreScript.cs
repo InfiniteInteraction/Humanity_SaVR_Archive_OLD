@@ -23,12 +23,12 @@ public class ScoreScript : MonoBehaviour
     {
         if ( scoreManager.currScore >= 600 && scoreManager.currScore <= 8000)
         {
-            scoreManager.currScore += 20;
+            scoreManager.currScore += 200;
             
         }
         else if(scoreManager.currScore <= 599)
         {
-            scoreManager.currScore += 10;
+            scoreManager.currScore += 100;
             
         }
         else if(scoreManager.currScore >= 8000)
