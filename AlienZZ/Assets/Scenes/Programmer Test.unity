@@ -1135,6 +1135,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8288587923413601841, guid: 206d13ea2ce7a544399dfb02575a0676,
     type: 3}
+  enemyGreenPrefab: {fileID: 0}
+  killCount: 0
+  killCountMax: 20
+  spawnPoints: []
   roundManager: {fileID: 662893835}
 --- !u!4 &575027566
 Transform:
@@ -1744,6 +1748,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8288587923413601841, guid: 206d13ea2ce7a544399dfb02575a0676,
     type: 3}
+  enemyGreenPrefab: {fileID: 7338002616494147980, guid: 5fcba750deaf6f9429bf4e5f06c684bc,
+    type: 3}
+  killCount: 0
+  killCountMax: 20
+  spawnPoints: []
   roundManager: {fileID: 662893835}
 --- !u!4 &814153178
 Transform:
@@ -1790,6 +1799,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8288587923413601841, guid: 206d13ea2ce7a544399dfb02575a0676,
     type: 3}
+  enemyGreenPrefab: {fileID: 0}
+  killCount: 0
+  killCountMax: 20
+  spawnPoints: []
   roundManager: {fileID: 662893835}
 --- !u!4 &841008509
 Transform:
@@ -2584,6 +2597,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8288587923413601841, guid: 206d13ea2ce7a544399dfb02575a0676,
     type: 3}
+  enemyGreenPrefab: {fileID: 7338002616494147980, guid: 5fcba750deaf6f9429bf4e5f06c684bc,
+    type: 3}
+  killCount: 0
+  killCountMax: 20
+  spawnPoints:
+  - {fileID: 2141290195}
+  - {fileID: 814153176}
+  - {fileID: 575027564}
+  - {fileID: 841008507}
   roundManager: {fileID: 662893835}
 --- !u!1 &2141502061
 GameObject:

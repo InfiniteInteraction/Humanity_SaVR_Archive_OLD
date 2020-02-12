@@ -27,11 +27,11 @@ public class Gun : MonoBehaviour
     }
 
     void Update()
-    {
+    {        
         RaycastHit hit;
         if(currTime >= shootTime)
         {
-            canShoot = true;
+            canShoot = true;            
         }
         else
         {

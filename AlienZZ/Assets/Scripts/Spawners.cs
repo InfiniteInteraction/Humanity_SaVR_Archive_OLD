@@ -6,6 +6,12 @@ public class Spawners : MonoBehaviour
 {
     private int totalToSpawn;
     public GameObject enemyPrefab;
+    public GameObject enemyGreenPrefab;
+
+    public int killCount;
+    public int killCountMax = 20;
+    public GameObject[] spawnPoints;
+
     public ESpawner roundManager;
 
     public void Spawn(int _totalToSpawn)
@@ -34,5 +40,13 @@ public class Spawners : MonoBehaviour
     {
         CancelInvoke();
     }
-  
+
+    public void SpawnGreen()
+    {
+        if (killCount == killCountMax)
+        {
+            Instantiate(enemyGreenPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity);
+            killCount = 0;
+        }
+    } 
 }
