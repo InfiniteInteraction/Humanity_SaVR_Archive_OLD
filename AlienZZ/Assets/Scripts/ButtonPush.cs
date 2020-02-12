@@ -12,11 +12,17 @@ public class ButtonPush : MonoBehaviour
     }
 
     // Update is called once per frame
-    void OnTriggerEnter()
+    
+    private void OnTriggerEnter(Collider other)
     {
-        if(gameObject.tag == "RedBullet")
+        
+        if((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.name.Equals("PlayButton"))
         {
             sMU.NewGame();
+        }
+        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.name.Equals("CreditsButton"))
+        {
+            sMU.Credits();
         }
     }
 }

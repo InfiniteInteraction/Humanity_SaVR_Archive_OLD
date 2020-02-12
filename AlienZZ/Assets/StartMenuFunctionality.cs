@@ -4,8 +4,14 @@ using UnityEngine.UI;
 
 public class StartMenuFunctionality : MonoBehaviour
 {
- 
 
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "RedBullet")
+        {
+            NewGame();
+        }
+    }
 
     public void NewGame()
     {
