@@ -16,4 +16,10 @@ public class HighScoreRead : MonoBehaviour
         highScoreRead.text = "HighScore: " + sM._highScores[3].ToString();
         highScoreRead2.text = "HighScore: " + sM._highScores[4].ToString();
     }
+    private void Update()
+    {
+        highScoreRead3.text = "HighScore: " + sM._highScores[2].ToString();
+        highScoreRead.text = "HighScore: " + sM._highScores[3].ToString();
+        highScoreRead2.text = "HighScore: " + sM._highScores[4].ToString();
+    }
 }

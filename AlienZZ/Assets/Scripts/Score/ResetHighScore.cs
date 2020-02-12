@@ -11,6 +11,6 @@ public class ResetHighScore : MonoBehaviour
         sM.ResetAllHighScores();
         sM.Save();
     }
-
+   
 
 }
