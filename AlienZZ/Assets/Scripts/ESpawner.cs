@@ -6,30 +6,78 @@ public class ESpawner : MonoBehaviour
 {
     public int enemiesPerSpawner;
     public int currentRound;
-    public List<Spawners> spawners = new List<Spawners>();
+    public GameObject[] spawners;
 
 
     private int totalEnemiesPerRound;
     private bool isRoundOver = true;
 
-    private void Start()
+    //Spawners area 
+    private int totalToSpawn;
+    public GameObject enemyPrefab;
+    public GameObject enemyGreenPrefab;
+
+    public int killCount;
+    public int killCountMax = 20;
+    //Spawners Area
+
+    void Start()
     {
-       StartRound();
+        InvokeRepeating("DoSpawn", 0.5f, 1.5f);
     }
 
-    private void StartRound()
+    //Spawners Area Begin//
+
+    public void Spawn(int _totalToSpawn)
+    {
+        totalToSpawn = +_totalToSpawn;
+
+
+    }
+
+    public void DoSpawn()
+    { 
+        Instantiate(enemyPrefab, spawners[Random.Range(0, spawners.Length)].transform.position, Quaternion.identity);
+        totalToSpawn -= 1;
+        SpawnCount();
+    }
+
+    public void SpawnCount()
+    {
+        if (totalToSpawn == 0)
+        {
+            StopSpawn();
+        }
+    }
+
+    public void StopSpawn()
+    {
+        CancelInvoke();
+    }
+
+    public void SpawnGreen()
+    {
+        if (killCount == killCountMax)
+        {
+            Instantiate(enemyGreenPrefab, spawners[Random.Range(0, spawners.Length)].transform.position, Quaternion.identity);
+            killCount = 0;
+        }
+    }
+
+    //Spawners Area End//
+
+    public void StartRound()
     {
         if (isRoundOver)
         {
-                                         //* was  *currentround
+                                        //* was  *currentround
             enemiesPerSpawner = enemiesPerSpawner += 1;
-            totalEnemiesPerRound = enemiesPerSpawner * spawners.Count;
+            totalEnemiesPerRound = enemiesPerSpawner * spawners.Length;
 
-            for (int i = 0; i < spawners.Count; i++)
+            for (int i = 0; i < spawners.Length; i++)
             {
-                spawners[i].Spawn(enemiesPerSpawner);
+                Instantiate(enemyPrefab, spawners[Random.Range(0,spawners.Length)].transform.position, Quaternion.identity);
             }
-
             isRoundOver = false;
         }
     }
@@ -40,7 +88,7 @@ public class ESpawner : MonoBehaviour
         CheckCount();
     }
 
-    private  void CheckCount()
+    public  void CheckCount()
     {
         if (totalEnemiesPerRound == 0)
         {

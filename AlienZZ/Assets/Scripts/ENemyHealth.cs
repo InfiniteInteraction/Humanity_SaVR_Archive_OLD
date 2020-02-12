@@ -2,14 +2,19 @@
 
 public class ENemyHealth : Health
 {
+    UI_Info uiScript;
+
     public GameObject floatingTextPrefab;
     public ESpawner spawner;
     public ScoreScript scoreS;
+    public ESpawner eSpawner;
     private void Awake()
     {
         currHealth = 3;
         spawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<ESpawner>();
         scoreS = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>();
+        eSpawner = FindObjectOfType<ESpawner>();
+        uiScript = FindObjectOfType<UI_Info>();
     }
 
     public override void TakeDamage(float damageAmount)
@@ -17,8 +22,11 @@ public class ENemyHealth : Health
         base.TakeDamage(damageAmount);
         if (currHealth <= 0)
         {
+            //uiScript.alienCount++;
             scoreS.Multi();
-            /*pawner.SpawnEnemy();*/
+            eSpawner.killCount++;
+            eSpawner.RemoveEnemy();
+            eSpawner.SpawnGreen();     
             Destroy(gameObject);
         }
         if (floatingTextPrefab)
