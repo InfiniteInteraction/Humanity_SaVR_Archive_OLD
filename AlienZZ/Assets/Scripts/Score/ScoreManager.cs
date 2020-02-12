@@ -57,8 +57,8 @@ public class ScoreManager : MonoBehaviour
         currLvl = SceneManager.GetActiveScene().buildIndex;
         InitializeHighScores();
         Load();
-        hsText.text ="HighScore: "  +_highScores[currLvl].ToString();
         SceneManager.sceneLoaded += OnSceneLoaded;
+        hsText.text ="HighScore: "  + _highScores[currLvl].ToString();
         
     }
 

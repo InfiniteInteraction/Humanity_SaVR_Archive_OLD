@@ -59,10 +59,7 @@ public class Gun : MonoBehaviour
         {
             Debug.Log("Out of Ammo");
         }
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            SceneManager.LoadScene(0);
-        }
+        
     }
 
     void ReduceAmmo()

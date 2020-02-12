@@ -36,10 +36,20 @@ public class NextLevel : MonoBehaviour
        }
     public void Next()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(2);
     }
-   public void Quit()
+    public void Level2()
     {
-        Application.Quit();
+        SceneManager.LoadScene(3);
+    }
+    public void Level3()
+    {
+        SceneManager.LoadScene(4);
+    }
+    public void Quit()
+    {
+        Time.timeScale = 1f;
+        gamePaused = false;
+        SceneManager.LoadScene(0);
     }
 }

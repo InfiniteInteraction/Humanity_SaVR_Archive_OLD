@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class ResetHighScore
+public class ResetHighScore : MonoBehaviour
 {
-  //[MenuItem("HighScore/Reset Highscore")]
+    public ScoreManager sM;
+    public void ResetScores()
+    {
+        sM.ResetAllHighScores();
+        sM.Save();
+    }
 
-  //public static void ResetHigh()
-  //  {
-  //      ScoreManager.ResetHighScore();
-  //  }
+
 }
