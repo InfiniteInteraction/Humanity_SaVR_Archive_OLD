@@ -10,38 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class ScoreManager : MonoBehaviour
 {
-    //public int highscore;
-    //public ScoreScript sS;
-    //public Text hSText;
 
-    //private void Awake()
-    //{
-
-    //    sS = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>();
-    //    hSText = GameObject.FindGameObjectWithTag("HS").GetComponent<Text>();
-    //    highscore = PlayerPrefs.GetInt("highscore", highscore);
-
-    //}
-
-    //public void Update()
-    //{
-    //    hSText.text = "HighScore: " + highscore;
-    //    if (sS.scoreValue > highscore)
-    //    {
-    //        highscore = sS.scoreValue;
-    //        PlayerPrefs.SetInt("highscore", highscore);
-
-    //    }      
-    //}
-    //public void SetHighScore()
-    //{
-    //}
-
-    //public static void ResetHighScore()
-    //{
-    //    PlayerPrefs.SetInt("highscore", 0);
-
-    //}
     const float version = 1.1f;
     public ScoreManager scoreManager;
     public static PlayerScore data = new PlayerScore(version);
