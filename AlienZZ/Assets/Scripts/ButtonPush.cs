@@ -16,13 +16,30 @@ public class ButtonPush : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.name.Equals("PlayButton"))
+        if((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag ==("PlayButton"))
         {
             sMU.NewGame();
         }
-        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.name.Equals("CreditsButton"))
+        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag ==("CreditsButton"))
         {
             sMU.Credits();
+        }
+        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("QuitButton"))
+        {
+            sMU.ExitGame();
+        }
+
+        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelOne"))
+        {
+            sMU.LevelOne();
+        }
+        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelTwo"))
+        {
+            sMU.LevelTwo();
+        }
+        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelThree"))
+        {
+            sMU.LevelThree();
         }
     }
 }

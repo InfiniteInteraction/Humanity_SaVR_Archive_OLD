@@ -12,6 +12,12 @@ TagManager:
   - Score
   - PPoint
   - HS
+  - PlayButton
+  - CreditsButton
+  - QuitButton
+  - LevelOne
+  - LevelTwo
+  - LevelThree
   layers:
   - Default
   - TransparentFX

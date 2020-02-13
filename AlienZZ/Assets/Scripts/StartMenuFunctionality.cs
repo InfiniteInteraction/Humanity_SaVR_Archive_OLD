@@ -5,12 +5,17 @@ using UnityEngine.UI;
 public class StartMenuFunctionality : MonoBehaviour
 {
 
-    public void OnTriggerEnter(Collider other)
+   public void LevelOne()
     {
-        if(other.tag == "RedBullet")
-        {
-            NewGame();
-        }
+        SceneManager.LoadScene(2);
+    }
+    public void LevelTwo()
+    {
+        SceneManager.LoadScene(3);
+    }
+    public void LevelThree()
+    {
+        SceneManager.LoadScene(4);
     }
 
     public void NewGame()
