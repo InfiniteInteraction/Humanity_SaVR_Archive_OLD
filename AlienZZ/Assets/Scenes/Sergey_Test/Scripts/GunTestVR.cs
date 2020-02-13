@@ -56,6 +56,10 @@ public class GunTestVR : MonoBehaviour
                 detail.GetComponent<Renderer>().material = Resources.Load(("Materials/PlasmaRifleBarrelEmissionRed"), typeof(Material)) as Material;
             }
         }
+        if (gameObject.name.Equals("RailGun_Chris"))
+        {
+            GetComponent<Renderer>().material = Resources.Load(("Materials/RailGunChris_MatR"), typeof(Material)) as Material;
+        }
     }
 
     void Update()
@@ -159,6 +163,10 @@ public class GunTestVR : MonoBehaviour
                     detail.GetComponent<Renderer>().material = Resources.Load(("Materials/PlasmaRifleBarrelEmissionGreen"), typeof(Material)) as Material;
                 }
             }
+            if (gameObject.name.Equals("RailGun_Chris"))
+            {
+                GetComponent<Renderer>().material = Resources.Load(("Materials/RailGunChris_MatG"), typeof(Material)) as Material;
+            }
         }
         else
         {
@@ -170,6 +178,10 @@ public class GunTestVR : MonoBehaviour
                 {
                     detail.GetComponent<Renderer>().material = Resources.Load(("Materials/PlasmaRifleBarrelEmissionRed"), typeof(Material)) as Material;
                 }
+            }
+            if (gameObject.name.Equals("RailGun_Chris"))
+            {
+                GetComponent<Renderer>().material = Resources.Load(("Materials/RailGunChris_MatR"), typeof(Material)) as Material;
             }
         }
     }
