@@ -10,7 +10,7 @@ public class ESpawner : MonoBehaviour
 
 
     public int totalEnemiesPerRound;
-    private bool isRoundOver = true;
+    private bool isRoundOver;
 
     //Spawners area 
     public int totalToSpawn = 20;
@@ -24,6 +24,7 @@ public class ESpawner : MonoBehaviour
     void Start()
     {
         InvokeRepeating("DoSpawn", 0.5f, 1.5f);
+        
     }
 
     //Spawners Area Begin//
@@ -44,13 +45,8 @@ public class ESpawner : MonoBehaviour
     {
         if (totalToSpawn == 0)
         {
-            StopSpawn();
+            CancelInvoke();
         }
-    }
-
-    public void StopSpawn()
-    {
-        CancelInvoke();
     }
 
     public void SpawnGreen()
@@ -67,19 +63,15 @@ public class ESpawner : MonoBehaviour
     public void StartRound()
     {
         if (isRoundOver)
-        {
-                                         //* was  *currentround
-            enemiesPerSpawner = enemiesPerSpawner + 1;
+        {                    
             totalEnemiesPerRound = enemiesPerSpawner * spawners.Length;
 
-            for (int i = 0; i < spawners.Length; i++)
-            {
-                Instantiate(enemyPrefab, spawners[Random.Range(0,spawners.Length)].transform.position, Quaternion.identity);
-            }
+            Instantiate(enemyPrefab, spawners[Random.Range(0, spawners.Length)].transform.position, Quaternion.identity);
+
             isRoundOver = false;
         }
     }
-
+    
     public void RemoveEnemy()
     {
         totalEnemiesPerRound -= 1;
@@ -92,7 +84,6 @@ public class ESpawner : MonoBehaviour
         {
             isRoundOver = true;
             currentRound += 1;
-            Invoke("StartRound", 5);
         }
     }
 }
