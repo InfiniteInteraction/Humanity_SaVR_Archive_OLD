@@ -9,11 +9,11 @@ public class ESpawner : MonoBehaviour
     public GameObject[] spawners;
 
 
-    private int totalEnemiesPerRound;
+    public int totalEnemiesPerRound;
     private bool isRoundOver = true;
 
     //Spawners area 
-    private int totalToSpawn;
+    public int totalToSpawn = 20;
     public GameObject enemyPrefab;
     public GameObject enemyGreenPrefab;
 
@@ -30,15 +30,13 @@ public class ESpawner : MonoBehaviour
 
     public void Spawn(int _totalToSpawn)
     {
-        totalToSpawn = +_totalToSpawn;
-
-
+        totalToSpawn = _totalToSpawn;
     }
 
     public void DoSpawn()
     { 
         Instantiate(enemyPrefab, spawners[Random.Range(0, spawners.Length)].transform.position, Quaternion.identity);
-        totalToSpawn -= 1;
+        
         SpawnCount();
     }
 
@@ -70,8 +68,8 @@ public class ESpawner : MonoBehaviour
     {
         if (isRoundOver)
         {
-                                        //* was  *currentround
-            enemiesPerSpawner = enemiesPerSpawner += 1;
+                                         //* was  *currentround
+            enemiesPerSpawner = enemiesPerSpawner + 1;
             totalEnemiesPerRound = enemiesPerSpawner * spawners.Length;
 
             for (int i = 0; i < spawners.Length; i++)
@@ -90,7 +88,7 @@ public class ESpawner : MonoBehaviour
 
     public  void CheckCount()
     {
-        if (totalEnemiesPerRound == 0)
+        if (totalEnemiesPerRound <= 0)
         {
             isRoundOver = true;
             currentRound += 1;

@@ -24,7 +24,8 @@ public class ENemyHealth : Health
         {
             //uiScript.alienCount++;
             scoreS.Multi();
-            eSpawner.killCount++;
+            eSpawner.killCount++; 
+            eSpawner.totalToSpawn -= 1;
             eSpawner.RemoveEnemy();
             eSpawner.SpawnGreen();     
             Destroy(gameObject);
