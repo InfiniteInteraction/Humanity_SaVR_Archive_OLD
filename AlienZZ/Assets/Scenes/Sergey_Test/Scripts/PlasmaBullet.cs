@@ -77,6 +77,7 @@ public class PlasmaBullet : MonoBehaviour
         {
             GameObject splash = Resources.Load(("Prefabs/RedSplashEffect"), typeof(GameObject)) as GameObject;
             Instantiate(splash, collisionPos.position + posOffset, Quaternion.identity);
+            
         }
         Destroy(gameObject.GetComponent<Rigidbody>());
         Destroy(gameObject.GetComponent<BoxCollider>());

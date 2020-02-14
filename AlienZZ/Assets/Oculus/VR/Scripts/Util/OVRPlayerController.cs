@@ -21,7 +21,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class OVRPlayerController : MonoBehaviour
 {
-	/// <summary>
+    	/// <summary>
 	/// The rate acceleration during movement.
 	/// </summary>
 	public float Acceleration = 0.1f;
@@ -150,6 +150,8 @@ public class OVRPlayerController : MonoBehaviour
 	private float buttonRotation = 0f;
 	private bool ReadyToSnapTurn; // Set to true when a snap turn has occurred, code requires one frame of centered thumbstick to enable another snap turn.
 	private bool playerControllerEnabled = false;
+    
+    
 
 	void Start()
 	{
@@ -198,7 +200,7 @@ public class OVRPlayerController : MonoBehaviour
 		}
 	}
 
-	void Update()
+	 public void Update()
 	{
 		if (!playerControllerEnabled)
 		{
@@ -221,6 +223,10 @@ public class OVRPlayerController : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.E))
 			buttonRotation += RotationRatchet;
+        if (OVRInput.GetDown(OVRInput.Button.Start))
+        {
+            
+        }
 	}
 
 	protected virtual void UpdateController()

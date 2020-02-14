@@ -18,6 +18,7 @@ TagManager:
   - LevelOne
   - LevelTwo
   - LevelThree
+  - ResetButton
   layers:
   - Default
   - TransparentFX

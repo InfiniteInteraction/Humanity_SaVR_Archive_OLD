@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UI_Info : MonoBehaviour
 {
     GunTest gtScript;
     GunTestVR gtScriptVR;
     string text, fireMode;
-    Text myText;
+    TextMeshProUGUI myText;
     public int ammo, alienCount;
     float deltaTime = 0f;
 
@@ -24,7 +25,7 @@ public class UI_Info : MonoBehaviour
             gtScriptVR = FindObjectOfType<GunTestVR>();
             gtScript = null;
         }
-        myText = GetComponent<Text>();
+        myText = GetComponent<TextMeshProUGUI>();
         fireMode = " ";
         alienCount = 0;
     }

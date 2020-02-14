@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System.IO;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
+using TMPro;
 
 
 public class ScoreManager : MonoBehaviour
@@ -16,7 +17,7 @@ public class ScoreManager : MonoBehaviour
     public static PlayerScore data = new PlayerScore(version);
     public int currLvl; //The index for the current level thwe player is on 
     public int currScore; // The current score that is displayed to the player
-    public Text hsText;
+    public TextMeshProUGUI hsText;
     public int[] _highScores;
     private int sceneCount = 0;
 

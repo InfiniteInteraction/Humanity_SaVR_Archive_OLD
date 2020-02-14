@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : Health
 {
     GunTestVR gtScript;
-    UI_Info uiScript;
+   public UI_Info uiScript;
     public ScoreScript scoreS;
     public ESpawner eSpawner;
     private float timerValue = 1.5f;
