@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonPush : MonoBehaviour
 {
     public StartMenuFunctionality sMU;
+    public GameObject panel;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,5 +43,15 @@ public class ButtonPush : MonoBehaviour
         {
             sMU.LevelThree();
         }
+        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("ResumeButton"))
+        {
+            panel.SetActive(false);
+            
+        }
+        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("PauseQuitButton"))
+        {
+            SceneManager.LoadScene(0); ;
+        }
+
     }
 }
