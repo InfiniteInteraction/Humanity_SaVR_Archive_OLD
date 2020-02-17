@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class ESpawner : MonoBehaviour
 {
-    public int enemiesPerSpawner;
+    
     public int currentRound;
     public GameObject[] spawners;
-
-
-    public int totalEnemiesPerRound;
+    
     private bool isRoundOver;
 
     //Spawners area 
-    public int totalToSpawn = 20;
+    public int totalToSpawn = 40;
     public GameObject enemyPrefab;
     public GameObject enemyGreenPrefab;
 
@@ -24,7 +22,7 @@ public class ESpawner : MonoBehaviour
     void Start()
     {
         InvokeRepeating("DoSpawn", 0.5f, 1.5f);
-        
+        totalToSpawn = 40;       
     }
 
     //Spawners Area Begin//
@@ -64,8 +62,6 @@ public class ESpawner : MonoBehaviour
     {
         if (isRoundOver)
         {                    
-            totalEnemiesPerRound = enemiesPerSpawner * spawners.Length;
-
             Instantiate(enemyPrefab, spawners[Random.Range(0, spawners.Length)].transform.position, Quaternion.identity);
 
             isRoundOver = false;
@@ -74,13 +70,12 @@ public class ESpawner : MonoBehaviour
     
     public void RemoveEnemy()
     {
-        totalEnemiesPerRound -= 1;
         CheckCount();
     }
 
     public  void CheckCount()
     {
-        if (totalEnemiesPerRound <= 0)
+        if (totalToSpawn <= 0)
         {
             isRoundOver = true;
             currentRound += 1;

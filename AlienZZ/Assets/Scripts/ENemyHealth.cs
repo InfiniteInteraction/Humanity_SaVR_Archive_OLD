@@ -3,7 +3,7 @@
 public class ENemyHealth : Health
 {
     UI_Info uiScript;
-
+    public float increment;
     public GameObject floatingTextPrefab;
     public ESpawner spawner;
     public ScoreScript scoreS;
@@ -15,6 +15,8 @@ public class ENemyHealth : Health
         scoreS = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>();
         eSpawner = FindObjectOfType<ESpawner>();
         uiScript = FindObjectOfType<UI_Info>();
+
+        increment = 0;
     }
 
     public override void TakeDamage(float damageAmount)
@@ -23,6 +25,7 @@ public class ENemyHealth : Health
         if (currHealth <= 0)
         {
             //uiScript.alienCount++;
+            increment++;
             scoreS.Multi();
             eSpawner.killCount++; 
             eSpawner.totalToSpawn -= 1;
@@ -40,5 +43,10 @@ public class ENemyHealth : Health
     {
         var go = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform);
         go.GetComponent<TextMesh>().text = damageTaken.ToString();
+    }
+
+    private void Update()
+    {
+        increment += 1 * Time.deltaTime;
     }
 }

@@ -152,7 +152,7 @@ MonoBehaviour:
   scoreManager: {fileID: 42311772}
   currLvl: 0
   currScore: 0
-  hsText: {fileID: 266010201}
+  hsText: {fileID: 0}
   _highScores: 0000000000000000
 --- !u!4 &42311773
 Transform:
@@ -1198,15 +1198,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dca474693ffcee4bacc392a8d28eb1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesPerSpawner: 0
   currentRound: 1
   spawners:
   - {fileID: 2141290195}
   - {fileID: 814153176}
   - {fileID: 575027564}
   - {fileID: 841008507}
-  totalEnemiesPerRound: 10
-  totalToSpawn: 50
+  totalToSpawn: 0
   enemyPrefab: {fileID: 8288587923413601841, guid: 206d13ea2ce7a544399dfb02575a0676,
     type: 3}
   enemyGreenPrefab: {fileID: 7338002616494147980, guid: 5fcba750deaf6f9429bf4e5f06c684bc,
