@@ -5,37 +5,39 @@ using UnityEngine.SceneManagement;
 
 public class Damage : MonoBehaviour
 {
-    public EnemyHealth[] gO;
+    public int playerHealth;
     public ScoreScript points;
     private void Awake()
     {
         
-        gO = FindObjectsOfType<EnemyHealth>();
     }
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))
         {           
-            Debug.Log("points");
-            
-            //gO = FindObjectsOfType<EnemyHealth>();
-            
+            Debug.Log("points");            
         }
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             SceneManager.LoadScene(1);
-        }
-        
+        }        
     }
 
-    //public void ScanForEnemy()
-    //{
-    //    foreach (EnemyHealth eH in gO)
-    //    {
-    //        eH.TakeDamage(5);
-    //        return;
-    //    }
-    //}
-   
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "RedEnemy")
+        {
+            playerHealth -= 1;
+            PlayerDeath();
+        }
+    }
 
+    void PlayerDeath()
+    {
+        if (playerHealth <= 0)
+        {
+            SceneManager.LoadScene(2);
+        }
+    }
 }

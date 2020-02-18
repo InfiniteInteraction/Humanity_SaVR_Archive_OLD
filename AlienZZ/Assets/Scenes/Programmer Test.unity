@@ -1781,6 +1781,7 @@ GameObject:
   - component: {fileID: 1809313535}
   - component: {fileID: 1809313534}
   - component: {fileID: 1809313540}
+  - component: {fileID: 1809313541}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1906,8 +1907,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63610ec476def4d4d88345ff68a6094a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gO: []
+  playerHealth: 3
   points: {fileID: 463588837}
+--- !u!135 &1809313541
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809313533}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 7.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1895435712
 GameObject:
   m_ObjectHideFlags: 0
