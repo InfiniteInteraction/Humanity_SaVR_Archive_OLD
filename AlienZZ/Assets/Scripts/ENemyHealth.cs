@@ -2,12 +2,14 @@
 
 public class ENemyHealth : Health
 {
+    GunTestVR gtScript;
     UI_Info uiScript;
-    public float increment;
+    public float pointTimer;
     public GameObject floatingTextPrefab;
     public ESpawner spawner;
     public ScoreScript scoreS;
     public ESpawner eSpawner;
+    public int points;
     private void Awake()
     {
         currHealth = 3;
@@ -16,7 +18,7 @@ public class ENemyHealth : Health
         eSpawner = FindObjectOfType<ESpawner>();
         uiScript = FindObjectOfType<UI_Info>();
 
-        increment = 0;
+        pointTimer = 0;
     }
 
     public override void TakeDamage(float damageAmount)
@@ -25,12 +27,12 @@ public class ENemyHealth : Health
         if (currHealth <= 0)
         {
             //uiScript.alienCount++;
-            increment++;
-            scoreS.Multi();
-            eSpawner.killCount++; 
+            pointTimer++;
+            eSpawner.killCount++;
             eSpawner.totalToSpawn -= 1;
             eSpawner.RemoveEnemy();
-            eSpawner.SpawnGreen();     
+            eSpawner.SpawnGreen();
+            CallMulti();
             Destroy(gameObject);
         }
         if (floatingTextPrefab)
@@ -47,6 +49,34 @@ public class ENemyHealth : Health
 
     private void Update()
     {
-        increment += 1 * Time.deltaTime;
+        pointTimer += 1 * Time.deltaTime;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("RedBullet") || collision.collider.tag == "GreenBullet")
+
+            TakeDamage(gtScript.damageValue);
+    }
+
+    void CallMulti()
+    {
+        if (pointTimer <= 4)
+        {
+            points = 10;
+            scoreS.Multi(points);
+        }
+
+        if (pointTimer >= 5 && pointTimer <= 9) ;
+        {
+            points = 10;
+            scoreS.Multi(points);
+        }
+
+        if (pointTimer >= 10 )
+        {
+            points = 10;
+            scoreS.Multi(points);
+        }
     }
 }

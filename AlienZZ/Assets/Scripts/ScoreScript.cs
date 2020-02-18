@@ -20,23 +20,9 @@ public class ScoreScript : MonoBehaviour
         score.text = "Score: " + scoreManager.currScore ;
        
     }
-    public void Multi()
+    public void Multi(int points)
     {
-        if ( scoreManager.currScore >= 600 && scoreManager.currScore <= 8000)
-        {
-            scoreManager.currScore += 200;
-            
-        }
-        else if(scoreManager.currScore <= 599)
-        {
-            scoreManager.currScore += 100;
-            
-        }
-        else if(scoreManager.currScore >= 8000)
-        {
-            scoreManager.currScore += 500;
-           
-        }
+        scoreManager.currScore += points;
        
     }
 }

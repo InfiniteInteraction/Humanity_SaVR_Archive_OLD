@@ -15,8 +15,7 @@ public class Damage : MonoBehaviour
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))
-        {
-            points.Multi();
+        {           
             Debug.Log("points");
             
             //gO = FindObjectsOfType<EnemyHealth>();

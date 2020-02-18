@@ -26,8 +26,7 @@ public class EnemyHealth : Health
 
         if (currHealth <= 0)
         {
-            uiScript.alienCount++;
-            scoreS.Multi();            
+            uiScript.alienCount++;            
             eSpawner.killCount++;
             eSpawner.RemoveEnemy();
             eSpawner.killCount++;
