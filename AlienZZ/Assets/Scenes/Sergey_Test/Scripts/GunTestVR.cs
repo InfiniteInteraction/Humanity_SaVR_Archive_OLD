@@ -58,6 +58,7 @@ public class GunTestVR : MonoBehaviour
         }
         if (gameObject.name.Equals("RailGun_Chris"))
         {
+            damageValue = 3;
             GetComponent<Renderer>().material = Resources.Load(("Materials/RailGunChris_MatR"), typeof(Material)) as Material;
         }
     }

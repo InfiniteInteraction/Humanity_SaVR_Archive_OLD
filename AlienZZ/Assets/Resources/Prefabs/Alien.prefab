@@ -113,8 +113,9 @@ MonoBehaviour:
   currHealth: 0
   damageTaken: 0
   healingRecieved: 0
+  uiScript: {fileID: 0}
   scoreS: {fileID: 0}
-  spawn: {fileID: 0}
+  eSpawner: {fileID: 0}
 --- !u!114 &1220159792948675961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +123,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241570821086460538}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 106a7afeb5e20014586a43438fb1165b, type: 3}
   m_Name: 

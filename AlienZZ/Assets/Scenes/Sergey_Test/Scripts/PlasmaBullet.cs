@@ -11,9 +11,11 @@ public class PlasmaBullet : MonoBehaviour
     Transform collisionPos = null;
     Vector3 posOffset = new Vector3(0, 0, -0.1f);
     GameObject splashObject = null;
+    Rigidbody rb;
 
     private void Awake()
     {
+        rb = GetComponent<Rigidbody>();
         if (FindObjectOfType<GunTest>())
         {
             gtScript = FindObjectOfType<GunTest>();
@@ -47,6 +49,7 @@ public class PlasmaBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        collided = true;
         collisionPos = transform;
         if (collision.collider.gameObject.layer.Equals("Alien"))
         {
@@ -55,13 +58,16 @@ public class PlasmaBullet : MonoBehaviour
             if (gtScriptVR)
                 collision.collider.GetComponent<Health>().TakeDamage(gtScriptVR.damageValue);
         }
-        collided = true;
     }
 
     void BulletGo()
     {
-        transform.position += transform.TransformDirection(Vector3.left);
+        //transform.position += transform.TransformDirection(Vector3.left);
+        if (rb)
+        {
+        rb.AddForce(transform.right * -50);
         StartCoroutine("Countdown");
+        }
     }
 
     IEnumerator AfterCollision()
