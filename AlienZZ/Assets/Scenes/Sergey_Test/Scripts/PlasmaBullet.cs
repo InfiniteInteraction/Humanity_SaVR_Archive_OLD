@@ -54,10 +54,20 @@ public class PlasmaBullet : MonoBehaviour
         if (collision.collider.gameObject.layer.Equals("Alien"))
         {
             if (gtScript)
+            {
                 collision.collider.GetComponent<Health>().TakeDamage(gtScript.damageValue);
+            }
             if (gtScriptVR)
+            {
                 collision.collider.GetComponent<Health>().TakeDamage(gtScriptVR.damageValue);
+
+            }
         }
+        else
+        {
+            GameManager.gameManager.BulletMisses();
+        }
+        
     }
 
     void BulletGo()
