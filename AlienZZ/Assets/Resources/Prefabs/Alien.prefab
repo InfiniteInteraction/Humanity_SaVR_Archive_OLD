@@ -12,14 +12,13 @@ GameObject:
   - component: {fileID: 3761929708337939765}
   - component: {fileID: 8019532437550998878}
   - component: {fileID: 2315828723249271208}
-  - component: {fileID: 1064483198093348999}
   - component: {fileID: 1220159792948675961}
   - component: {fileID: 6043933769318564526}
   - component: {fileID: 5852274595861164974}
-  - component: {fileID: -8477213219035494686}
+  - component: {fileID: 1183316258529090387}
   m_Layer: 0
   m_Name: Alien
-  m_TagString: Untagged
+  m_TagString: RedEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,25 +96,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1064483198093348999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 241570821086460538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ada29abafe31904ba75bdc555b71324, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  currHealth: 0
-  damageTaken: 0
-  healingRecieved: 0
-  uiScript: {fileID: 0}
-  scoreS: {fileID: 0}
-  eSpawner: {fileID: 0}
 --- !u!114 &1220159792948675961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +113,7 @@ MonoBehaviour:
   facePlayerFact: 0
   stage: 0
   player: {fileID: 0}
+  greenPos: {fileID: 0}
 --- !u!195 &6043933769318564526
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -171,7 +152,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &-8477213219035494686
+--- !u!114 &1183316258529090387
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,17 +161,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 241570821086460538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6e8d2c5162e936489ba95a93602dd16, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a832090e0f35dd46af262ee0f131367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 5
-  waitTime: 0
-  facePlayerFact: 0
-  stage: 0
-  player: {fileID: 0}
-  speed: 0
-  xRange: 0
-  yRange: 0
-  zRange: 0
-  rate: 0
-  canTeleport: 1
+  maxHealth: 5
+  currHealth: 0
+  damageTaken: 0
+  healingRecieved: 0
+  pointTimer: 0
+  floatingTextPrefab: {fileID: 0}
+  spawner: {fileID: 0}
+  scoreS: {fileID: 0}
+  eSpawner: {fileID: 0}
+  points: 0

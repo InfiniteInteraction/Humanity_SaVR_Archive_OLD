@@ -5,9 +5,7 @@ public class EnemyMovement : MonoBehaviour
 {
     NavMeshAgent agent;
     int dest;
-
     public float distanceToPlayer = 5f;
-
     float timer;
     public float waitTime;
     public float facePlayerFact;
@@ -15,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
     int stage;
     bool here;
     public GameObject player;
+    public GameObject greenPos;
     public virtual void Awake()
     {
         waitTime = 1f;
@@ -32,6 +31,7 @@ public class EnemyMovement : MonoBehaviour
 
     public virtual void Update()
     {
+        greenPos = GameObject.FindGameObjectWithTag("PPoint");
         ChasePlayer();
         Hurt();
         Vector3 direction = (player.transform.position - transform.position).normalized;
@@ -42,20 +42,25 @@ public class EnemyMovement : MonoBehaviour
 
     public virtual void ChasePlayer()
     {
-        float distance = Vector3.Distance(player.transform.position, transform.position);
-
-
-
-        if (distance >= distanceToPlayer)
+        if (tag == "RedEnemy")
         {
-            agent.SetDestination(player.transform.position);
-        }
-        else if (agent.isActiveAndEnabled && distance <= distanceToPlayer)
-        {
-            agent.updatePosition = false;
-            here = true;
+            float distance = Vector3.Distance(player.transform.position, transform.position);
+            if (distance >= distanceToPlayer)
+            {
+                agent.SetDestination(player.transform.position);
+            }
+            else if (agent.isActiveAndEnabled && distance <= distanceToPlayer)
+            {
+                agent.updatePosition = false;
+                here = true;
+            }
         }
 
+        else if(tag == "GreenEnemy")
+        {
+            agent.SetDestination(greenPos.transform.position);
+            Destroy(gameObject);
+        }
     }
 
     public virtual void Hurt()
