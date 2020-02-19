@@ -10,7 +10,6 @@ public class PlasmaBullet : MonoBehaviour
     bool collided = false;
     Transform collisionPos = null;
     Vector3 posOffset = new Vector3(0, 0, -0.1f);
-    GameObject splashObject = null;
     Rigidbody rb;
 
     private void Awake()
@@ -72,10 +71,9 @@ public class PlasmaBullet : MonoBehaviour
 
     void BulletGo()
     {
-        //transform.position += transform.TransformDirection(Vector3.left);
         if (rb)
         {
-        rb.AddForce(transform.right * -50);
+        rb.AddForce(transform.right * -100);
         StartCoroutine("Countdown");
         }
     }

@@ -10,6 +10,9 @@ public class ENemyHealth : Health
     public ScoreScript scoreS;
     public ESpawner eSpawner;
     public int points;
+    GameObject deathEffect;
+    Transform enemyPos;
+
     private void Awake()
     {
         currHealth = 3;
@@ -17,7 +20,7 @@ public class ENemyHealth : Health
         scoreS = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>();
         eSpawner = FindObjectOfType<ESpawner>();
         uiScript = FindObjectOfType<UI_Info>();
-
+        deathEffect = Resources.Load(("Prefabs/EnemyDeathEffect"), typeof(GameObject)) as GameObject;
         pointTimer = 0;
     }
 
@@ -26,13 +29,13 @@ public class ENemyHealth : Health
         base.TakeDamage(damageAmount);
         if (currHealth <= 0)
         {
-            
             pointTimer++;
             eSpawner.killCount++;
             eSpawner.totalToSpawn -= 1;
             eSpawner.RemoveEnemy();
             eSpawner.SpawnGreen();
             CallMulti();
+            Instantiate(deathEffect, enemyPos.position, Quaternion.identity);
             Destroy(gameObject);
         }
         if (floatingTextPrefab)
@@ -50,6 +53,11 @@ public class ENemyHealth : Health
     private void Update()
     {
         pointTimer += 1 * Time.deltaTime;
+    }
+
+    private void FixedUpdate()
+    {
+        enemyPos = transform;
     }
 
     private void OnCollisionEnter(Collision collision)
