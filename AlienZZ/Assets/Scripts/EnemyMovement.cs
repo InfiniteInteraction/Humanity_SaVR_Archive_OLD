@@ -58,7 +58,8 @@ public class EnemyMovement : MonoBehaviour
 
         else if(tag == "GreenEnemy")
         {
-            agent.SetDestination(greenPos.transform.position);        
+            agent.SetDestination(greenPos.transform.position);
+            Destroy(gameObject);
         }
     }
 

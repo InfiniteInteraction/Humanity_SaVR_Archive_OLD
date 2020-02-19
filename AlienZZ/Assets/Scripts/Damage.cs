@@ -7,6 +7,7 @@ public class Damage : MonoBehaviour
 {
     public int playerHealth;
     public ScoreScript points;
+
     private void Awake()
     {
         

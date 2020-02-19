@@ -113,6 +113,7 @@ MonoBehaviour:
   facePlayerFact: 0
   stage: 0
   player: {fileID: 0}
+  greenPos: {fileID: 0}
 --- !u!195 &6043933769318564526
 NavMeshAgent:
   m_ObjectHideFlags: 0

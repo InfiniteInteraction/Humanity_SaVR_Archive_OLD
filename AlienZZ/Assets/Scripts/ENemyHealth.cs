@@ -26,7 +26,7 @@ public class ENemyHealth : Health
         base.TakeDamage(damageAmount);
         if (currHealth <= 0)
         {
-            //uiScript.alienCount++;
+            
             pointTimer++;
             eSpawner.killCount++;
             eSpawner.totalToSpawn -= 1;
@@ -55,8 +55,9 @@ public class ENemyHealth : Health
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("RedBullet") || collision.collider.tag == "GreenBullet")
-
+        {
             TakeDamage(5);
+        }
     }
 
     void CallMulti()
