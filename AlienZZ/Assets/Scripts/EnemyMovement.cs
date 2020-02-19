@@ -14,9 +14,12 @@ public class EnemyMovement : MonoBehaviour
     bool here;
     public GameObject player;
     public GameObject greenPos;
+    GameObject blast;
+    
     public virtual void Awake()
     {
         waitTime = 1f;
+        blast = Resources.Load(("Prefabs/PlasmaBall"), typeof(GameObject)) as GameObject;
     }
     public virtual void OnEnable()
     {
@@ -59,7 +62,7 @@ public class EnemyMovement : MonoBehaviour
         else if(tag == "GreenEnemy")
         {
             agent.SetDestination(greenPos.transform.position);
-            Destroy(gameObject);
+            Invoke("SpawnPass", 10);
         }
     }
 
@@ -76,7 +79,7 @@ public class EnemyMovement : MonoBehaviour
                 break;
 
             case 1:
-                gameObject.GetComponentInChildren<Renderer>().material.color = Color.yellow;
+                Instantiate(blast, transform.position, transform.rotation * Quaternion.Euler(0, 90, 0)); ;
                 if (timer <= 0)
                 {
                     stage = 2;
@@ -92,5 +95,9 @@ public class EnemyMovement : MonoBehaviour
                 gameObject.GetComponentInChildren<Renderer>().material.color = Color.red;
                 break;
         }
+    }
+    void SpawnPass()
+    {
+        Destroy(gameObject);
     }
 }
