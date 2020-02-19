@@ -56,26 +56,31 @@ public class ENemyHealth : Health
     {
         if (collision.collider.CompareTag("RedBullet") || collision.collider.tag == "GreenBullet")
 
-            TakeDamage(gtScript.damageValue);
+            TakeDamage(5);
     }
 
     void CallMulti()
     {
-        if (pointTimer <= 4)
+        if (pointTimer <= 5)
         {
-            points = 10;
+            points = 100;
             scoreS.Multi(points);
         }
 
-        if (pointTimer >= 5 && pointTimer <= 9) ;
+        if (pointTimer >= 6 && pointTimer <= 19)
         {
-            points = 10;
+            points = 75;
             scoreS.Multi(points);
         }
 
-        if (pointTimer >= 10 )
+        if (pointTimer >= 20 && pointTimer <=30 )
         {
-            points = 10;
+            points = 50;
+            scoreS.Multi(points);
+        }
+        if(pointTimer >= 31)
+        {
+            points = 25;
             scoreS.Multi(points);
         }
     }
