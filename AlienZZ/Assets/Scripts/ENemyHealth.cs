@@ -29,6 +29,10 @@ public class ENemyHealth : Health
         base.TakeDamage(damageAmount);
         if (currHealth <= 0)
         {
+            if(gameObject.layer == 8)
+            {
+                GameManager.gameManager.greenDeaths++;
+            }
             pointTimer++;
             eSpawner.killCount++;
             eSpawner.totalToSpawn -= 1;

@@ -79,6 +79,8 @@ public class ESpawner : MonoBehaviour
         {
             isRoundOver = true;
             currentRound += 1;
+            GameManager.gameManager.levelOver = true;
+            GameManager.gameManager.Starsystem();
         }
     }
 }

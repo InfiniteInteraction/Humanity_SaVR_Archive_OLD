@@ -20,13 +20,15 @@ public class GameManager : MonoBehaviour
     float shotsFired;
     //Player Accuracy Ends
 
+    public bool levelOver = true;
+
 
     private void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
         gameManager = this;
         scoreManager = FindObjectOfType<ScoreManager>();
-        ePoints = scoreManager.currScore;
+        levelOver = false;
     }
 
 
@@ -55,6 +57,34 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Starsystem()
+    {
+        if ( levelOver == true)
+        {
 
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    public void StarCalculation()
+    {
+        ePoints = scoreManager.currScore;
+        if (accuracy >= 80 && ePoints >= 4000 && greenDeaths >= 4)
+        {
+            Debug.Log("5 star rating");
+        }
+        if (accuracy <= 79 && ePoints <= 3999 && greenDeaths <= 3)
+        {
+            Debug.Log("4 star rating");
+        }
+        if (accuracy <= 50 && ePoints <=2999 && greenDeaths <= 2)
+        {
+            Debug.Log("3 star rating");
+        }
+        
+    }
 }
 
