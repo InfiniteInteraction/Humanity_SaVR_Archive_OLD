@@ -10,7 +10,7 @@ public class DeathEffectScript : MonoBehaviour
     private void Awake()
     {
         psColor.a = 0.9f;
-        //StartCoroutine("Destroy");
+        StartCoroutine("Destroy");
     }
     private void FixedUpdate()
     {
