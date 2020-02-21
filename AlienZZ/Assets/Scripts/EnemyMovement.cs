@@ -15,18 +15,18 @@ public class EnemyMovement : MonoBehaviour
     public GameObject player;
     public GameObject greenPos;
     GameObject blast;
-    public bool VR = false;
 
     public virtual void Awake()
     {
         waitTime = 1f;
-        player = GameObject.FindGameObjectWithTag("Player"); 
+        blast = Resources.Load(("Prefabs/PlasmaBulletRed"), typeof(GameObject)) as GameObject;
     }
     public virtual void OnEnable()
     {
         timer = waitTime;
         agent = GetComponent<NavMeshAgent>();
 
+        player = FindObjectOfType<OVRPlayerController>().gameObject;
         here = false;
         agent.autoBraking = false;
         stage = 0;
@@ -59,7 +59,7 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
-        else if(tag == "GreenEnemy")
+        else if (tag == "GreenEnemy")
         {
             agent.SetDestination(greenPos.transform.position);
             Invoke("SpawnPass", 10);
@@ -79,7 +79,6 @@ public class EnemyMovement : MonoBehaviour
                 break;
 
             case 1:
-                Instantiate(blast, transform.position, transform.rotation * Quaternion.Euler(0, 90, 0)); ;
                 if (timer <= 0)
                 {
                     stage = 2;

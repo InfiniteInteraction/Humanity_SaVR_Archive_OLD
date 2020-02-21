@@ -12,7 +12,7 @@ public class ResetHighScore : MonoBehaviour
         sM.Save();
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("ResetButton"))
         {
