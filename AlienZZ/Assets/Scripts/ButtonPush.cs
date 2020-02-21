@@ -10,7 +10,7 @@ public class ButtonPush : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        panel = null;
     }
 
     // Update is called once per frame
@@ -45,8 +45,7 @@ public class ButtonPush : MonoBehaviour
         }
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("ResumeButton"))
         {
-            panel.SetActive(false);
-            
+            panel.SetActive(false);           
         }
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("PauseQuitButton"))
         {

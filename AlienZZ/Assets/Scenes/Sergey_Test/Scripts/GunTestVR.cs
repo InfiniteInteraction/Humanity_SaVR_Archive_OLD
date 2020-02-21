@@ -46,7 +46,7 @@ public class GunTestVR : MonoBehaviour
 
     void Start()
     {
-        damageValue = 1;
+        damageValue = 5;
         green.SetActive(false);
         if (gameObject.name.Equals("PlasmaRifleVR"))
         {

@@ -22,7 +22,6 @@ public class ScoreScript : MonoBehaviour
     }
     public void Multi(int points)
     {
-        scoreManager.currScore += points;
-       
+        scoreManager.currScore += points;     
     }
 }
