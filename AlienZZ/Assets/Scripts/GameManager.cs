@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     {
         //if (Input.GetKey(KeyCode.Mouse0))
         {
-            accuracy = (hits / shotsFired) * 100;            
+            accuracy = (hits / shotsFired) * 100;
         }
     }
 
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     {
         if ( levelOver == true)
         {
-
+            StarCalculation();
         }
         else
         {
@@ -72,19 +72,26 @@ public class GameManager : MonoBehaviour
     public void StarCalculation()
     {
         ePoints = scoreManager.currScore;
-        if (accuracy >= 80 && ePoints >= 4000 && greenDeaths >= 4)
+        if (accuracy > 79 && ePoints > 3999 && greenDeaths == 4)
         {
             Debug.Log("5 star rating");
         }
-        if (accuracy <= 79 && ePoints <= 3999 && greenDeaths <= 3)
+        if (accuracy > 59 && ePoints > 2999 && greenDeaths == 3)
         {
             Debug.Log("4 star rating");
         }
-        if (accuracy <= 50 && ePoints <=2999 && greenDeaths <= 2)
+        if (accuracy > 39 && ePoints > 1999 && greenDeaths == 2)
         {
             Debug.Log("3 star rating");
         }
-        
+        if (accuracy > 19 && ePoints > 999 && greenDeaths == 1)
+        {
+            Debug.Log("2 star rating");
+        }
+        else
+        {
+            Debug.Log("1 star rating");
+        }
     }
 }
 

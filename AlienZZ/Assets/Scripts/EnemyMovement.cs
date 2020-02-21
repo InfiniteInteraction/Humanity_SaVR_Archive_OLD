@@ -15,18 +15,18 @@ public class EnemyMovement : MonoBehaviour
     public GameObject player;
     public GameObject greenPos;
     GameObject blast;
-    
+    public bool VR = false;
+
     public virtual void Awake()
     {
         waitTime = 1f;
-        blast = Resources.Load(("Prefabs/PlasmaBall"), typeof(GameObject)) as GameObject;
+        player = GameObject.FindGameObjectWithTag("Player"); 
     }
     public virtual void OnEnable()
     {
         timer = waitTime;
         agent = GetComponent<NavMeshAgent>();
 
-        player = FindObjectOfType<OVRPlayerController>().gameObject;
         here = false;
         agent.autoBraking = false;
         stage = 0;
