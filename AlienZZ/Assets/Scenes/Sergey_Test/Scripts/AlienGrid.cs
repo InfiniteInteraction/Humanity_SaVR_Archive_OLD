@@ -14,9 +14,9 @@ public class AlienGrid : MonoBehaviour
     }
     void Start()
     {
-        for (int x = 0; x < 6; x++)
-            for (int y = 0; y < 3; y++)
-                for (int z = 0; z < 3; z++)
+        for (int x = 0; x < 3; x++)
+            for (int y = 0; y < 2; y++)
+                for (int z = 0; z < 1; z++)
                     Instantiate(prefab, transform.position + new Vector3(x * 3, y * 5, z * 3), Quaternion.identity, parent);
     }
     private void Update()

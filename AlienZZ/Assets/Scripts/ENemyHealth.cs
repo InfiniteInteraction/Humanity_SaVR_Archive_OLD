@@ -91,7 +91,7 @@ public class ENemyHealth : Health
 
     void DeathEffect()
     {
-        int random = Random.Range(1, 3);
+        int random = Random.Range(1, 4);
         if (random == 1)
             Instantiate(deathEffect, enemyPos.position, Quaternion.identity);
         if (random == 2)

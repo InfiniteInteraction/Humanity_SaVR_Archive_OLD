@@ -25,6 +25,11 @@ public class GunTest : MonoBehaviour
     GameObject greenBullet;
     GameObject redBullet;
     GameObject waveBullet;
+    GameObject laserBullet;
+
+    Material arr;
+    Material arg;
+    float duration = 1f;
 
     private void Awake()
     {
@@ -33,13 +38,20 @@ public class GunTest : MonoBehaviour
         greenBullet = Resources.Load(("Prefabs/PlasmaBulletGreen"), typeof(GameObject)) as GameObject;
         redBullet = Resources.Load(("Prefabs/PlasmaBulletRed"), typeof(GameObject)) as GameObject;
         waveBullet = Resources.Load(("Prefabs/WaveBullet"), typeof(GameObject)) as GameObject;
+        laserBullet = Resources.Load(("Prefabs/LaserBullet"), typeof(GameObject)) as GameObject;
         fullAutoTime = 0.1f;
+        arr = Resources.Load(("Materials/RailGunChris_MatR"), typeof(Material)) as Material;
+        arg = Resources.Load(("Materials/RailGunChris_MatG"), typeof(Material)) as Material;
     }
 
     void Start()
     {
         damageValue = 1;
-        red.SetActive(false);
+        green.SetActive(false);
+        if (gameObject.name.Equals("AssaultRifle"))
+        {
+            GetComponent<Renderer>().material = arr;
+        }
     }
 
     void Update()
@@ -71,11 +83,23 @@ public class GunTest : MonoBehaviour
         {
             red.SetActive(false);
             green.SetActive(true);
+            if (gameObject.name.Equals("AssaultRifle"))
+            {
+                //float lerp = Mathf.PingPong(Time.time, duration) / duration;
+                //GetComponent<Renderer>().material.Lerp(arr, arg, lerp);
+                GetComponent<Renderer>().material = arg;
+            }
         }
         if (Input.GetKey(KeyCode.R) && !red.activeSelf)
         {
             green.SetActive(false);
             red.SetActive(true);
+            if (gameObject.name.Equals("AssaultRifle"))
+            {
+                //float lerp = Mathf.PingPong(Time.time, duration) / duration;
+                //GetComponent<Renderer>().material.Lerp(arg, arr, lerp);
+                GetComponent<Renderer>().material = arr;
+            }
         }
         if (Input.GetKey(KeyCode.W))
         {

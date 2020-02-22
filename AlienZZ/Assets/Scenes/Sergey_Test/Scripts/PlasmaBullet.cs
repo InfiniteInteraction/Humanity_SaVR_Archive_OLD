@@ -66,15 +66,15 @@ public class PlasmaBullet : MonoBehaviour
         {
             GameManager.gameManager.BulletMisses();
         }
-        
+
     }
 
     void BulletGo()
     {
         if (rb)
         {
-        rb.AddForce(transform.right * -100);
-        StartCoroutine("Countdown");
+            rb.AddForce(transform.right * -150);
+            StartCoroutine("Countdown");
         }
     }
 
@@ -91,7 +91,7 @@ public class PlasmaBullet : MonoBehaviour
         {
             GameObject splash = Resources.Load(("Prefabs/RedSplashEffect"), typeof(GameObject)) as GameObject;
             Instantiate(splash, collisionPos.position + posOffset, Quaternion.identity);
-            
+
         }
         Destroy(gameObject.GetComponent<Rigidbody>());
         Destroy(gameObject.GetComponent<BoxCollider>());
