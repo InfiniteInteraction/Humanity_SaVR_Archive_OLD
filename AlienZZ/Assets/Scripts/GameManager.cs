@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     //Enemies score Ends
 
     //Player Accuracy Begins
-    float accuracy;
+   public float accuracy;
     float hits;
     float misses;
     float shotsFired;
@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
         scoreManager = FindObjectOfType<ScoreManager>();
         levelOver = false;
     }
-
 
     void Update()
     {
@@ -51,10 +50,10 @@ public class GameManager : MonoBehaviour
 
     public void CalculateAccuracy()
     {
-        
-        {
-            accuracy = (hits - misses) / shotsFired * 100;
-        }
+        accuracy = hits / shotsFired * 100;
+        //accuracy = (hits - misses) / shotsFired * 100;
+        Debug.Log("Accuracy = " + accuracy);
+        Debug.LogError("Total Shots " + shotsFired);
     }
 
     public void Starsystem()

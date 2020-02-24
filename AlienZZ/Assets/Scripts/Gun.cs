@@ -38,7 +38,7 @@ public class Gun : MonoBehaviour
             currTime += Time.deltaTime;
             canShoot = false;
         }
-        if (Input.GetMouseButton(0) )//&& canShoot && currAmmo > 0)
+        if (Input.GetMouseButtonDown(0) )//&& canShoot && currAmmo > 0)
         {
             if (Physics.Raycast(spawnPoint.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
             {
@@ -52,7 +52,8 @@ public class Gun : MonoBehaviour
             {
                 Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
                 ReduceAmmo();
-                Debug.Log("Miss");
+                GameManager.gameManager.BulletMisses();
+                Debug.Log(GameManager.gameManager.accuracy);
             }
             currTime = 0;
         }
