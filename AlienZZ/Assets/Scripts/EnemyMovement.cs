@@ -20,13 +20,21 @@ public class EnemyMovement : MonoBehaviour
     {
         waitTime = 1f;
         blast = Resources.Load(("Prefabs/PlasmaBulletRed"), typeof(GameObject)) as GameObject;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
     public virtual void OnEnable()
     {
         timer = waitTime;
         agent = GetComponent<NavMeshAgent>();
 
-        player = FindObjectOfType<OVRPlayerController>().gameObject;
+        if(player == null)
+        {
+            player = FindObjectOfType<OVRPlayerController>().gameObject;
+        }
+        if(player == null)
+        {
+            player = FindObjectOfType<PlayerMovement>().gameObject;
+        }
         here = false;
         agent.autoBraking = false;
         stage = 0;

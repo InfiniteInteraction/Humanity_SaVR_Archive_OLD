@@ -51,9 +51,9 @@ public class GameManager : MonoBehaviour
 
     public void CalculateAccuracy()
     {
-        //if (Input.GetKey(KeyCode.Mouse0))
+        
         {
-            accuracy = (hits / shotsFired) * 100;
+            accuracy = (hits - misses) / shotsFired * 100;
         }
     }
 
