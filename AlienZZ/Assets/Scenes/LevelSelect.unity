@@ -131,8 +131,9 @@ GameObject:
   - component: {fileID: 68034970}
   - component: {fileID: 68034972}
   - component: {fileID: 68034971}
+  - component: {fileID: 68034973}
   m_Layer: 5
-  m_Name: HS Lvl1 (1)
+  m_Name: StarText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,6 +276,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68034969}
   m_CullTransparentMesh: 0
+--- !u!114 &68034973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68034969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0228b566769fe47ab22b9bb0d9e2cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
 --- !u!1 &68992317
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +479,7 @@ GameObject:
   - component: {fileID: 116130718}
   - component: {fileID: 116130717}
   m_Layer: 5
-  m_Name: HS Lvl 3 (1)
+  m_Name: StarText3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2662,7 +2676,7 @@ GameObject:
   - component: {fileID: 1358751542}
   - component: {fileID: 1358751541}
   m_Layer: 5
-  m_Name: HS Lvl2 (1)
+  m_Name: StarText2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

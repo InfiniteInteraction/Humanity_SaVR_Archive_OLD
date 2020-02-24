@@ -28,7 +28,14 @@ public class ScoreManager : MonoBehaviour
         InitializeHighScores();
         Load();
         SceneManager.sceneLoaded += OnSceneLoaded;
-        hsText.text ="HighScore: "  + _highScores[currLvl].ToString();
+        if (hsText == null)
+        {
+            return;
+        }
+        else
+        {
+            hsText.text = "HighScore: " + _highScores[currLvl].ToString();
+        }
         
     }
 

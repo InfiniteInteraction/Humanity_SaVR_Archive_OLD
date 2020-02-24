@@ -10,10 +10,12 @@ public class ENemyHealth : Health
     public ScoreScript scoreS;
     public ESpawner eSpawner;
     public int points;
-    GameObject deathEffect;
-    GameObject deathEffect2;
-    GameObject deathEffect3;
+    GameObject laserDeathEffect;
+    GameObject gpDeathEffect;
+    GameObject rpDeathEffect;
     Transform enemyPos;
+    GameObject bulletType = null;
+    public bool enemyHit;
 
     private void Awake()
     {
@@ -22,10 +24,11 @@ public class ENemyHealth : Health
         scoreS = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>();
         eSpawner = FindObjectOfType<ESpawner>();
         uiScript = FindObjectOfType<UI_Info>();
-        deathEffect = Resources.Load(("Prefabs/EnemyDeathEffect"), typeof(GameObject)) as GameObject;
-        deathEffect2 = Resources.Load(("Prefabs/EnemyDeathGPEffect"), typeof(GameObject)) as GameObject;
-        deathEffect3 = Resources.Load(("Prefabs/EnemyDeathRPEffect"), typeof(GameObject)) as GameObject;
+        laserDeathEffect = Resources.Load(("Prefabs/EnemyDeathEffect"), typeof(GameObject)) as GameObject;
+        gpDeathEffect = Resources.Load(("Prefabs/EnemyDeathGPEffect"), typeof(GameObject)) as GameObject;
+        rpDeathEffect = Resources.Load(("Prefabs/EnemyDeathRPEffect"), typeof(GameObject)) as GameObject;
         pointTimer = 0;
+        enemyHit = false;
     }
 
     public override void TakeDamage(float damageAmount)
@@ -70,18 +73,21 @@ public class ENemyHealth : Health
 
     private void OnCollisionEnter(Collision collision)
     {
-
+        bulletType = collision.collider.gameObject;
         if (collision.collider.CompareTag("RedBullet") && gameObject.tag == "RedEnemy")
         {
+            //DeathEffect();
             TakeDamage(5);
+            enemyHit = true;
         }
         else if (collision.collider.CompareTag("GreenBullet") && gameObject.tag == "GreenEnemy")
         {
             TakeDamage(5);
+            enemyHit = true;
         }
         if (collision.collider.CompareTag("GreenBullet") && gameObject.tag == "RedEnemy")
         {
-            // Player Loses Health Here
+            
         }
         if (collision.collider.CompareTag("RedBullet") && gameObject.tag == "GreenEnemy")
         {
@@ -91,15 +97,30 @@ public class ENemyHealth : Health
 
     void DeathEffect()
     {
-        int random = Random.Range(1, 4);
-        if (random == 1)
-            Instantiate(deathEffect, enemyPos.position, Quaternion.identity);
-        if (random == 2)
-            Instantiate(deathEffect2, enemyPos.position, Quaternion.identity);
-        if (random == 3)
-            Instantiate(deathEffect3, enemyPos.position, Quaternion.identity);
+        if (bulletType.GetComponent<PlasmaBullet>())
+        {
+            if (gameObject.tag == "RedEnemy")
+            {
+                Instantiate(rpDeathEffect, enemyPos.position, Quaternion.identity);
+            }
+            if (gameObject.tag == "GreenEnemy")
+            {
+                Instantiate(gpDeathEffect, enemyPos.position, Quaternion.identity);
+            }
+        }
         else
-            Instantiate(deathEffect, enemyPos.position, Quaternion.identity);
+        {
+            Instantiate(laserDeathEffect, enemyPos.position, Quaternion.identity);
+        }
+
+            //int random = Random.Range(1, 4);
+            //if (random == 1)
+            //    Instantiate(deathEffect, enemyPos.position, Quaternion.identity);
+            //if (random == 2)
+            //if (random == 3)
+            //else
+            //    Instantiate(deathEffect, enemyPos.position, Quaternion.identity);
+        
     }
 
     void CallMulti()

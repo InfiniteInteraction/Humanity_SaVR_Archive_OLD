@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Programmer Test 2.unity
     guid: a516a6fbdf9e9f84297368d6543766bf
   - enabled: 1
-    path: Assets/Scenes/OnslaughtScreen.unity
+    path: Assets/Scenes/LoadingScreen.unity
     guid: 484c776d6c42ddc41988447af1849c2f
   - enabled: 1
     path: Assets/Scenes/Credits.unity

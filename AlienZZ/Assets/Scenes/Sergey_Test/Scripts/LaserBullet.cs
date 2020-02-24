@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlasmaBullet : MonoBehaviour
+public class LaserBullet : MonoBehaviour
 {
     GunTest gtScript;
     GunTestVR gtScriptVR;

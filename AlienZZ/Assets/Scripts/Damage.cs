@@ -10,7 +10,7 @@ public class Damage : MonoBehaviour
 
     private void Awake()
     {
-        
+        playerHealth = 100;
     }
     public void Update()
     {

@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager gameManager;
-
+    
     public int greenDeaths;
     //Enemies score Begins
     ScoreManager scoreManager;
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
    public float accuracy;
     float hits;
     float misses;
-    float shotsFired;
+    public float shotsFired;
     //Player Accuracy Ends
 
     public bool levelOver = true;
@@ -28,29 +28,34 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(transform.gameObject);
         gameManager = this;
         scoreManager = FindObjectOfType<ScoreManager>();
+        accuracy = 100f;
         levelOver = false;
+        
+        
     }
 
     void Update()
     {
-        CalculateAccuracy();
+       
+            CalculateAccuracy();
+                 
     }
 
     public void BulletHit()
     {
         hits++;
-        shotsFired++;
+        
     }   
 
     public void BulletMisses()
     {
         misses++;
-        shotsFired++;
+        
     }
 
     public void CalculateAccuracy()
     {
-        accuracy = hits / shotsFired * 100;
+        accuracy = Mathf.Round(( hits / shotsFired) *100);
         //accuracy = (hits - misses) / shotsFired * 100;
         Debug.Log("Accuracy = " + accuracy);
         Debug.LogError("Total Shots " + shotsFired);
