@@ -72,7 +72,7 @@ public class LaserBullet : MonoBehaviour
         }
         else
         {
-            GameManager.gameManager.BulletMisses();
+
         }
 
     }

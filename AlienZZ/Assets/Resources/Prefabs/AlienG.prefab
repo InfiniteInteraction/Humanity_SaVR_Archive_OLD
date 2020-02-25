@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6043933769318564526}
   - component: {fileID: 5852274595861164974}
   - component: {fileID: 6094592522160140709}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AlienG
   m_TagString: GreenEnemy
   m_Icon: {fileID: 0}
@@ -174,3 +174,4 @@ MonoBehaviour:
   scoreS: {fileID: 0}
   eSpawner: {fileID: 0}
   points: 0
+  enemyHit: 0

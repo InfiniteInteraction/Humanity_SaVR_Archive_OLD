@@ -24,7 +24,6 @@ public class Health : MonoBehaviour
         if (immune == true) return;
         if (currHealth == 0) return;
         currHealth = Mathf.Clamp(currHealth - damageAmount, 0, maxHealth);
-        GameManager.gameManager.BulletHit();
         Debug.Log(damageAmount);
         if(currHealth == 0)
         {

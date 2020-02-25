@@ -4,98 +4,73 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
     public static GameManager gameManager;
-    
+
+    // public varibles for access by other classes
+    #region Public 
+    public bool levelOver = true;    
     public int greenDeaths;
-    //Enemies score Begins
-    ScoreManager scoreManager;
-    int ePoints;
-    //Enemies score Ends
-
-    //Player Accuracy Begins
-   public float accuracy;
-    float hits;
-    float misses;
+    public float accuracy;
     public float shotsFired;
-    //Player Accuracy Ends
+    public float hits;
 
-    public bool levelOver = true;
+    #endregion
+
+    // private varibles not access by other classes
+    #region Private 
+    public int score;
+    private float misses;
+    #endregion
+
+
+
 
 
     private void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
         gameManager = this;
-        scoreManager = FindObjectOfType<ScoreManager>();
-        accuracy = 100f;
         levelOver = false;
-        
-        
+
     }
 
     void Update()
     {
-       
-            CalculateAccuracy();
-                 
-    }
-
-    public void BulletHit()
-    {
-        hits++;
-        
-    }   
+        CalculateAccuracy();
+        score = ScoreManager.scoreManager.currScore;
+    } 
 
     public void BulletMisses()
     {
         misses++;
-        
     }
 
     public void CalculateAccuracy()
     {
-        accuracy = Mathf.Round(( hits / shotsFired) *100);
-        //accuracy = (hits - misses) / shotsFired * 100;
-        Debug.Log("Accuracy = " + accuracy);
-        Debug.LogError("Total Shots " + shotsFired);
+        accuracy = hits / shotsFired *100;
     }
 
     public void Starsystem()
     {
-        if ( levelOver == true)
-        {
             StarCalculation();
-        }
-        else
-        {
-            return;
-        }
+            Debug.Log("Accuracy = " + accuracy);
+            Debug.LogError("Total Shots " + shotsFired);
     }
 
     public void StarCalculation()
     {
-        ePoints = scoreManager.currScore;
-        if (accuracy > 79 && ePoints > 3999 && greenDeaths == 4)
-        {
+        Debug.LogError(score + " This is ePoints");
+        if (accuracy >= 79 && score >= 3999 && greenDeaths >= 4)
             Debug.Log("5 star rating");
-        }
-        if (accuracy > 59 && ePoints > 2999 && greenDeaths == 3)
-        {
+        else if (accuracy >= 59 && score >= 2999 && greenDeaths >= 3)
             Debug.Log("4 star rating");
-        }
-        if (accuracy > 39 && ePoints > 1999 && greenDeaths == 2)
-        {
+        else if (accuracy >= 39 && score >= 1999 && greenDeaths >= 2)
             Debug.Log("3 star rating");
-        }
-        if (accuracy > 19 && ePoints > 999 && greenDeaths == 1)
-        {
+        else if (accuracy >= 19 && score >= 999 && greenDeaths >= 1)
             Debug.Log("2 star rating");
-        }
         else
-        {
             Debug.Log("1 star rating");
-        }
+        
     }
 }
 

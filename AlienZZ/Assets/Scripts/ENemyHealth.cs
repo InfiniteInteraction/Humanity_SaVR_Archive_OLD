@@ -36,14 +36,14 @@ public class ENemyHealth : Health
         base.TakeDamage(damageAmount);
         if (currHealth <= 0)
         {
-            if (gameObject.layer == 8)
+            if (gameObject.layer == 8 || gameObject.tag == "GreenEnemy")
             {
                 GameManager.gameManager.greenDeaths++;
             }
+            GameManager.gameManager.hits++;
             pointTimer++;
             eSpawner.killCount++;
             eSpawner.totalToSpawn -= 1;
-            eSpawner.RemoveEnemy();
             eSpawner.SpawnGreen();
             CallMulti();
             DeathEffect();

@@ -72,7 +72,7 @@ public class PlasmaBullet : MonoBehaviour
         }
         else
         {
-            GameManager.gameManager.BulletMisses();
+
         }
 
     }
