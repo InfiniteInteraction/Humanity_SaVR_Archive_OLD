@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   greenDeaths: 0
+  accuracy: 0
   levelOver: 0
 --- !u!1 &77854444
 GameObject:
@@ -1381,7 +1382,7 @@ MonoBehaviour:
   enemyGreenPrefab: {fileID: 7338002616494147980, guid: 5fcba750deaf6f9429bf4e5f06c684bc,
     type: 3}
   killCount: 0
-  killCountMax: 20
+  killCountMax: 10
 --- !u!1 &678019255
 GameObject:
   m_ObjectHideFlags: 0
