@@ -46,14 +46,13 @@ public class Gun : MonoBehaviour
                 hit.collider.GetComponent<ENemyHealth>().TakeDamage(20);
                 Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 RegainAmmo();
+                GameManager.gameManager.hits++;
                 Debug.Log("Did Hit");
             }
             else
             {
                 Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-                ReduceAmmo();
-                GameManager.gameManager.BulletMisses();
-                Debug.Log(GameManager.gameManager.accuracy);
+                ReduceAmmo();               
             }
             currTime = 0;
         }

@@ -57,8 +57,8 @@ public class ENemyHealth : Health
 
     void ShowFloatingText()
     {
-        var go = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform);
-        go.GetComponent<TextMesh>().text = damageTaken.ToString();
+        //var go = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform);
+        //go.GetComponent<TextMesh>().text = damageTaken.ToString();
     }
 
     private void Update()
