@@ -42,6 +42,7 @@ public class ENemyHealth : Health
             }
             pointTimer++;
             eSpawner.killCount++;
+            GameManager.gameManager.hits++;
             eSpawner.totalToSpawn -= 1;
             eSpawner.SpawnGreen();
             CallMulti();

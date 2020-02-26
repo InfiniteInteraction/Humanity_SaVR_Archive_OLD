@@ -109,13 +109,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106a7afeb5e20014586a43438fb1165b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 5
+  distanceToPlayer: 10
   waitTime: 0
   facePlayerFact: 0
   stage: 0
   player: {fileID: 0}
   greenPos: {fileID: 0}
-  spawnPoint: {fileID: 0}
 --- !u!195 &6043933769318564526
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -176,6 +175,7 @@ MonoBehaviour:
   scoreS: {fileID: 0}
   eSpawner: {fileID: 0}
   points: 0
+  enemyHit: 0
 --- !u!1 &5597974665387391802
 GameObject:
   m_ObjectHideFlags: 0

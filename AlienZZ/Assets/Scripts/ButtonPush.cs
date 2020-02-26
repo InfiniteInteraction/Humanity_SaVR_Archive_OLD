@@ -32,42 +32,52 @@ public class ButtonPush : MonoBehaviour
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelOne"))
         {
             sMU.LevelOne();
+            ScoreManager.scoreManager.Save();
         }
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelTwo"))
         {
             sMU.LevelTwo();
+            ScoreManager.scoreManager.Save();
         }
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelThree"))
         {
             sMU.LevelThree();
+            ScoreManager.scoreManager.Save();
         }
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelFour"))
         {
             sMU.LevelFour();
+            ScoreManager.scoreManager.Save();
         }
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelFive"))
         {
             sMU.LevelFive();
+            ScoreManager.scoreManager.Save();
         }
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelSix"))
         {
             sMU.LevelSix();
+            ScoreManager.scoreManager.Save();
         }
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelSeven"))
         {
             sMU.LevelSeven();
+            ScoreManager.scoreManager.Save();
         }
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelEight"))
         {
             sMU.LevelEight();
+            ScoreManager.scoreManager.Save();
         }
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelNine"))
         {
             sMU.LevelNine();
+            ScoreManager.scoreManager.Save();
         }
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelTen"))
         {
             sMU.LevelTen();
+            ScoreManager.scoreManager.Save();
         }
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("ResumeButton"))
         {
@@ -78,6 +88,7 @@ public class ButtonPush : MonoBehaviour
             Debug.Log("we should have saved");
             ScoreManager.scoreManager.Save();
             SceneManager.LoadScene(0);
+            
         }
 
     }

@@ -28,16 +28,14 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
         gameManager = this;
         levelOver = false;
-
         stars[0].SetActive(false);
         stars[1].SetActive(false);
         stars[2].SetActive(false);
         stars[3].SetActive(false);
         stars[4].SetActive(false);
-
+        
         resultsBackground.SetActive(false);
 
         DontDestroyOnLoad(this.gameObject);
@@ -67,13 +65,10 @@ public class GameManager : MonoBehaviour
     public void Starsystem()
     {
             StarCalculation();
-            Debug.LogError("Total Shots " + shotsFired);
     }
 
     public void StarCalculation()
     {
-        Time.timeScale = 0;
-        Debug.LogError(score + " This is ePoints");
         if (accuracy >= 79 && score >= 3999 && greenDeaths >= 4)
         {
             resultsBackground.SetActive(true);
