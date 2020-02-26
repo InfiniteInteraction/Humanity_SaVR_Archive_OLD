@@ -40,7 +40,6 @@ public class ENemyHealth : Health
             {
                 GameManager.gameManager.greenDeaths++;
             }
-            GameManager.gameManager.hits++;
             pointTimer++;
             eSpawner.killCount++;
             eSpawner.totalToSpawn -= 1;

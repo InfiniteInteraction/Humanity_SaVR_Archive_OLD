@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         CalculateAccuracy();
-        score = ScoreManager.scoreManager.currScore;
+        //score = ScoreManager.scoreManager.currScore;
     } 
 
     public void BulletMisses()
@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
 
     public void StarCalculation()
     {
+        Time.timeScale = 0;
         Debug.LogError(score + " This is ePoints");
         if (accuracy >= 79 && score >= 3999 && greenDeaths >= 4)
         {

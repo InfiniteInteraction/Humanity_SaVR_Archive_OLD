@@ -19,7 +19,7 @@ public class ESpawner : MonoBehaviour
 
     void Start()
     {
-        totalToSpawn = 40;
+        //totalToSpawn = 2;
         InvokeRepeating("DoSpawn", 0.5f, 1.5f);
     }
 
@@ -38,11 +38,12 @@ public class ESpawner : MonoBehaviour
 
     public void SpawnCount()
     {
-        if (totalToSpawn == 0)
+        if (totalToSpawn <= 0)
         {
             CancelInvoke();
             GameManager.gameManager.levelOver = true;
             GameManager.gameManager.Starsystem();
+            
         }
     }
 
