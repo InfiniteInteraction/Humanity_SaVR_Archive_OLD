@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
         stars[4].SetActive(false);
 
         resultsBackground.SetActive(false);
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public void PlayButtonReturn()
@@ -49,7 +51,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         CalculateAccuracy();
-        //score = ScoreManager.scoreManager.currScore;
+        score = ScoreManager.scoreManager.currScore;
     } 
 
     public void BulletMisses()
@@ -65,7 +67,6 @@ public class GameManager : MonoBehaviour
     public void Starsystem()
     {
             StarCalculation();
-            Debug.Log("Accuracy = " + accuracy);
             Debug.LogError("Total Shots " + shotsFired);
     }
 

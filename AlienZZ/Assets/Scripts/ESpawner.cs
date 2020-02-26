@@ -42,7 +42,7 @@ public class ESpawner : MonoBehaviour
         {
             CancelInvoke();
             GameManager.gameManager.levelOver = true;
-            GameManager.gameManager.Starsystem();
+            Invoke("GetStarCalc", 5);
             
         }
     }
@@ -55,7 +55,10 @@ public class ESpawner : MonoBehaviour
             killCount = 0;
         }
     }
-    
+    void GetStarCalc()
+    {
+        GameManager.gameManager.Starsystem();
+    }
 }
 
 

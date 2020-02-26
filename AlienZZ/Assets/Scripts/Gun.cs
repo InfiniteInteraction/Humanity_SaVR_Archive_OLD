@@ -40,13 +40,13 @@ public class Gun : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) )//&& canShoot && currAmmo > 0)
         {
+            GameManager.gameManager.shotsFired++;
             if (Physics.Raycast(spawnPoint.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
             {
-                hit.collider.GetComponent<Health>().TakeDamage(20);
                 hit.collider.GetComponent<ENemyHealth>().TakeDamage(20);
                 Debug.DrawRay(spawnPoint.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 RegainAmmo();
-                //GameManager.gameManager.hits++;
+                GameManager.gameManager.hits++;
                 Debug.Log("Did Hit");
             }
             else
