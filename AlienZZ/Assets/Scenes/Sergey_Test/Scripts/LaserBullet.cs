@@ -32,7 +32,7 @@ public class LaserBullet : MonoBehaviour
         if (FindObjectOfType<CameraMovement>())
             camRot = FindObjectOfType<CameraMovement>().gameObject.transform.rotation;
 
-        StartCoroutine("RecalculateAccuracy");
+        //StartCoroutine("RecalculateAccuracy");
     }
     private void Start()
     {
@@ -129,11 +129,11 @@ public class LaserBullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    IEnumerator RecalculateAccuracy()
-    {
-        yield return new WaitForSeconds(2f);
-        ehScript.enemyHit = true;
-        yield return new WaitForSeconds(0.1f);
-        ehScript.enemyHit = false;
-    }
+    //IEnumerator RecalculateAccuracy()
+    //{
+    //    yield return new WaitForSeconds(2f);
+    //    ehScript.enemyHit = true;
+    //    yield return new WaitForSeconds(0.1f);
+    //    ehScript.enemyHit = false;
+    //}
 }

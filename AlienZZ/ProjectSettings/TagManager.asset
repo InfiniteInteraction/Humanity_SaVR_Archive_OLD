@@ -21,6 +21,13 @@ TagManager:
   - ResetButton
   - PauseQuitButton
   - ResumeButton
+  - LevelEight
+  - LevelFour
+  - LevelFive
+  - LevelSix
+  - LevelSeven
+  - LevelNine
+  - LevelTen
   layers:
   - Default
   - TransparentFX

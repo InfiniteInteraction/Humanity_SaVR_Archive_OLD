@@ -6,19 +6,15 @@ using TMPro;
 
 public class ScoreScript : MonoBehaviour
 {
-    public ScoreManager scoreManager;
-    
+    public ScoreManager scoreManager;   
     TextMeshProUGUI score;
-
     public void Awake()
     {
-        score = GetComponent<TextMeshProUGUI>();
-        
+        score = GetComponent<TextMeshProUGUI>();       
     }
     public void Update()
     {
-        score.text = "Score: " + scoreManager.currScore ;
-       
+        score.text = "Score: " + scoreManager.currScore ;      
     }
     public void Multi(int points)
     {

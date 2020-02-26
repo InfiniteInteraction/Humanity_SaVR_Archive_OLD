@@ -7,15 +7,13 @@ public class ButtonPush : MonoBehaviour
 {
     public StartMenuFunctionality sMU;
     public GameObject panel;
-    // Start is called before the first frame update
+
     void Start()
     {
         panel = null;
     }
 
-    // Update is called once per frame
-    
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         
         if((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag ==("PlayButton"))
@@ -43,13 +41,43 @@ public class ButtonPush : MonoBehaviour
         {
             sMU.LevelThree();
         }
+        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelFour"))
+        {
+            sMU.LevelFour();
+        }
+        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelFive"))
+        {
+            sMU.LevelFive();
+        }
+        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelSix"))
+        {
+            sMU.LevelSix();
+        }
+        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelSeven"))
+        {
+            sMU.LevelSeven();
+        }
+        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelEight"))
+        {
+            sMU.LevelEight();
+        }
+        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelNine"))
+        {
+            sMU.LevelNine();
+        }
+        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelTen"))
+        {
+            sMU.LevelTen();
+        }
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("ResumeButton"))
         {
             panel.SetActive(false);           
         }
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("PauseQuitButton"))
         {
-            SceneManager.LoadScene(0); ;
+            Debug.Log("we should have saved");
+            ScoreManager.scoreManager.Save();
+            SceneManager.LoadScene(0);
         }
 
     }

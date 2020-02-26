@@ -166,7 +166,7 @@ public class OVRPlayerController : MonoBehaviour
 	void Awake()
 	{
         panel.SetActive(false);
-		Controller = gameObject.GetComponent<CharacterController>();
+       Controller = gameObject.GetComponent<CharacterController>();
 
 		if (Controller == null)
 			Debug.LogWarning("OVRPlayerController: No CharacterController attached.");

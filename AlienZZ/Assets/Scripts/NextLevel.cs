@@ -48,6 +48,7 @@ public class NextLevel : MonoBehaviour
     }
     public void Quit()
     {
+        ScoreManager.scoreManager.Save();
         Time.timeScale = 1f;
         gamePaused = false;
         SceneManager.LoadScene(0);
