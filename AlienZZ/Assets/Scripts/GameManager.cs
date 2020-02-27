@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     public float accuracy;
     public float shotsFired;
     public float hits;
+    public float eSpeed = 3.5f;
 
     #endregion
 
@@ -21,11 +23,12 @@ public class GameManager : MonoBehaviour
     #region Private 
     public int score;
     private float misses;
+    string sceneName;
     #endregion
 
     public GameObject[] stars;
     public GameObject resultsBackground;
-
+    
     private void Awake()
     {
         gameManager = this;
@@ -38,13 +41,14 @@ public class GameManager : MonoBehaviour
         
         resultsBackground.SetActive(false);
 
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this.gameObject);        
     }
 
     public void PlayButtonReturn()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
 
     void Update()
     {
@@ -105,15 +109,44 @@ public class GameManager : MonoBehaviour
             stars[0].SetActive(true);
             stars[1].SetActive(true);
             Debug.Log("2 star rating");
-
         }
         else
         {
             resultsBackground.SetActive(true);
             stars[0].SetActive(true);
             Debug.Log("1 star rating");
-
+        }
+    }
+    public void DifficultySetting()
+    {
+        sceneName = SceneManager.GetActiveScene().name;
+        switch (sceneName)
+        {
+            case "Onslaught1": 
+                break;
+            case "Onslaught2":
+                break;
+            case "Onslaught3":
+                break;
+            case "Onslaught4":
+                break;
+            case "Onslaught5":
+                break;
+            case "Onslaught6":
+                break;
+            case "Onslaught7":
+                break;
+            case "Onslaught8":
+                break;
+            case "Onslaught9":
+                break;
+            case "Onslaught10":
+                break;
         }
     }
 }
+    
+
+       
+
 

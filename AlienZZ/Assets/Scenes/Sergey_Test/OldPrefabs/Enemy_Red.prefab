@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 106476972890481332}
   - component: {fileID: 7804572288336832489}
   - component: {fileID: -2004128838249328017}
+  - component: {fileID: -2425596564193458462}
   m_Layer: 9
   m_Name: Enemy_Red
   m_TagString: RedEnemy
@@ -112,11 +113,14 @@ MonoBehaviour:
   currHealth: 0
   damageTaken: 0
   healingRecieved: 0
+  pointTimer: 0
   floatingTextPrefab: {fileID: 4090813092853975136, guid: 56eacd9c0a0f18d43b973795695a5d96,
     type: 3}
   spawner: {fileID: 0}
   scoreS: {fileID: 0}
   eSpawner: {fileID: 0}
+  points: 0
+  enemyHit: 0
 --- !u!54 &106476972890481332
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -172,3 +176,28 @@ MonoBehaviour:
   facePlayerFact: 0
   stage: 0
   player: {fileID: 0}
+  greenPos: {fileID: 0}
+--- !u!114 &-2425596564193458462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8288587923413601841}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e8d2c5162e936489ba95a93602dd16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToPlayer: 5
+  waitTime: 0
+  facePlayerFact: 0
+  stage: 0
+  player: {fileID: 0}
+  greenPos: {fileID: 0}
+  speed: 0
+  xRange: 0
+  yRange: 0
+  zRange: 0
+  rate: 0
+  canTeleport: 1
