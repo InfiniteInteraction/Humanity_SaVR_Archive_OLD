@@ -49,5 +49,10 @@ MonoBehaviour:
   shotsFired: 0
   hits: 0
   score: 0
-  stars: []
+  stars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   resultsBackground: {fileID: 0}

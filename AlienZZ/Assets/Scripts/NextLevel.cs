@@ -6,8 +6,15 @@ using UnityEngine.SceneManagement;
 public class NextLevel : MonoBehaviour
 {
     Scene scene;
+    public static NextLevel nLScript;
     public static bool gamePaused = false;
     public GameObject pausemenuUI;
+
+    private void Awake()
+    {
+        nLScript = this;
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -34,18 +41,12 @@ public class NextLevel : MonoBehaviour
         Time.timeScale = 0f;
         gamePaused = true;
        }
-    public void Next()
+   
+    public void Replay()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    public void Level2()
-    {
-        SceneManager.LoadScene(3);
-    }
-    public void Level3()
-    {
-        SceneManager.LoadScene(4);
-    }
+   
     public void Quit()
     {
         ScoreManager.scoreManager.Save();

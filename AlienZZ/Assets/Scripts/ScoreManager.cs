@@ -18,7 +18,6 @@ public class ScoreManager : MonoBehaviour
     public int currScore; // The current score that is displayed to the player
     public TextMeshProUGUI hsText;
     public int[] _highScores;
-    public int[] _stars;
     private int sceneCount = 0;
     void Awake()
     {

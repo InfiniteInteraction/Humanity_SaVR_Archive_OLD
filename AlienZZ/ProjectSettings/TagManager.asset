@@ -28,6 +28,8 @@ TagManager:
   - LevelSeven
   - LevelNine
   - LevelTen
+  - NextLevel
+  - Replay
   layers:
   - Default
   - TransparentFX
