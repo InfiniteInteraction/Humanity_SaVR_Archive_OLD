@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        CalculateAccuracy();
+        //CalculateAccuracy();
         score = ScoreManager.scoreManager.currScore;
     } 
 
@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void StarCalculation()
     {
+        CalculateAccuracy();
         if (accuracy >= 79 && score >= 3999 && greenDeaths >= 4)
         {
             resultsBackground.SetActive(true);
