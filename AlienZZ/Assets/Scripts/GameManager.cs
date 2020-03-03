@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
 
+
     // public varibles for access by other classes
     #region Public 
     public bool levelOver = true;    
@@ -16,7 +17,6 @@ public class GameManager : MonoBehaviour
     public float shotsFired;
     public float hits;
     public float eSpeed = 3.5f;
-
     #endregion
 
     // private varibles not access by other classes
@@ -29,6 +29,18 @@ public class GameManager : MonoBehaviour
     public GameObject[] stars;
     public GameObject resultsBackground;
     
+    #region Difficulty adjuster
+    public ENemyHealth ehealth;
+    public static int pD1;
+    public static int pD2;
+    public static int pDA2;
+    public static int pD3;
+    public static int pDA3;
+    public static int pD4;
+
+    public static float spawnTime;
+    public static float repeatTime;
+    #endregion
     private void Awake()
     {
         gameManager = this;
@@ -41,7 +53,9 @@ public class GameManager : MonoBehaviour
         
         resultsBackground.SetActive(false);
 
-        DontDestroyOnLoad(this.gameObject);        
+        DontDestroyOnLoad(this.gameObject);
+
+        ehealth = FindObjectOfType<ENemyHealth>();
     }
 
     public void PlayButtonReturn()
@@ -121,27 +135,109 @@ public class GameManager : MonoBehaviour
     public void DifficultySetting()
     {
         sceneName = SceneManager.GetActiveScene().name;
+
+
         switch (sceneName)
         {
-            case "Onslaught1": 
+            case "Onslaught1":
+                pD1 = 11;
+                pD2 = 10;
+                pDA2 = 16;
+                pD3 = 15;
+                pDA3 = 20;
+                pD4 = 19;
+                spawnTime = 0.5f;
+                repeatTime = 1.5f;
                 break;
             case "Onslaught2":
+                pD1 = 11;
+                pD2 = 10;
+                pDA2 = 16;
+                pD3 = 15;
+                pDA3 = 20;
+                pD4 = 19;
+                spawnTime = 0.5f;
+                repeatTime = 1.5f;
                 break;
             case "Onslaught3":
+                pD1 = 11;
+                pD2 = 10;
+                pDA2 = 16;
+                pD3 = 15;
+                pDA3 = 20;
+                pD4 = 19;
+                spawnTime = 0.5f;
+                repeatTime = 1.5f;
                 break;
             case "Onslaught4":
+                pD1 = 11;
+                pD2 = 10;
+                pDA2 = 16;
+                pD3 = 15;
+                pDA3 = 20;
+                pD4 = 19;
+                spawnTime = 0.5f;
+                repeatTime = 1.5f;
                 break;
             case "Onslaught5":
+                pD1 = 11;
+                pD2 = 10;
+                pDA2 = 16;
+                pD3 = 15;
+                pDA3 = 20;
+                pD4 = 19;
+                spawnTime = 0.5f;
+                repeatTime = 1.5f;
                 break;
             case "Onslaught6":
+                pD1 = 11;
+                pD2 = 10;
+                pDA2 = 16;
+                pD3 = 15;
+                pDA3 = 20;
+                pD4 = 19;
+                spawnTime = 0.5f;
+                repeatTime = 1.5f;
                 break;
             case "Onslaught7":
+                pD1 = 11;
+                pD2 = 10;
+                pDA2 = 16;
+                pD3 = 15;
+                pDA3 = 20;
+                pD4 = 19;
+                spawnTime = 0.5f;
+                repeatTime = 1.5f;
                 break;
             case "Onslaught8":
+                pD1 = 11;
+                pD2 = 10;
+                pDA2 = 16;
+                pD3 = 15;
+                pDA3 = 20;
+                pD4 = 19;
+                spawnTime = 0.5f;
+                repeatTime = 1.5f;
                 break;
             case "Onslaught9":
+                pD1 = 11;
+                pD2 = 10;
+                pDA2 = 16;
+                pD3 = 15;
+                pDA3 = 20;
+                pD4 = 19;
+                spawnTime = 0.5f;
+                repeatTime = 1.5f;
                 break;
             case "Onslaught10":
+                pD1 = 6;
+                pD2 = 10;
+                pDA2 = 16;
+                pD3 = 21;
+                pDA3 = 26;
+                pD4 = 31;
+                spawnTime = 0.5f;
+                repeatTime = 1.5f;
                 break;
         }
     }

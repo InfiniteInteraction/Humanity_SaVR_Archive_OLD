@@ -17,6 +17,10 @@ public class ENemyHealth : Health
     GameObject bulletType = null;
     public bool enemyHit;
 
+    #region
+
+    #endregion
+
     private void Awake()
     {
         currHealth = 3;
@@ -125,24 +129,24 @@ public class ENemyHealth : Health
 
     void CallMulti()
     {
-        if (pointTimer <= 10)
+        if (pointTimer < GameManager.pD1)
         {
             points = 100;
             scoreS.Multi(points);
         }
 
-        if (pointTimer >= 11 & pointTimer <= 19)
+        if (pointTimer > GameManager.pD2 & pointTimer < GameManager.pDA2)
         {
             points = 75;
             scoreS.Multi(points);
         }
 
-        if (pointTimer >= 20 && pointTimer <= 30)
+        if (pointTimer > GameManager.pD3 && pointTimer < GameManager.pDA3)
         {
             points = 50;
             scoreS.Multi(points);
         }
-        if (pointTimer >= 31)
+        if (pointTimer > GameManager.pD4)
         {
             points = 25;
             scoreS.Multi(points);

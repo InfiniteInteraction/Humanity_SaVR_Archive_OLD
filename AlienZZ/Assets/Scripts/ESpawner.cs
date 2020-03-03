@@ -18,14 +18,12 @@ public class ESpawner : MonoBehaviour
     public int killCountMax = 20;
     //Spawners Area
 
-    public float spawnTime = 0.5f;
-    public float repeatTime = 1.5f;
     public float enemySpeed = 3.5f;
 
     void Start()
     {
         //totalToSpawn = 2;
-        InvokeRepeating("DoSpawn", spawnTime, repeatTime);
+        InvokeRepeating("DoSpawn", GameManager.spawnTime, GameManager.repeatTime);
         enemySpeed = GameManager.gameManager.eSpeed;
     }
 
