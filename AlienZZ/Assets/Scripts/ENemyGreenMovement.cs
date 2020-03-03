@@ -12,7 +12,7 @@ public class ENemyGreenMovement : EnemyMovement
     public override void OnEnable()
     {
         base.OnEnable();
-        player = GameObject.FindGameObjectWithTag("PPoint");
+        player = GameObject.FindGameObjectWithTag("PPoint").transform;
     }
 
     public override void Update()
