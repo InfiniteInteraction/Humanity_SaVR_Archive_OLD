@@ -42,7 +42,7 @@ Light:
   serializedVersion: 9
   m_Type: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 60
   m_InnerSpotAngle: 1
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 2245306240487786420}
   - component: {fileID: -3677450569328812695}
   m_Layer: 0
-  m_Name: LaserBulletTest
+  m_Name: LaserBulletGreen
   m_TagString: RedBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,7 +139,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 1.5, z: 1.5}
+  m_Size: {x: 2, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7826909783718997522
 Rigidbody:
@@ -229,7 +229,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1418517321962571728}
   serializedVersion: 6
   lengthInSec: 1
-  simulationSpeed: 5
+  simulationSpeed: 3
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -854,9 +854,9 @@ ParticleSystem:
     radiusThickness: 1
     donutRadius: 0.1
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
+    m_Rotation: {x: 90, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
-    placementMode: 0
+    placementMode: 1
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
     m_MeshSpawn:
@@ -915,7 +915,7 @@ ParticleSystem:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    m_Mesh: {fileID: 4300002, guid: 84c37137326e7b943a87be7ae2a7ea19, type: 3}
+    m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
     m_Sprite: {fileID: 0}
@@ -1941,7 +1941,7 @@ ParticleSystem:
     orbitalZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 50
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4065,7 +4065,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 1
+    enabled: 0
     mode: 0
     ratio: 0.1
     lifetime:
@@ -4896,8 +4896,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8799825a7f79f5d44885fac174706b07, type: 2}
-  - {fileID: 2100000, guid: 8799825a7f79f5d44885fac174706b07, type: 2}
+  - {fileID: 2100000, guid: 68b5d8e33dab6f240866451a40387ccc, type: 2}
+  - {fileID: 2100000, guid: 68b5d8e33dab6f240866451a40387ccc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4956,7 +4956,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 0df5fbeae169aa44fb513b5611002ac0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0df5fbeae169aa44fb513b5611002ac0,
         type: 3}

@@ -36,9 +36,10 @@ public class GunTestVR : MonoBehaviour
     {
         green = GetComponentInChildren<ID_Green>().gameObject;
         red = GetComponentInChildren<ID_Red>().gameObject;
-        greenPistolBullet = Resources.Load(("Prefabs/PlasmaBulletGreen"), typeof(GameObject)) as GameObject;
+        //greenPistolBullet = Resources.Load(("Prefabs/PlasmaBulletGreen"), typeof(GameObject)) as GameObject;
+        greenPistolBullet = Resources.Load(("Prefabs/LaserBulletGreen"), typeof(GameObject)) as GameObject;
         //redPistolBullet = Resources.Load(("Prefabs/PlasmaBulletRed"), typeof(GameObject)) as GameObject;
-        redPistolBullet = Resources.Load(("Prefabs/LaserBulletTest"), typeof(GameObject)) as GameObject;
+        redPistolBullet = Resources.Load(("Prefabs/LaserBulletRed"), typeof(GameObject)) as GameObject;
         greenRifleBullet = Resources.Load(("Prefabs/GreenRifleBullet"), typeof(GameObject)) as GameObject;
         redRifleBullet = Resources.Load(("Prefabs/RedRifleBullet"), typeof(GameObject)) as GameObject;
         fullAutoTime = 0.1f;
@@ -61,6 +62,11 @@ public class GunTestVR : MonoBehaviour
         {
             damageValue = 3;
             GetComponent<Renderer>().material = Resources.Load(("Materials/RailGunChris_MatR"), typeof(Material)) as Material;
+        }
+        if (gameObject.name.Equals("TommyGun"))
+        {
+            damageValue = 3;
+            GetComponent<Renderer>().material = Resources.Load(("Materials/TommyGunR"), typeof(Material)) as Material;
         }
     }
 
@@ -169,6 +175,10 @@ public class GunTestVR : MonoBehaviour
             {
                 GetComponent<Renderer>().material = Resources.Load(("Materials/RailGunChris_MatG"), typeof(Material)) as Material;
             }
+            if (gameObject.name.Equals("TommyGun"))
+            {
+                GetComponent<Renderer>().material = Resources.Load(("Materials/TommyGunG"), typeof(Material)) as Material;
+            }
         }
         else
         {
@@ -184,6 +194,10 @@ public class GunTestVR : MonoBehaviour
             if (gameObject.name.Equals("RailGun_Chris"))
             {
                 GetComponent<Renderer>().material = Resources.Load(("Materials/RailGunChris_MatR"), typeof(Material)) as Material;
+            }
+            if (gameObject.name.Equals("TommyGun"))
+            {
+                GetComponent<Renderer>().material = Resources.Load(("Materials/TommyGunR"), typeof(Material)) as Material;
             }
         }
     }
