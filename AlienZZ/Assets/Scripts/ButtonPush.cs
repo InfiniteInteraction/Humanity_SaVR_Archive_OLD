@@ -28,7 +28,6 @@ public class ButtonPush : MonoBehaviour
         {
             sMU.ExitGame();
         }
-
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("LevelOne"))
         {
             sMU.LevelOne();
@@ -79,17 +78,16 @@ public class ButtonPush : MonoBehaviour
             sMU.LevelTen();
             ScoreManager.scoreManager.Save();
         }
-        if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("ResumeButton"))
-        {
-            panel.SetActive(false);           
-        }
         if ((other.tag == "RedBullet" || other.tag == "GreenBullet") && gameObject.tag == ("PauseQuitButton"))
         {
-            Debug.Log("we should have saved");
             ScoreManager.scoreManager.Save();
             SceneManager.LoadScene(0);
             
         }
-
+        if (other.tag == "RedBullet" || other.tag == "GreenBullet" && gameObject.tag == "NextLevel")
+        {
+            ScoreManager.scoreManager.Save();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }

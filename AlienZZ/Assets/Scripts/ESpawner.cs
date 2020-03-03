@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ESpawner : MonoBehaviour
 {
@@ -17,10 +18,15 @@ public class ESpawner : MonoBehaviour
     public int killCountMax = 20;
     //Spawners Area
 
+    public float spawnTime = 0.5f;
+    public float repeatTime = 1.5f;
+    public float enemySpeed = 3.5f;
+
     void Start()
     {
         //totalToSpawn = 2;
-        InvokeRepeating("DoSpawn", 0.5f, 1.5f);
+        InvokeRepeating("DoSpawn", spawnTime, repeatTime);
+        enemySpeed = GameManager.gameManager.eSpeed;
     }
 
     //Spawners Area Begin//
@@ -31,10 +37,10 @@ public class ESpawner : MonoBehaviour
 
     public void DoSpawn()
     { 
-        Instantiate(enemyPrefab, spawners[Random.Range(0, spawners.Length)].transform.position, Quaternion.identity);
+        GameObject enemy = Instantiate(enemyPrefab, spawners[Random.Range(0, spawners.Length)].transform.position, Quaternion.identity);
+        enemy.GetComponent<NavMeshAgent>().speed = enemySpeed;
         SpawnCount();
     }
-
 
     public void SpawnCount()
     {

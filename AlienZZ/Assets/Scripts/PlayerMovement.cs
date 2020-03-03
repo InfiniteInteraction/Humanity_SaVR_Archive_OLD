@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         //position.x += moveHorizontal * speed * Time.deltaTime;
         //position.z += moveVertical * speed * Time.deltaTime;
         //transform.position = position;
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         moveFB = Input.GetAxis("Vertical");

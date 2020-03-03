@@ -125,13 +125,13 @@ public class ENemyHealth : Health
 
     void CallMulti()
     {
-        if (pointTimer <= 5)
+        if (pointTimer <= 10)
         {
             points = 100;
             scoreS.Multi(points);
         }
 
-        if (pointTimer >= 6 && pointTimer <= 19)
+        if (pointTimer >= 11 & pointTimer <= 19)
         {
             points = 75;
             scoreS.Multi(points);

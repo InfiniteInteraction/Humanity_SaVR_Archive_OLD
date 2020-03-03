@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106a7afeb5e20014586a43438fb1165b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 10
+  distanceToPlayer: 5
   waitTime: 0
   facePlayerFact: 0
   stage: 0
