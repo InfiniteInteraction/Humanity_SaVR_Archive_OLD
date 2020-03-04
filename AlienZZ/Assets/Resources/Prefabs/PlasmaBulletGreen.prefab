@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1608234749159519501}
   - component: {fileID: 5608922725590114312}
   - component: {fileID: -6838464811878279305}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PlasmaBulletGreen
   m_TagString: GreenBullet
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 5869237512887177489}
   - component: {fileID: 5869237512887177491}
   - component: {fileID: 5869237512887177488}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4860,7 +4860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5869237513031144034}
   - component: {fileID: 5869237513031144061}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4956,7 +4956,12 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 0df5fbeae169aa44fb513b5611002ac0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0df5fbeae169aa44fb513b5611002ac0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0df5fbeae169aa44fb513b5611002ac0,
         type: 3}

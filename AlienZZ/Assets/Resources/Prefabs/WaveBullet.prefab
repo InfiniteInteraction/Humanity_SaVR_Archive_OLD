@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3716328342189623867}
   - component: {fileID: 8302702357482718733}
   - component: {fileID: 2935892542424863496}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WaveBullet
-  m_TagString: GreenBullet
+  m_TagString: RedBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3754664386565218658}
   - component: {fileID: 3754664386565218685}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 3754664386708398611}
   - component: {fileID: 3754664386708398608}
   - component: {fileID: 3754664386708398601}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4948,7 +4948,7 @@ GameObject:
   - component: {fileID: 881171897639011178}
   - component: {fileID: 6847164987863957395}
   - component: {fileID: 2300081923156808742}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PlasmaRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}

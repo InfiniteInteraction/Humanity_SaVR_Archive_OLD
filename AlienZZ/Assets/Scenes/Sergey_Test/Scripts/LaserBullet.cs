@@ -81,7 +81,7 @@ public class LaserBullet : MonoBehaviour
     {
         if (rb)
         {
-            rb.AddForce(transform.right * -200);
+            rb.AddForce(transform.right * -250);
             StartCoroutine("Countdown");
         }
     }
