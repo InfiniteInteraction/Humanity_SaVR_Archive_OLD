@@ -502,6 +502,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -175566814362028823, guid: 2d92db3fab5e44dc894295fcceefc4a9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8435568306975724407, guid: 2d92db3fab5e44dc894295fcceefc4a9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -576,11 +581,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.2499993
-      objectReference: {fileID: 0}
-    - target: {fileID: -175566814362028823, guid: 2d92db3fab5e44dc894295fcceefc4a9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d92db3fab5e44dc894295fcceefc4a9, type: 3}
@@ -4345,7 +4345,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6377,12 +6377,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106a7afeb5e20014586a43438fb1165b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 5
+  eRB: {fileID: 0}
+  stoppingDis: 0
   waitTime: 0
-  facePlayerFact: 0
+  retreatDis: 0
   stage: 0
   player: {fileID: 0}
   greenPos: {fileID: 0}
+  teleSpawn: {fileID: 0}
+  fTimer: 0
+  speed: 0
+  midcolor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  trackDis: 0
 --- !u!114 &954327579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7422,12 +7429,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106a7afeb5e20014586a43438fb1165b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 5
+  eRB: {fileID: 0}
+  stoppingDis: 0
   waitTime: 0
-  facePlayerFact: 0
+  retreatDis: 0
   stage: 0
   player: {fileID: 0}
   greenPos: {fileID: 0}
+  teleSpawn: {fileID: 0}
+  fTimer: 0
+  speed: 0
+  midcolor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  trackDis: 0
 --- !u!114 &1069539673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8431,6 +8445,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8875,7 +8893,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Score
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9032,12 +9050,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106a7afeb5e20014586a43438fb1165b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 5
+  eRB: {fileID: 0}
+  stoppingDis: 0
   waitTime: 0
-  facePlayerFact: 0
+  retreatDis: 0
   stage: 0
   player: {fileID: 0}
   greenPos: {fileID: 0}
+  teleSpawn: {fileID: 0}
+  fTimer: 0
+  speed: 0
+  midcolor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  trackDis: 0
 --- !u!114 &1293343637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9530,12 +9555,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106a7afeb5e20014586a43438fb1165b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 5
+  eRB: {fileID: 0}
+  stoppingDis: 0
   waitTime: 0
-  facePlayerFact: 0
+  retreatDis: 0
   stage: 0
   player: {fileID: 0}
   greenPos: {fileID: 0}
+  teleSpawn: {fileID: 0}
+  fTimer: 0
+  speed: 0
+  midcolor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  trackDis: 0
 --- !u!114 &1349951404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10101,12 +10133,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106a7afeb5e20014586a43438fb1165b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 5
+  eRB: {fileID: 0}
+  stoppingDis: 0
   waitTime: 0
-  facePlayerFact: 0
+  retreatDis: 0
   stage: 0
   player: {fileID: 0}
   greenPos: {fileID: 0}
+  teleSpawn: {fileID: 0}
+  fTimer: 0
+  speed: 0
+  midcolor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  trackDis: 0
 --- !u!1001 &1458090786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10455,12 +10494,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106a7afeb5e20014586a43438fb1165b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 5
+  eRB: {fileID: 0}
+  stoppingDis: 0
   waitTime: 0
-  facePlayerFact: 0
+  retreatDis: 0
   stage: 0
   player: {fileID: 0}
   greenPos: {fileID: 0}
+  teleSpawn: {fileID: 0}
+  fTimer: 0
+  speed: 0
+  midcolor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  trackDis: 0
 --- !u!114 &1473643937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10720,7 +10766,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: HS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10995,12 +11041,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106a7afeb5e20014586a43438fb1165b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 5
+  eRB: {fileID: 0}
+  stoppingDis: 0
   waitTime: 0
-  facePlayerFact: 0
+  retreatDis: 0
   stage: 0
   player: {fileID: 0}
   greenPos: {fileID: 0}
+  teleSpawn: {fileID: 0}
+  fTimer: 0
+  speed: 0
+  midcolor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  trackDis: 0
 --- !u!1001 &1522983867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11219,12 +11272,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106a7afeb5e20014586a43438fb1165b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 5
+  eRB: {fileID: 0}
+  stoppingDis: 0
   waitTime: 0
-  facePlayerFact: 0
+  retreatDis: 0
   stage: 0
   player: {fileID: 0}
   greenPos: {fileID: 0}
+  teleSpawn: {fileID: 0}
+  fTimer: 0
+  speed: 0
+  midcolor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  trackDis: 0
 --- !u!114 &1531143364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12399,12 +12459,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106a7afeb5e20014586a43438fb1165b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 5
+  eRB: {fileID: 0}
+  stoppingDis: 0
   waitTime: 0
-  facePlayerFact: 0
+  retreatDis: 0
   stage: 0
   player: {fileID: 0}
   greenPos: {fileID: 0}
+  teleSpawn: {fileID: 0}
+  fTimer: 0
+  speed: 0
+  midcolor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  trackDis: 0
 --- !u!1 &1647535973
 GameObject:
   m_ObjectHideFlags: 0
@@ -12914,12 +12981,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106a7afeb5e20014586a43438fb1165b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToPlayer: 5
+  eRB: {fileID: 0}
+  stoppingDis: 0
   waitTime: 0
-  facePlayerFact: 0
+  retreatDis: 0
   stage: 0
   player: {fileID: 0}
   greenPos: {fileID: 0}
+  teleSpawn: {fileID: 0}
+  fTimer: 0
+  speed: 0
+  midcolor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  trackDis: 0
 --- !u!1 &1733220122
 GameObject:
   m_ObjectHideFlags: 0
@@ -12963,6 +13037,11 @@ PrefabInstance:
       value: hut_02 (2)
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 2d92db3fab5e44dc894295fcceefc4a9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -175566814362028823, guid: 2d92db3fab5e44dc894295fcceefc4a9,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -13041,11 +13120,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.25
-      objectReference: {fileID: 0}
-    - target: {fileID: -175566814362028823, guid: 2d92db3fab5e44dc894295fcceefc4a9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d92db3fab5e44dc894295fcceefc4a9, type: 3}
@@ -13778,6 +13852,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -175566814362028823, guid: 2d92db3fab5e44dc894295fcceefc4a9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8435568306975724407, guid: 2d92db3fab5e44dc894295fcceefc4a9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -13852,11 +13931,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.2500014
-      objectReference: {fileID: 0}
-    - target: {fileID: -175566814362028823, guid: 2d92db3fab5e44dc894295fcceefc4a9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d92db3fab5e44dc894295fcceefc4a9, type: 3}
