@@ -22,8 +22,7 @@ public class ESpawner : MonoBehaviour
 
     void Start()
     {
-        //totalToSpawn = 2;
-        InvokeRepeating("DoSpawn", GameManager.spawnTime, GameManager.repeatTime);
+        InvokeRepeating("DoSpawn", GameManager.gameManager.spawnTime, GameManager.gameManager.repeatTime);
         enemySpeed = GameManager.gameManager.eSpeed;
     }
 

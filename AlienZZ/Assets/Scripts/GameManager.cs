@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public float accuracy;
     public float shotsFired;
     public float hits;
+  
     public float eSpeed = 3.5f;
     #endregion
 
@@ -38,18 +39,13 @@ public class GameManager : MonoBehaviour
     public static int pDA3;
     public static int pD4;
 
-    public static float spawnTime;
-    public static float repeatTime;
+    public float spawnTime;
+    public float repeatTime;
     #endregion
     private void Awake()
     {
         gameManager = this;
         levelOver = false;
-        stars[0].SetActive(false);
-        stars[1].SetActive(false);
-        stars[2].SetActive(false);
-        stars[3].SetActive(false);
-        stars[4].SetActive(false);
         
         resultsBackground.SetActive(false);
 
