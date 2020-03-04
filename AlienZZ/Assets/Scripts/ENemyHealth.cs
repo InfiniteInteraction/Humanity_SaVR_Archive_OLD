@@ -129,24 +129,24 @@ public class ENemyHealth : Health
 
     void CallMulti()
     {
-        if (pointTimer < GameManager.pD1)
+        if (pointTimer < GameManager.gameManager.pD1)
         {
             points = 100;
             scoreS.Multi(points);
         }
 
-        if (pointTimer > GameManager.pD2 & pointTimer < GameManager.pDA2)
+        if (pointTimer > GameManager.gameManager.pD2 & pointTimer < GameManager.gameManager.pDA2)
         {
             points = 75;
             scoreS.Multi(points);
         }
 
-        if (pointTimer > GameManager.pD3 && pointTimer < GameManager.pDA3)
+        if (pointTimer > GameManager.gameManager.pD3 && pointTimer < GameManager.gameManager.pDA3)
         {
             points = 50;
             scoreS.Multi(points);
         }
-        if (pointTimer > GameManager.pD4)
+        if (pointTimer < GameManager.gameManager.pD4)
         {
             points = 25;
             scoreS.Multi(points);

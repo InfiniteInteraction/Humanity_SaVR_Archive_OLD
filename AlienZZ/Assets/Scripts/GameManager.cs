@@ -32,12 +32,12 @@ public class GameManager : MonoBehaviour
     
     #region Difficulty adjuster
     public ENemyHealth ehealth;
-    public static int pD1;
-    public static int pD2;
-    public static int pDA2;
-    public static int pD3;
-    public static int pDA3;
-    public static int pD4;
+    public int pD1;
+    public int pD2;
+    public int pDA2;
+    public int pD3;
+    public int pDA3;
+    public int pD4;
 
     public float spawnTime;
     public float repeatTime;
@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour
 
         switch (sceneName)
         {
-            case "Onslaught1":
+            case "Onslaught 1":
                 pD1 = 11;
                 pD2 = 10;
                 pDA2 = 16;
@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
                 spawnTime = 0.5f;
                 repeatTime = 1.5f;
                 break;
-            case "Onslaught2":
+            case "Onslaught 2":
                 pD1 = 11;
                 pD2 = 10;
                 pDA2 = 16;
@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
                 spawnTime = 0.5f;
                 repeatTime = 1.5f;
                 break;
-            case "Onslaught3":
+            case "Onslaught 3":
                 pD1 = 11;
                 pD2 = 10;
                 pDA2 = 16;
@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
                 spawnTime = 0.5f;
                 repeatTime = 1.5f;
                 break;
-            case "Onslaught4":
+            case "Onslaught 4":
                 pD1 = 11;
                 pD2 = 10;
                 pDA2 = 16;
@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour
                 spawnTime = 0.5f;
                 repeatTime = 1.5f;
                 break;
-            case "Onslaught5":
+            case "Onslaught 5":
                 pD1 = 11;
                 pD2 = 10;
                 pDA2 = 16;
@@ -185,7 +185,7 @@ public class GameManager : MonoBehaviour
                 spawnTime = 0.5f;
                 repeatTime = 1.5f;
                 break;
-            case "Onslaught6":
+            case "Onslaught 6":
                 pD1 = 11;
                 pD2 = 10;
                 pDA2 = 16;
@@ -195,7 +195,7 @@ public class GameManager : MonoBehaviour
                 spawnTime = 0.5f;
                 repeatTime = 1.5f;
                 break;
-            case "Onslaught7":
+            case "Onslaught 7":
                 pD1 = 11;
                 pD2 = 10;
                 pDA2 = 16;
@@ -205,7 +205,7 @@ public class GameManager : MonoBehaviour
                 spawnTime = 0.5f;
                 repeatTime = 1.5f;
                 break;
-            case "Onslaught8":
+            case "Onslaught 8":
                 pD1 = 11;
                 pD2 = 10;
                 pDA2 = 16;
@@ -215,7 +215,7 @@ public class GameManager : MonoBehaviour
                 spawnTime = 0.5f;
                 repeatTime = 1.5f;
                 break;
-            case "Onslaught9":
+            case "Onslaught 9":
                 pD1 = 11;
                 pD2 = 10;
                 pDA2 = 16;
@@ -225,7 +225,7 @@ public class GameManager : MonoBehaviour
                 spawnTime = 0.5f;
                 repeatTime = 1.5f;
                 break;
-            case "Onslaught10":
+            case "Onslaught 10":
                 pD1 = 6;
                 pD2 = 10;
                 pDA2 = 16;

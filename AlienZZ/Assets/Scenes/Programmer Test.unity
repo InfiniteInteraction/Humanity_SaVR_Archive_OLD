@@ -687,7 +687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &183938968
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1791,7 +1791,7 @@ MonoBehaviour:
   - {fileID: 814153176}
   - {fileID: 575027564}
   - {fileID: 841008507}
-  totalToSpawn: 40
+  totalToSpawn: 10
   enemyPrefab: {fileID: 8288587923413601841, guid: 206d13ea2ce7a544399dfb02575a0676,
     type: 3}
   enemyGreenPrefab: {fileID: 7338002616494147980, guid: 5fcba750deaf6f9429bf4e5f06c684bc,
@@ -3078,6 +3078,16 @@ PrefabInstance:
       propertyPath: stars.Array.data[4]
       value: 
       objectReference: {fileID: 613760230}
+    - target: {fileID: 2566400634616183304, guid: 92e6ff5101a4f584183fa702d19701b0,
+        type: 3}
+      propertyPath: spawnTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2566400634616183304, guid: 92e6ff5101a4f584183fa702d19701b0,
+        type: 3}
+      propertyPath: repeatTime
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1727086624425057564, guid: 92e6ff5101a4f584183fa702d19701b0,
         type: 3}
       propertyPath: m_LocalPosition.x
